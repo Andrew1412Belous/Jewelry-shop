@@ -1,0 +1,45 @@
+.products {
+  &-benefits {
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 120px;
+    &-text {
+      font-family: 'Open Sans', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #333333;
+    }
+    &-text-wrapper {
+      width: 540px;
+      height: 240px;
+      margin-right: 103px;
+    }
+    &-image {
+      display: block;
+      margin: 0 auto;
+      &-wrapper {
+        width: 277px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      &-block {
+        margin-bottom: 30px;
+        width: 128px;
+      }
+      &-text {
+        margin: 15px auto 0 auto;
+        font-family: 'Open Sans', sans-serif;
+        text-align: center;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: #333333;
+      }
+    }
+  }
+}

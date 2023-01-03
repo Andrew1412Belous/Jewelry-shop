@@ -1,0 +1,23 @@
+@mixin btn-hover {
+  &:hover {
+    background: #fff;
+    color: #343a40;
+    border: 1px solid #212529;
+    box-shadow: 3px 3px 10px #e9ecef;
+  }
+}
+
+@mixin btn-hover-white {
+  &:hover {
+    background: #212529;
+    color: #fff;
+    border: 1px solid #ffffff;
+    box-shadow: 3px 3px 10px #5a5956;
+  }
+}
+
+@mixin a-hover {
+  &:hover {
+    color: #ded049;
+  }
+}

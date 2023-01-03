@@ -1,0 +1,95 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &-wrapper {
+    background: #333333;
+    padding: 45px 0;
+  }
+  &-employees-wrapper {
+    width: 321px;
+    display: flex;
+    justify-content: space-between;
+    a {
+      text-decoration: none;
+      font-family: 'Open Sans', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+      color: #FFFFFF;
+      @include a-hover
+    }
+  }
+  &-link {
+    cursor: pointer;
+  }
+  &-logo {
+    position: absolute;
+    left: 50%;
+    top: 25px;
+    transform: translateX(-50%);
+  }
+  &-buttons {
+    width: 348px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  &-search {
+    width: 78px;
+    margin-right: 40px;
+    &-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      text-decoration: none;
+      font-family: 'Open Sans', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+      @include a-hover;
+      color: #fff;
+    }
+  }
+  &-profile {
+    width: 230px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    &-icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    &-logo {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &-links {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #fff;
+    a {
+      color: #fff;
+      text-decoration: none;
+      @include a-hover;
+    }
+  }
+  &-my-account,  &-favorite {
+    display: block;
+    margin-right: 10px;
+  }
+}
+
+.sign-out {
+  display: none;
+}
+
+
+

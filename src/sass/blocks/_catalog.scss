@@ -1,0 +1,95 @@
+.catalog {
+  padding: 59px 0 90px 0;
+  &-tabs {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+  }
+  &-tab {
+    width: 165px;
+    height: 61px;
+    border: 1px solid #d6d6d6;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 61px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #333333;
+    transition: 0.5s all;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 3px 3px 20px #6c757d;
+      border: none;
+    }
+    &-active {
+      background: #333333;
+      color: #fff;
+      box-shadow: 3px 3px 20px #333333;
+    }
+  }
+  &-content {
+    margin-top: 55px;
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    &-active {
+      display: flex;
+    }
+  }
+  &-item {
+    position: relative;
+    width: 350px;
+    height: 280px;
+    margin-bottom: 30px;
+    margin-right: 15px;
+    margin-left: 15px;
+    &:nth-child(1), &:nth-child(4) {
+      margin-left: 0;
+    }
+    &:nth-child(3), &:nth-child(6) {
+      margin-right: 0;
+    }
+    &-1 {
+      background: url("../img/beauty/rings.jpg") center center/cover no-repeat;
+    }
+    &-2 {
+      background: url("../img/beauty/earrings.jpg") center center/cover no-repeat;
+    }
+    &-3 {
+      background: url("../img/beauty/pendants.jpg") center center/cover no-repeat;
+    }
+    &-4 {
+      background: url("../img/beauty/cufflinks.jpg") center center/cover no-repeat;
+    }
+    &-5 {
+      background: url("../img/beauty/braselets.jpg") center center/cover no-repeat;
+    }
+    &-6 {
+      background: url("../img/beauty/watches.jpg") center center/cover no-repeat;
+    }
+    &-link {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-decoration: none;
+      font-family: 'Open Sans', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 28px;
+      text-align: center;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      @include a-hover;
+    }
+  }
+}

@@ -1,0 +1,124 @@
+.item {
+  &-info {
+    &-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &-images-wrapper {
+    width: 540px;
+  }
+  &-descr{
+    border: 1px solid #D6D6D6;
+    padding: 37px 30px;
+    &-wrapper {
+      width: 540px;
+      border: 1px solid #D6D6D6;
+      padding: 10px;
+    }
+  }
+  &-main-image {
+    width: 540px;
+    height: 430px;
+  }
+  &-small{
+    &-images-wrapper {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+    &-image {
+      width: 160px;
+      height: 120px;
+    }
+  }
+  &-title {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #333333;
+  }
+  &-subtitle {
+    margin-top: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #979797;
+    display: flex;
+    &-type {
+      margin-right: 25px;
+      display: flex;
+      justify-content: space-between;
+    }
+    &-brand {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &-hr {
+    width: 460px;
+    margin: 30px auto;
+  }
+  &-text {
+    width: 460px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #333333;
+  }
+  &-price {
+    margin-top: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #333333;
+  }
+  &-btns-wrapper {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  &-btn {
+    display: flex;
+    margin-right: 25px;
+    padding: 10px 13px;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    height: 41px;
+    color: #FFFFFF;
+    background: #333333;
+    border: 1px solid #FFFFFF;
+    @include btn-hover;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.more-products {
+  margin-top: 120px;
+  &-wrapper {
+    margin-top: 95px;
+    display: flex;
+  }
+}

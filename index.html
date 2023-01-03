@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./src/css/bootstrap-reboot.min.css">
+    <link rel="shortcut icon" href="./src/icons/favicon.ico" type="image/x-icon">
+    <link rel="preload" as="font" href="./src/fonts/OpenSans-SemiBold.woff2" type="font/woff2"/>
+    <link rel="preload" as="font" href="./src/fonts/OpenSans-SemiBold.woff" type="font/woff"/>
+    <link rel="preload" as="font" href="./src/fonts/OpenSans-Medium.woff2" type="font/woff2"/>
+    <link rel="preload" as="font" href="./src/fonts/OpenSans-Medium.woff" type="font/woff"/>
+    <link rel="preload" as="font" href="./src/fonts/OpenSans-Regular.woff2" type="font/woff2"/>
+    <link rel="preload" as="font" href="./src/fonts/OpenSans-Regular.woff" type="font/woff"/>
+    <link rel="preload" as="font" href="./src/fonts/NotoSerif-Bold.woff2" type="font/woff2"/>
+    <link rel="preload" as="font" href="./src/fonts/NotoSerif-Bold.woff" type="font/woff"/>
+    <link rel="stylesheet" href="src/css/fonts.css">
+<!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">-->
+    <link rel="stylesheet" href="./src/css/style.css">
+    <title>Jewelry shop</title>
+</head>
+
+<body>
+    <div class="mask" id="mask">
+        <div class="loader"></div>
+    </div>
+
+    <section class="promo">
+        <div class="container">
+            <header class="header">
+                <div class="header-employees-wrapper">
+                    <a class="header-agents" href="#">Контрагентам</a>
+                    <a class="designers" href="#">Дизайнерам</a>
+                    <a class="vacations" href="#">Вакансії</a>
+                </div>
+                <div class="header-logo">
+                    <a class="header-link" id="header-logo">
+                        <img class="logo" src="./src/icons/logo.png" alt="logo">
+                    </a>
+                </div>
+                <div class="header-buttons">
+                    <div class="header-search">
+                        <a class="header-search-link" href="#">
+                            <img class="header-search-logo" src="./src/icons/search.svg" alt="search">
+                            <div class="header-search-text">Пошук</div>
+                        </a>
+                    </div>
+                    <div class="header-profile">
+                        <div class="header-links">
+                            <a href="#" class="sign-in" id="sign-in">Вхід</a>
+                            <span class="header-links-span">/</span>
+                            <a href="#" class="sign-in" id="sign-up">Реєстрація</a>
+                            <a href="#" class="sign-out" id="sign-out">Вихід</a>
+                        </div>
+                        <div class="header-profile-icons">
+                            <a class="header-my-account" id="my-account" href="#">
+                                <img src="./src/icons/profile.svg" alt="my profile" class="header-profile-logo">
+                            </a>
+                            <a href="#" class="header-favorite" id="favorite-products">
+                                <img src="./src/icons/favorite.svg" alt="favorite" class="header-profile-logo">
+                            </a>
+                            <a href="#" class="header-basket" id="basket-products">
+                                <img src="./src/icons/basket.svg" alt="" class="header-profile-logo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="promo-wrapper">
+                <h1 class="promo-title">
+                    Беремо і робимо!
+                </h1>
+                <button class="promo-catalog-btn" id="catalog-btn">каталог виробів</button>
+            </div>
+            <hr class="promo-hr">
+            <div class="promo-brands-wrapper">
+                <div class="promo-brand-item">
+                    <img src="./src/icons/Brand.png" alt="brand-logo" class="promo-brand-logo">
+                </div>
+                <div class="promo-brand-item">
+                    <img src="./src/icons/Brand.png" alt="brand-logo" class="promo-brand-logo">
+                </div>
+                <div class="promo-brand-item">
+                    <img src="./src/icons/Brand.png" alt="brand-logo" class="promo-brand-logo">
+                </div>
+                <div class="promo-brand-item">
+                    <img src="./src/icons/Brand.png" alt="brand-logo" class="promo-brand-logo">
+                </div>
+                <div class="promo-brand-item">
+                    <img src="./src/icons/Brand.png" alt="brand-logo" class="promo-brand-logo">
+                </div>
+                <div class="promo-brand-item">
+                    <img src="./src/icons/Brand.png" alt="brand-logo" class="promo-brand-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="catalog">
+        <div class="subtitle">До заходів</div>
+        <div class="title">Справжня краса тут!</div>
+        <div class="container">
+            <ul class="catalog-tabs" id="catalog-tabs">
+                <li class="catalog-tab catalog-tab-active">Весілля</li>
+                <li class="catalog-tab">Чоловіку</li>
+                <li class="catalog-tab">Дружині</li>
+                <li class="catalog-tab">Партнеру</li>
+                <li class="catalog-tab">Колекції</li>
+                <li class="catalog-tab">Рідкість</li>
+            </ul>
+            <div class="catalog-content catalog-content-active">
+                <div class="catalog-item catalog-item-1">
+                    <a href="#" class="catalog-item-link" id="wedding-ring">Кільця</a>
+                </div>
+                <div class="catalog-item catalog-item-5">
+                    <a href="#" class="catalog-item-link" id="summer-bracelet">браслети</a>
+                </div>
+                <div class="catalog-item catalog-item-4" id="wedding-tab">
+                    <a href="#" class="catalog-item-link">Запонки</a>
+                </div>
+            </div>
+            <div class="catalog-content">
+                <div class="catalog-item catalog-item-5">
+                    <a href="#" class="catalog-item-link">браслети</a>
+                </div>
+                <div class="catalog-item catalog-item-6">
+                    <a href="#" class="catalog-item-link">годинники</a>
+                </div>
+                <div class="catalog-item catalog-item-4">
+                    <a href="#" class="catalog-item-link">Запонки</a>
+                </div>
+            </div>
+            <div class="catalog-content">
+                <div class="catalog-item catalog-item-1">
+                    <a href="#" class="catalog-item-link">Кільця</a>
+                </div>
+                <div class="catalog-item catalog-item-2">
+                    <a href="#" class="catalog-item-link">сережки</a>
+                </div>
+                <div class="catalog-item catalog-item-3">
+                    <a href="#" class="catalog-item-link">Підвіски</a>
+                </div>
+                <div class="catalog-item catalog-item-6">
+                    <a href="#" class="catalog-item-link">годинники</a>
+                </div>
+                <div class="catalog-item catalog-item-5">
+                    <a href="#" class="catalog-item-link">браслети</a>
+                </div>
+            </div>
+            <div class="catalog-content">
+                <div class="catalog-item catalog-item-2">
+                    <a href="#" class="catalog-item-link">сережки</a>
+                </div>
+                <div class="catalog-item catalog-item-3">
+                    <a href="#" class="catalog-item-link">Підвіски</a>
+                </div>
+                <div class="catalog-item catalog-item-4">
+                    <a href="#" class="catalog-item-link">Запонки</a>
+                </div>
+                <div class="catalog-item catalog-item-5">
+                    <a href="#" class="catalog-item-link">браслети</a>
+                </div>
+                <div class="catalog-item catalog-item-6">
+                    <a href="#" class="catalog-item-link">годинники</a>
+                </div>
+            </div>
+            <div class="catalog-content">
+                <div class="catalog-item catalog-item-1">
+                    <a href="#" class="catalog-item-link">Кільця</a>
+                </div>
+                <div class="catalog-item catalog-item-2">
+                    <a href="#" class="catalog-item-link">сережки</a>
+                </div>
+                <div class="catalog-item catalog-item-3">
+                    <a href="#" class="catalog-item-link">Підвіски</a>
+                </div>
+                <div class="catalog-item catalog-item-4">
+                    <a href="#" class="catalog-item-link">Запонки</a>
+                </div>
+                <div class="catalog-item catalog-item-5">
+                    <a href="#" class="catalog-item-link">браслети</a>
+                </div>
+                <div class="catalog-item catalog-item-6">
+                    <a href="#" class="catalog-item-link">годинники</a>
+                </div>
+            </div>
+            <div class="catalog-content">
+                <div class="catalog-item catalog-item-2">
+                    <a href="#" class="catalog-item-link">сережки</a>
+                </div>
+                <div class="catalog-item catalog-item-3">
+                    <a href="#" class="catalog-item-link">Підвіски</a>
+                </div>
+                <div class="catalog-item catalog-item-4">
+                    <a href="#" class="catalog-item-link">Запонки</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="salons">
+        <div class="subtitle subtitle-white">Не знаєте, що вибрати?</div>
+        <div class="title title-white">Завітайте до нашого салону в Харкові</div>
+        <div class="container">
+            <div class="salons-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut duis tortor vitae pellentesque egestas quam pulvinar. Pellentesque porttitor velit sit pellentesque. Suspendisse donec pretium id dignissim. Dignissim ultrices eget orci viverra. Egestas quis et ut ultrices imperdiet lectus nulla tempus. Pharetra lorem sem purus nisi libero viverra ipsum.</div>
+            <button class="salons-btn" id="salons-btn">Наш салон</button>
+        </div>
+    </section>
+    <section class="advices">
+        <div class="subtitle">Корисні статті</div>
+        <div class="title">Найкращі поради щодо підбору дорогих подарунків</div>
+        <div class="container">
+            <div class="articles-wrapper">
+                <div class="article-link article-link-1">
+                    <a target="_blank" href="https://secunda.com.ua/ua/articles/yakiy-godinnik-vibrati-na-podarunok-divchini/11070/" class="article-text">
+                        Як вибрати <br>
+                        годинник для своєї<br>
+                        майбутньої дружини
+                    </a>
+                    <span class="1"></span>
+                </div>
+                <div class="article-link article-link-2">
+                    <a target="_blank" href="https://business-style.com.ua/ua/stati/brendovye-zaponki-neobhodimyi-aksessuar" class="article-text">
+                        Запонки для чоловіка:<br>
+                        7 ключових правил<br>
+                        покупки аксесуара
+                    </a>
+                </div>
+                <div class="article-link article-link-3">
+                    <a target="_blank" href="https://zolotoy-standart.com.ua/ua/articles/sovety-po-vyboru-ukrasheniy/sovety-kak-vybrat-obruchalnye-koltsa-top-10-kriteriev/" class="article-text">
+                        Як обрати<br>
+                        обручки<br>
+                        молодятам
+                    </a>
+                </div>
+            </div>
+            <button class="advices-btn">Читати наш блог</button>
+        </div>
+    </section>
+    <section class="social">
+        <div class="subtitle">#ojjo_jewerly</div>
+        <div class="title">Ми в соціальних мережах</div>
+        <div class="container">
+            <div class="social-wrapper">
+                <div class="social-video-item">
+                    <img src="./src/img/social/gallery__video--hover.jpg" alt="video-1" class="social-video">
+                </div>
+                <div class="social-image-item">
+                    <img src="./src/img/social/images-1.jpg" alt="image-2" class="social-image">
+                </div>
+                <div class="social-image-item">
+                    <img src="./src/img/social/images-2.jpg" alt="image-4" class="social-image">
+                </div>
+                <div class="social-video-item">
+                    <img src="./src/img/social/gallery__video-2jpg.jpg" alt="video-2" class="social-video">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="subscr">
+        <div class="subtitle subtitle-white">Корисні поради та персональні пропозиції</div>
+        <div class="title title-white">Ексклюзивне розсилання</div>
+        <div class="container">
+            <div class="subscr-wrapper">
+                <ul class="subscr-list">
+                    <li class="subscr-item">Особистий менеджер</li>
+                    <li class="subscr-item">Доставка та оформленя</li>
+                    <li class="subscr-item">Індивідуальний дизайн</li>
+                </ul>
+                <div class="wrapper-form">
+                    <div class="subscr-form">
+                        <input class="subscr-input" type="email" placeholder="ВАШ E-MAIL" required>.
+                        <button class="subscr-btn">Відправити</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-wrapper">
+                <div class="footer-item">
+                    <div class="footer-title">Корисні посилання</div>
+                    <hr class="footer-small-hr">
+                    <div class="footer-item-content">
+                        <div class="footer-links-wrapper">
+                            <a href="#" class="footer-link">Доставка</a>
+                            <a href="#" class="footer-link">Оплата</a>
+                            <a href="#" class="footer-link">Акції</a>
+                            <a href="#" class="footer-link">Політика конфіденційності</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-item">
+                    <div class="footer-title">Оплата</div>
+                    <hr class="footer-small-hr">
+                    <div class="footer-item-content">
+                        <div class="footer-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper justo, nec, pellentesque.</div>
+                        <div class="footer-icons-wrapper cards">
+                            <img class="footer-icon" src="./src/icons/footer/visa.svg" alt="visa">
+                            <img class="footer-icon" src="./src/icons/footer/mastercard.svg" alt="mastercard">
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-item">
+                    <div class="footer-title">Контакти</div>
+                    <hr class="footer-small-hr">
+                    <div class="footer-item-content">
+                        <div class="footer-links-wrapper">
+                            <ul class="contacts-list">
+                                <li class="contact">
+                                    <img src="./src/icons/footer/tel.svg" alt="tel" class="contact-icon">
+                                    <a href="#" class="contact-link">8 (812) 234-56-55</a>
+                                </li>
+                                <li class="contact">
+                                    <img src="./src/icons/footer/tel.svg" alt="tel" class="contact-icon">
+                                    <a href="#" class="contact-link">8 (812) 234-56-55</a>
+                                </li>
+                                <li class="contact">
+                                    <img src="./src/icons/footer/email.svg" alt="tel" class="contact-icon">
+                                    <a href="#" class="contact-link">ojjo@.gmail.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-item">
+                    <div class="footer-title">Соціальні мережі</div>
+                    <hr class="footer-small-hr">
+                    <div class="footer-item-content">
+                        <div class="footer-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper justo, nec, pellentesque.</div>
+                        <div class="footer-icons-wrapper social-links">
+                            <a href="" class="footer-icon-link">
+                                <img class="footer-icon" src="./src/icons/footer/youtube.svg" alt="mastercard">
+                            </a>
+                            <a href="" class="footer-icon-link">
+                                 <img class="footer-icon" src="./src/icons/footer/telegram.svg" alt="mastercard">
+                            </a>
+                            <a href="" class="footer-icon-link">
+                                 <img class="footer-icon" src="./src/icons/footer/facebook.svg" alt="mastercard">
+                            </a>
+                            <a href="" class="footer-icon-link">
+                                 <img class="footer-icon" src="./src/icons/footer/etsy.svg" alt="mastercard">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-hr">
+            <div class="footer-second-wrapper">
+                <div class="footer-link-text">(c) 2020 OJJO jewelry</div>
+                <div class="footer-link-text">
+                    <a href="#" class="footer-down-link">Договор публичной офферты</a>
+                </div>
+                <div class="footer-link-text">
+                    <a href="#" class="footer-down-link">Контрагентам</a>
+                </div>
+                <div class="footer-link-text">
+                    Сделано <a href="#" class="footer-down-link">Figma.info</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="main hide" id="main"></div>
+    <script src="./dist/main.js"></script>
+</body>
+
+</html>

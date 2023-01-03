@@ -1,0 +1,57 @@
+.contacts {
+  &-title {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #333333;
+    text-align: center;
+  }
+  &-wrapper {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &-subtitle {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 140%;
+    color: #333333;
+  }
+  &-list {
+    margin-top: 25px;
+  }
+  &-link {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    a {
+      font-family: 'Open Sans', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+      color: #333333;
+      text-decoration: none;
+      @include a-hover;
+    }
+    &:last-child {
+      margin-left: 30px;
+    }
+  }
+  &-logo {
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  &-hr {
+    margin-top: 44px;
+  }
+}

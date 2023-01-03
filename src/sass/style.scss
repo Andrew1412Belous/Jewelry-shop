@@ -1,0 +1,25 @@
+.container {
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+@import "base/mixins";
+@import "blocks/product-info";
+@import "blocks/catalog-page";
+@import "blocks/products-catalog";
+@import "blocks/products-benefits";
+@import "blocks/titles";
+@import "blocks/promo";
+@import "blocks/header";
+@import "blocks/catalog";
+@import "blocks/salons";
+@import "blocks/advices";
+@import 'blocks/social';
+@import "blocks/subscr";
+@import "blocks/footer";
+@import "blocks/products-benefits";
+@import "blocks/main";
+@import "blocks/preloader";
+@import "blocks/map";
+@import "blocks/contacts";
+

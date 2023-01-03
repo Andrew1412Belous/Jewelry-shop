@@ -1,0 +1,26 @@
+.salons {
+  min-height: 541px;
+  padding: 100px 0;
+  background: url("../img/salons-bg.jpg") center center/cover no-repeat;
+  &-text {
+    margin: 45px auto 0;
+    width: 730px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+    text-align: center;
+    color: #FFFFFF;
+  }
+  &-btn {
+    display: block;
+    margin: 60px auto 0;
+    width: 224px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    @include btn-hover-white;
+  }
+}

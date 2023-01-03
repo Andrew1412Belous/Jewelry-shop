@@ -1,0 +1,22 @@
+{
+  "name": "jewerly-shop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development --watch"
+  },
+  "author": "Andriy",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint-config-airbnb": "^19.0.4",
+    "json-server": "^0.17.0",
+    "sass": "^1.55.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "description": "",
+  "dependencies": {
+    "sha256": "^0.2.0"
+  }
+}

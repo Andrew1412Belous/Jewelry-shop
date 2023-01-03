@@ -1,0 +1,64 @@
+.advices {
+  padding: 120px 0 60px 0;
+  &-btn {
+    display: block;
+    margin: 60px auto 0 auto;
+    width: 255px;
+    height: 51px;
+    background: #333333;
+    border: 1px solid #FFFFFF;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    &:hover {
+      background: #fff;
+      color: #343a40;
+      border: 1px solid #212529;
+      box-shadow: 3px 3px 10px #020725;
+    }
+  }
+}
+
+.articles-wrapper {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-link {
+  width: 350px;
+  height: 370px;
+  text-align: center;
+  &-1 {
+    background: url("../img/advice/watch-for-wife.jpg") center center/cover no-repeat;
+  }
+  &-2 {
+    background: url("../img/advice/cufflinks-for-husband.jpg") center center/cover no-repeat;
+  }
+  &-3 {
+    background: url("../img/advice/rings-for-cuple.jpg") center center/cover no-repeat;
+  }
+}
+
+.article-text {
+  display: block;
+  margin: 248px auto 0;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 140%;
+  text-align: center;
+  color: #FFFFFF;
+  text-decoration: none;
+  @include a-hover
+}
