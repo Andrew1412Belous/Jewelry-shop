@@ -37,18 +37,4 @@ export function basketDecrBtnCallback (event) {
     })
 
   countElem.textContent = countProducts
-
-  // if (countProducts >= 3) {
-  //   // Object.assign(selectedProduct)
-  //
-  //   for (const product of basketProducts) {
-  //     if (JSON.stringify(product) === JSON.stringify()) {
-  //       console.log(20)
-  //     }
-  //   }
-  // } else if (countProducts === 2) {
-  //   console.log(10)
-  // } else {
-  //   event.target.disabled = true
-  // }
 }

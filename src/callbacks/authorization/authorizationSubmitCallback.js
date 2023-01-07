@@ -13,6 +13,7 @@ import { emailRRegExp } from '../../configs'
 import { defaultPicture } from '../../assets'
 import {setFavoriteProducts} from '../../helpers/authorizaion/setFavoriteProducts'
 import { setBasketProducts } from '../../helpers/basket/setBasketProducts'
+import { setOrderHistoryProducts } from '../../helpers/orderForm/setOrderHistoryProducts'
 
 export function authorizationSubmitCallback () {
   const test = checkInputs([this.elems.login, this.elems.password])
@@ -35,6 +36,7 @@ export function authorizationSubmitCallback () {
 
           setFavoriteProducts(currentUser)
           setBasketProducts(currentUser)
+          setOrderHistoryProducts(currentUser)
 
           changeProfileIcon(currentUser.avatar)
         })
@@ -57,6 +59,7 @@ export function authorizationSubmitCallback () {
 
             setFavoriteProducts(currentUser)
             setBasketProducts(currentUser)
+            setOrderHistoryProducts(currentUser)
 
             changeProfileIcon(currentUser.avatar)
 

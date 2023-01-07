@@ -1,4 +1,6 @@
 export const orderTemplate = `
+  <div data-back id="back-btn">&#9668;</div>
+  <div data-close id="close-btn">&times;</div>
   <div class="order-wrapper">
     <div class="order-personal-data">
         <div class="order-contacts-data">
@@ -10,7 +12,7 @@ export const orderTemplate = `
                 </div>
                 <div class="input-block">
                     <div class="input-text">Ім'я</div>
-                    <input type="text" class="order-input" id="input-name" required/>
+                    <input type="text" class="order-input" id="input-name"  required/>
                 </div>
                 <div class="input-block">
                     <div class="input-text">Прізвище</div>
@@ -56,7 +58,7 @@ export const orderTemplate = `
                 <div class="inputs-wrapper">
                        <div class="input-block">
                         <div class="input-text">Іи'я на карті</div>
-                        <input type="text" class="order-input" id="input-card-name" required>
+                        <input type="text" class="order-input" id="input-card-name" placeholder="ПІБ власния" required>
                     </div>
                     <div class="input-block">
                         <div class="input-text">Номер карти</div>
@@ -76,9 +78,11 @@ export const orderTemplate = `
         </div>
     </div> 
     <div class="order-products-wrapper">
+        <div class="order-check">Ваше замовлення</div>
         <div class="order-products-basket">
         </div>
         <div class="order-details">
+            <div class="order-total"></div>
             <button class="buy-products" id="order-buy-btn">Оформити замовлення</button>
         </div>
     </div>

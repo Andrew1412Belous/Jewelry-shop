@@ -10,6 +10,4 @@ export function setFormParams (elems) {
   elems['payment-form'].style.display = elems.live.checked
     ? 'none'
     : 'flex'
-
-
 }

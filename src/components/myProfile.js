@@ -28,6 +28,7 @@ import {
   securitySettingsBtn,
 } from '../callbacks'
 import { favProd } from './favoriteComp'
+import { profileOrderHistoryCallback } from '../callbacks/profile/profileOrderHistoryCallback'
 
 class MyProfile extends HTMLElement {
   constructor() {
@@ -54,6 +55,8 @@ class MyProfile extends HTMLElement {
     this.elems['profile-favorite'].onclick = function () {
       updateMainContent(headerElems.main, favProd)
     }
+
+    this.elems['profile-purchase-history'].onclick = profileOrderHistoryCallback.bind(this)
     this.elems['profile-settings'].onclick = profileSettingCallback.bind(this)
     this.elems['profile-sign-out'].onclick = profileSignOutCallback.bind(this)
     this.elems['close-btn'].onclick = function () {

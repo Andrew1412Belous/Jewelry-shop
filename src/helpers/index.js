@@ -56,6 +56,7 @@ import { insertFavoriteProducts } from './favorite/insertFavoriteProducts'
 import { checkBasketProducts } from './basket/checkBasketProducts'
 import { addToBasket } from './basket/addToBasket'
 import { setFormParams } from './orderForm/setFormParams'
+import { checkSpacesInString } from './orderForm/checkSpacesInString'
 
 export {
   getAllUsers,
@@ -116,4 +117,5 @@ export {
   checkBasketProducts,
   addToBasket,
   setFormParams,
+  checkSpacesInString,
 }

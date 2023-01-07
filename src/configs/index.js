@@ -34,6 +34,8 @@ import { linksElems } from './productPage/linksElems'
 import { favoriteElemNames } from './elemNames/favorite/favoriteElemNames'
 import { loginRegExp } from './regExp/loginRegExp'
 import { telRegExp } from './regExp/telRegExp'
+import { cardNumberRegExp } from './regExp/cardNumberRegExp'
+import { spacesInStringRegExp } from './regExp/spacesInStringRegExp'
 
 export {
   host,
@@ -72,4 +74,6 @@ export {
   favoriteElemNames,
   loginRegExp,
   telRegExp,
+  cardNumberRegExp,
+  spacesInStringRegExp,
 }

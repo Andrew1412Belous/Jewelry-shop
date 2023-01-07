@@ -15,4 +15,6 @@ export const orderFormElemNames = [
   'input-card-date',
   'input-card-cvv',
   'order-buy-btn',
+  'close-btn',
+  'back-btn',
 ]

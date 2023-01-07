@@ -80,6 +80,7 @@ export const basketStyle = `
   }
   
   .basket-product-price {
+    font-family: 'Open Sans', sans-serif;
     text-decoration: underline;
     font-weight: 500;
     color: #979797;

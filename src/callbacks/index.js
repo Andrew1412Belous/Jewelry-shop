@@ -45,6 +45,11 @@ import { basketDecrBtnCallback} from './basket/basketDecrBtnCallback'
 import { basketIncrBtnCallback } from './basket/basketIncrBtnCallback'
 import { cardCheckClickCallback } from './orderForm/cardCheckClickCallback'
 import { telInputCallback } from './orderForm/telInputCallback'
+import { setCyrillicInputParamsCallback } from './orderForm/setCyrillicInputParamsCallback'
+import { cardNumberInputCallback } from './orderForm/cardNumberInputCallback'
+import { cardNameInputCallback } from './orderForm/cardNameInputCallback'
+import { cardDateInputCallback } from './orderForm/cardDateInputCallback'
+import { cardCvvInputCallback } from './orderForm/cardCvvInputCallback'
 
 export {
   registrationPasswordCallback,
@@ -94,4 +99,9 @@ export {
   basketIncrBtnCallback,
   cardCheckClickCallback,
   telInputCallback,
+  setCyrillicInputParamsCallback,
+  cardNumberInputCallback,
+  cardNameInputCallback,
+  cardDateInputCallback,
+  cardCvvInputCallback,
 }

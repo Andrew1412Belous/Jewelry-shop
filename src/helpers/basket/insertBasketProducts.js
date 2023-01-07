@@ -5,12 +5,9 @@ import { checkSameProductInBasket } from './checkSameProductInBasket'
 export function insertBasketProducts (container) {
   const wrapper = container.querySelector('.basket-products-wrapper')
 
-  // console.log(checkSameProductInBasket(basketProducts))
-
   if (basketProducts.length) {
     basketProducts
       .forEach(product => {
-
         const elem = Object.assign(addElem('div', wrapper), {
           className: 'basket-product',
         })
