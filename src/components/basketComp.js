@@ -3,7 +3,7 @@ import { basketStyle, basketTemplate } from '../templates'
 import { basketElemNames } from '../configs/elemNames/basket/basketElemNames'
 import { insertBasketProducts } from '../helpers/basket/insertBasketProducts'
 import { basketDeleteProductCallback } from '../callbacks/basket/basketDeleteProductCallback'
-import { products } from '../configs'
+import { headerElems, products } from '../configs'
 import { currentProduct } from '../helpers/productPage/currentProduct'
 import { basketProducts } from '../helpers/basket/basketProducts'
 import {
@@ -34,6 +34,7 @@ class BasketComp extends HTMLElement {
 
     this.elems['close-btn'].onclick = function () {
       toggleDisplayMain(false)
+      headerElems.main.innerHTML = ''
     }
 
     this.elems['basket-section'].querySelectorAll('#delete-basket-product-btn')

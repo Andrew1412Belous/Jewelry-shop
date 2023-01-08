@@ -7,9 +7,9 @@ import { stringWithoutSpacesRegExp } from '../../configs/regExp/stringWithoutSpa
 export function buyAllProductsBtnCallback (event) {
   const test = checkCorrectInput(this.elems)
   const products = []
-  const totalPrice = parseInt(this.section
+  const totalPrice = parseFloat(this.section
     .querySelector('.order-total')
-    .textContent.slice(11).replace(stringWithoutSpacesRegExp, ''), 10)
+    .textContent.slice(11).replace(stringWithoutSpacesRegExp, ''))
 
   this.section.querySelectorAll('.order-product')
     .forEach(product => {
@@ -18,9 +18,9 @@ export function buyAllProductsBtnCallback (event) {
       Object.assign(res, {
         brand: product.querySelector('.product-brand-name').textContent,
         type: product.querySelector('.product-type').textContent,
-        price: parseInt(product
+        price: parseFloat(product
           .querySelector('.product-price')
-          .textContent.replace(stringWithoutSpacesRegExp, ''), 10),
+          .textContent.replace(stringWithoutSpacesRegExp, '')),
       })
 
       products.push(res)

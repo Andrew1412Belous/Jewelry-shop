@@ -10,7 +10,7 @@ import {
   registrationTemplate,
 } from '../templates'
 
-import { regElemNames } from '../configs'
+import { headerElems, regElemNames } from '../configs'
 
 import {
   registrationLoginCallback,
@@ -42,6 +42,7 @@ class RegistrationForm extends HTMLElement {
     this.elems.submit.onclick = registrationSubmitCallback.bind(this)
     this.elems['close-btn'].onclick = function () {
       toggleDisplayMain(false)
+      headerElems.main.innerHTML = ''
     }
   }
 

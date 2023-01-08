@@ -78,7 +78,7 @@ export function catalogPageCallback () {
         } else {
           addToFavorite(getProduct(products[index]))
 
-          event.target.style.display = 'none'
+          btn.style.display = 'none'
         }
       }
     })

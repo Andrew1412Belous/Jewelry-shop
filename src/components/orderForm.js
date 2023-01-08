@@ -19,7 +19,7 @@ import { addressInputCallback } from '../callbacks/orderForm/addressInputCallbac
 import { insertOrderProducts } from '../helpers/orderForm/insertOrderProducts'
 import { buyAllProductsBtnCallback } from '../callbacks/orderForm/buyAllProductsBtnCallback'
 import { orderBackBtnCallback } from '../callbacks/orderForm/orderBackBtnCallback'
-import { products } from '../configs'
+import { headerElems, products } from '../configs'
 import { currentProduct } from '../helpers/productPage/currentProduct'
 
 class OrderForm extends HTMLElement {
@@ -45,6 +45,7 @@ class OrderForm extends HTMLElement {
 
     this.elems['close-btn'].onclick = function () {
       toggleDisplayMain(false)
+      headerElems.main.innerHTML = ''
     }
 
     this.elems['back-btn'].onclick = orderBackBtnCallback.bind(this)

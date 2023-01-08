@@ -8,7 +8,7 @@ import {
   authorizationTemplate,
 } from '../templates'
 
-import { authElemNames } from '../configs'
+import { authElemNames, headerElems } from '../configs'
 
 import {
   authorizationPasswordCallback,
@@ -35,6 +35,7 @@ class AuthorizationForm extends HTMLElement {
     this.elems.submit.onclick = authorizationSubmitCallback.bind(this)
     this.elems['close-btn'].onclick = function () {
       toggleDisplayMain(false)
+      headerElems.main.innerHTML = ''
     }
   }
 

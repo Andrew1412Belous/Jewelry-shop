@@ -1,8 +1,10 @@
 import { favoriteProducts } from './favoriteProducts'
 
 export function checkFavoriteProducts (btn, currentProduct, page) {
+  const lodash = require('lodash')
+
   const test = favoriteProducts
-    .some(product => JSON.stringify(product) === JSON.stringify(currentProduct))
+    .some(product => lodash.isEqual(product, currentProduct))
 
   if (page === 'catalog-page') {
     if (test) {

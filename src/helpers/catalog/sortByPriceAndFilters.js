@@ -13,7 +13,8 @@ export function sortByPriceAndFilters (filters) {
 
   for (let i = 0; i < products.length; i++) {
     const test = filters
-      .every(filter => products[i].classList.contains(filter) && setPriceFilter(products[i]))
+      .every(category => category
+        .some(filter => products[i].classList.contains(filter)) && setPriceFilter(products[i]))
 
     if (test) {
       filteredProducts.push(products[i])

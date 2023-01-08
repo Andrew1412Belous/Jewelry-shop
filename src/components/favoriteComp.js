@@ -39,6 +39,7 @@ class FavoriteComp extends HTMLElement {
 
     this.elems['close-btn'].onclick = function () {
       toggleDisplayMain(false)
+      headerElems.main.innerHTML = ''
     }
 
     this.elems['back-btn'].onclick = favoriteBackBtnCallback.bind(this)

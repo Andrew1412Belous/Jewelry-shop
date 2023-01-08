@@ -9,7 +9,6 @@ export function showProducts (products) {
     catalogElems['show-more-btn'].style.display = 'none'
 
     for (let i = 0; i < products.length; i++) {
-      console.log(products)
       products[i].classList.add('product-show')
       products[i].classList.remove('product-hide')
     }

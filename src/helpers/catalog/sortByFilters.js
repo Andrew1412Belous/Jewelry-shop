@@ -12,9 +12,11 @@ export function sortByFilters (filters) {
 
   for (let i = 0; i < products.length; i++) {
     const test = filters
-      .every(filter => products[i].classList.contains(filter))
+      .every(category => category
+        .some(filter => products[i].classList.contains(filter)))
 
     if (test) {
+      console.log(products[i])
       filteredProducts.push(products[i])
     }
   }

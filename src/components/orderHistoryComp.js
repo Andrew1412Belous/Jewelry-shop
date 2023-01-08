@@ -28,7 +28,12 @@ class OrderHistoryComp extends HTMLElement {
 
     this.section.querySelector('#close-btn').onclick = function () {
       toggleDisplayMain(false)
+      headerElems.main.innerHTML = ''
     }
+  }
+
+  disconnectedCallback () {
+    this.section.innerHTML = orderHistoryTemplate
   }
 }
 

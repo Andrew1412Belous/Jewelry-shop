@@ -61,6 +61,7 @@ class MyProfile extends HTMLElement {
     this.elems['profile-sign-out'].onclick = profileSignOutCallback.bind(this)
     this.elems['close-btn'].onclick = function () {
       toggleDisplayMain(false)
+      headerElems.main.innerHTML = ''
     }
 
     this.elems['personal-data-btn'].onclick = personalDataBtn.bind(this)
