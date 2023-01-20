@@ -1,6 +1,6 @@
-import { mainPageCallback } from '../pages/mainPageCallback'
-import { catalogPageCallback } from '../pages/catalogPageCallback'
-import { productPageCallback } from '../pages/productPageCallback'
+import { mainPageCallback } from '../../callbacks/pages/mainPage/mainPageCallback'
+import { catalogPageCallback } from '../../callbacks/pages/catalogPage/catalogPageCallback'
+import { productPageCallback } from '../../callbacks/pages/productPage/productPageCallback'
 
 export function setPageCallbacks (title) {
   if (title === 'Jewelry shop') {

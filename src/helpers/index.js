@@ -1,63 +1,62 @@
+import { getElemsById } from './DOM/getElemsById'
 import { getAllUsers } from './fetch/getAllUsers'
 import { createUser } from './fetch/createUser'
 import { patchUser } from './fetch/patchUser'
 import { deleteUser } from './fetch/deleteUser'
 import { getUser } from './fetch/getUser'
-import { checkUserIsReal } from './authorizaion/checkUserIsReal'
-import { hideAuthElems } from './authorizaion/hideAuthElems'
-import { setVerifyPasswordParams } from './registration/setVerifyPasswordParams'
-import { setPhoneParams } from './registration/setPhoneParams'
-import { setProfileInputParams } from './profile/setProfileInputParams'
-import { setProfileSecurityBlockParams } from './profile/setProfileSecurityInpusParams'
-import { checkProfilePatchElem } from './profile/checkProfilePatchElem'
-import { setInputMode } from './profile/setInputMode'
+import { checkUserIsReal } from './components/authorizaion/checkUserIsReal'
+import { hideAuthElems } from './components/authorizaion/hideAuthElems'
+import { setVerifyPasswordParams } from './components/registration/setVerifyPasswordParams'
+import { setPhoneParams } from './components/registration/setPhoneParams'
+import { setProfileInputParams } from './components/profile/setProfileInputParams'
+import { setProfileSecurityBlockParams } from './components/profile/setProfileSecurityInpusParams'
+import { checkProfilePatchElem } from './components/profile/checkProfilePatchElem'
+import { setInputMode } from './components/profile/setInputMode'
 import { addElem } from './DOM/addElem'
 import { getElemsByIdFromShadow } from './components/getElemsByIdFromShadow'
-import { checkInputs } from './forInputs/checkInputs'
+import { isInputEmpty } from './validation/forInputs/isInputEmpty'
 import { setPasswordParams } from './validation/setPasswordParams'
 import { readImageFromComp } from './components/readImageFromComp'
-import { currentUser } from './profile/currentUser'
+import { currentUser } from './components/profile/currentUser'
 import { toggleDisplayElems } from './DOM/toggleDisplayElems'
-import { checkCyrillicInputs } from './forInputs/checkCyrillicInputs'
-import { tabs } from './tabs/tabs'
-import { tabsContent } from './tabs/tabsContent'
-import { hideTabContent } from './tabs/hideTabContent'
-import { showTabContent } from './tabs/showTabContent'
-import { mainPageCallback } from './pages/mainPageCallback'
+import { checkCyrillicInputs } from './validation/forInputs/checkCyrillicInputs'
+import { tabs } from './pages/mainPage/tabs/tabs'
+import { tabsContent } from './pages/mainPage/tabs/tabsContent'
+import { hideTabContent } from './pages/mainPage/tabs/hideTabContent'
+import { showTabContent } from './pages/mainPage/tabs/showTabContent'
 import { getUserByEmail } from './fetch/getUserByEmail'
-import { catalogPageCallback } from './pages/catalogPageCallback'
-import { showProducts } from './catalog/showProducts'
-import { getElemsById } from './DOM/getElemsById'
-import { setFiltersParam } from './catalog/setFiltersParam'
-import { setFilterClearParam } from './catalog/setFilterClearParam'
-import { hideProducts } from './catalog/hideProducts'
-import { setMoreProductsBtnMode } from './catalog/setMoreProductsBtnMode'
-import { checkNumberInputs } from './forInputs/checkNumberInputs'
-import { setPriceInputsParams } from './catalog/setPriceInputsParams'
-import { checkInputsEquality } from './forInputs/checkInputsEquality'
-import { setPriceFilter } from './catalog/setPriceFilter'
-import { sortByFilters } from './catalog/sortByFilters'
-import { sortByPrice } from './catalog/sortByPrice'
-import { sortByPriceAndFilters } from './catalog/sortByPriceAndFilters'
+import { showProducts } from './pages/catalogPage/catalog/showProducts'
+import { setFiltersParam } from './pages/catalogPage/catalog/setFiltersParam'
+import { setFilterClearParam } from './pages/catalogPage/catalog/setFilterClearParam'
+import { hideProducts } from './pages/catalogPage/catalog/hideProducts'
+import { setMoreProductsBtnMode } from './pages/catalogPage/catalog/setMoreProductsBtnMode'
+import { checkNumberInputs } from './validation/forInputs/checkNumberInputs'
+import { setPriceInputsParams } from './pages/catalogPage/catalog/setPriceInputsParams'
+import { checkInputsEquality } from './validation/forInputs/checkInputsEquality'
+import { setPriceFilter } from './pages/catalogPage/catalog/setPriceFilter'
+import { sortByFilters } from './pages/catalogPage/catalog/sortByFilters'
+import { sortByPrice } from './pages/catalogPage/catalog/sortByPrice'
+import { sortByPriceAndFilters } from './pages/catalogPage/catalog/sortByPriceAndFilters'
 import { setPageCallbacks } from './DOM/setPageCallbacks'
 import { DOMContentLoadCallback } from './DOM/DOMContentLoadCallback'
 import { windowLoadCallback } from './DOM/windowLoadCallback'
-import { getProduct } from './catalog/getProduct'
-import { setPriceClearParam } from './catalog/setPriceClearParam'
-import { checkFilters } from './catalog/checkFilters'
+import { getProduct } from './pages/catalogPage/catalog/getProduct'
+import { setPriceClearParam } from './pages/catalogPage/catalog/setPriceClearParam'
+import { checkFilters } from './pages/catalogPage/catalog/checkFilters'
 import { putUser } from './fetch/putUser'
-import { insertFavoriteProducts } from './favorite/insertFavoriteProducts'
-import { checkBasketProducts } from './basket/checkBasketProducts'
-import { addToBasket } from './basket/addToBasket'
-import { setFormParams } from './orderForm/setFormParams'
-import { checkSpacesInString } from './orderForm/checkSpacesInString'
+import { insertFavoriteProducts } from './components/favorite/insertFavoriteProducts'
+import { checkBasketProducts } from './components/basket/checkBasketProducts'
+import { addToBasket } from './components/basket/addToBasket'
+import { setFormParams } from './components/orderForm/setFormParams'
+import { checkSpacesInString } from './components/orderForm/checkSpacesInString'
 
 export {
+  getElemsById,
   getAllUsers,
   addElem,
   getElemsByIdFromShadow,
   setVerifyPasswordParams,
-  checkInputs,
+  isInputEmpty,
   setPasswordParams,
   readImageFromComp,
   setPhoneParams,
@@ -78,11 +77,8 @@ export {
   tabsContent,
   hideTabContent,
   showTabContent,
-  mainPageCallback,
   getUserByEmail,
-  catalogPageCallback,
   showProducts,
-  getElemsById,
   setFiltersParam,
   setFilterClearParam,
   hideProducts,

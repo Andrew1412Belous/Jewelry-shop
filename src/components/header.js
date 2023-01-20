@@ -12,7 +12,7 @@ import {
   signUpCallback
 } from '../callbacks'
 
-const profileIcon = require('../img/icons/profile.svg')
+const profileIcon = require('../assets/img/icons/profile.svg')
 
 export class Header extends HTMLElement {
   constructor() {

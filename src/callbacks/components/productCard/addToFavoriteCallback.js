@@ -1,5 +1,5 @@
 import { currentUser, getProduct } from '../../../helpers'
-import { addToFavorite } from '../../../helpers/favorite/addToFavorite'
+import { addToFavorite } from '../../../helpers/components/favorite/addToFavorite'
 
 export function addToFavoriteCallback (event) {
   console.log(event.target)

@@ -1,4 +1,5 @@
-import './css/style.css'
+import './assets/css/preloader.css'
+import './assets/css/style.css'
 
 import {
   addElem,

@@ -33,19 +33,19 @@
         {
           "type": "Браслет унісекс",
           "brand": "Trebbo",
-          "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+          "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
           "price": 15500
         },
         {
           "type": "Обручка",
           "brand": "Dolce & Gabbana",
-          "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+          "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
           "price": 23000
         },
         {
           "type": "Обручка",
           "brand": "Versacci",
-          "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+          "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
           "price": 10100
         }
       ]
@@ -96,7 +96,7 @@
     {
       "type": "Обручка",
       "brand": "Versacci",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 10100,
       "filters": {
         "collection": "ring",
@@ -114,7 +114,7 @@
     {
       "type": "Обручка",
       "brand": "Dolce & Gabbana",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 23000,
       "filters": {
         "collection": "ring",
@@ -132,7 +132,7 @@
     {
       "type": "Браслет унісекс",
       "brand": "Trebbo",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 5000,
       "filters": {
         "collection": "bracelet",
@@ -150,7 +150,7 @@
     {
       "type": "Браслет унісекс",
       "brand": "Trebbo",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 15500,
       "filters": {
         "collection": "bracelet",
@@ -168,7 +168,7 @@
     {
       "type": "Запонки унісекс",
       "brand": "Jewelry",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 12000,
       "filters": {
         "collection": "cufflinks",
@@ -186,7 +186,7 @@
     {
       "type": "Чоловічі підвіски",
       "brand": "Dolce & Gabbana",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 17000,
       "filters": {
         "collection": "bracelet",
@@ -206,7 +206,7 @@
     {
       "type": "Чоловічий годинник",
       "brand": "Dolce & Gabbana",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 57000,
       "filters": {
         "collection": "clocks",
@@ -227,7 +227,7 @@
     {
       "type": "Чоловічий годинник",
       "brand": "Versacci",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 23500,
       "filters": {
         "collection": "clocks",
@@ -247,7 +247,7 @@
     {
       "type": "Чоловічі запонки",
       "brand": "VIP ghoret",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 4000,
       "filters": {
         "collection": "cufflinks",
@@ -264,7 +264,7 @@
     {
       "type": "Жіноче кільце",
       "brand": "Dolce & Gabbana",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 42000,
       "filters": {
         "collection": "ring",
@@ -284,7 +284,7 @@
     {
       "type": "Жіноче кільце",
       "brand": "Dolce & Gabbana",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 50000,
       "filters": {
         "collection": "ring",
@@ -304,7 +304,7 @@
     {
       "type": "Жіночі сережки",
       "brand": "VIP ghoret",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 7000,
       "filters": {
         "collection": "earrings",
@@ -326,7 +326,7 @@
     {
       "type": "Жіночі сережки",
       "brand": "Dolce & Gabbana",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 13700,
       "filters": {
         "collection": "earrings",
@@ -343,7 +343,7 @@
     {
       "type": "Жіноча підвіска",
       "brand": "VIP ghoret",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 2100,
       "filters": {
         "collection": "pendants",
@@ -360,7 +360,7 @@
     {
       "type": "Жіноча підвіска",
       "brand": "Dolce & Gabbana",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 10000,
       "filters": {
         "collection": "pendants ",
@@ -377,7 +377,7 @@
     {
       "type": "Жіночий годинник",
       "brand": "Dolce & Gabbana",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 30000,
       "filters": {
         "collection": "clocks",
@@ -394,7 +394,7 @@
     {
       "type": "Жіночий браслет",
       "brand": "Versacci",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 11000,
       "filters": {
         "collection": "bracelet",
@@ -410,7 +410,7 @@
     {
       "type": "Чоловічі сережки",
       "brand": "VIP ghoret",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 26000,
       "filters": {
         "collection": "earrings",
@@ -424,7 +424,7 @@
     {
       "type": "Чоловічі запонки",
       "brand": "Jewelry",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 3300,
       "filters": {
         "collection": "cufflinks",
@@ -441,7 +441,7 @@
     {
       "type": "Браслет унісекс",
       "brand": "Versacci",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 12200,
       "filters": {
         "collection": "bracelet",
@@ -462,7 +462,7 @@
     {
       "type": "Годинник унісекс",
       "brand": "VIP ghoret",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 9000,
       "filters": {
         "collection": "clocks",
@@ -480,7 +480,7 @@
     {
       "type": "Кільце унісекс",
       "brand": "Trebbo",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 5300,
       "filters": {
         "collection": "ring",
@@ -498,7 +498,7 @@
     {
       "type": "Жіночі сережки",
       "brand": "Trebbo",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 2000,
       "filters": {
         "collection": "earrings",
@@ -512,7 +512,7 @@
     {
       "type": "Жіноча підвіска",
       "brand": "Versacci",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 8800,
       "filters": {
         "collection": "pendants",
@@ -526,7 +526,7 @@
     {
       "type": "Запонки унісекс",
       "brand": "Trebbo",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 15000,
       "filters": {
         "collection": "cufflinks",
@@ -547,7 +547,7 @@
     {
       "type": "Чоловічий браслет",
       "brand": "Jewelry",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 4000,
       "filters": {
         "collection": "bracelet",
@@ -561,7 +561,7 @@
     {
       "type": "Годинник унісекс",
       "brand": "Jewelry",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 13000,
       "filters": {
         "collection": "clocks",
@@ -579,7 +579,7 @@
     {
       "type": "Жіночі сережки",
       "brand": "Dolce & Gabbana",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 70000,
       "filters": {
         "collection": "earrings",
@@ -592,7 +592,7 @@
     {
       "type": "Підвіска унісекс",
       "brand": "Versacci",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 30000,
       "filters": {
         "collection": "pendants",
@@ -609,7 +609,7 @@
     {
       "type": "Жіночі запонки",
       "brand": "Trebbo",
-      "picture": "file:///C:/Work/projects/jewelry-shop/src/img/product-icon.jpg",
+      "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
       "price": 40000,
       "filters": {
         "collection": "cufflinks",

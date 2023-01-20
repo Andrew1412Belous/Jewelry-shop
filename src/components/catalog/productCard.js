@@ -1,9 +1,9 @@
 import { addElem, checkBasketProducts, getElemsByIdFromShadow, getProduct } from '../../helpers'
 import { productStyle, productTemplate } from '../../templates'
-import { productCardElemNames } from '../../configs/elemNames/catalog/productCardElemNames'
+import { productCardElemNames } from '../../configs/pages/catalogPage/productCardElemNames'
 import { addToFavoriteCallback } from '../../callbacks/components/productCard/addToFavoriteCallback'
-import { currentProduct } from '../../helpers/productPage/currentProduct'
-import { insertProductCardTemplate } from '../../helpers/catalog/insertProductCardTemplate'
+import { currentProduct } from '../../helpers/pages/productPage/currentProduct'
+import { insertProductCardTemplate } from '../../helpers/pages/catalogPage/catalog/insertProductCardTemplate'
 import { setFilterClass } from '../../helpers/components/productCard/setFilterClass'
 import { setPriceType } from '../../helpers/components/setPriceType'
 

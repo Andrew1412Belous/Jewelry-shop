@@ -18,7 +18,7 @@ import {
   registrationVerifyPasswordCallback,
 } from '../callbacks'
 
-import { registrationPhoneInputCallback } from '../callbacks/registration/registrationPhoneInputCallback'
+import { registrationPhoneInputCallback } from '../callbacks/components/registration/registrationPhoneInputCallback'
 import { hideComponentCallback } from '../callbacks/components/hideComponentCallback'
 import { documentKeyPressCallback } from '../callbacks/components/documentKeyPressCallback'
 

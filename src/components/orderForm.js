@@ -8,7 +8,7 @@ import {
 } from '../helpers'
 import { orderStyle } from '../templates'
 import { orderTemplate } from '../templates/orderForm/orderTemplate'
-import { orderFormElemNames } from '../configs/elemNames/orderForm/orderFormElemNames'
+import { orderFormElemNames } from '../configs/components/orderForm/orderFormElemNames'
 import {
   cardCheckClickCallback, cardCvvInputCallback, cardDateInputCallback, cardNameInputCallback,
   cardNumberInputCallback, favoriteBackBtnCallback,
@@ -16,12 +16,12 @@ import {
   telInputCallback,
 } from '../callbacks'
 
-import { addressInputCallback } from '../callbacks/orderForm/addressInputCallback'
-import { insertOrderProducts } from '../helpers/orderForm/insertOrderProducts'
-import { buyAllProductsBtnCallback } from '../callbacks/orderForm/buyAllProductsBtnCallback'
-import { orderBackBtnCallback } from '../callbacks/orderForm/orderBackBtnCallback'
+import { addressInputCallback } from '../callbacks/components/orderForm/addressInputCallback'
+import { insertOrderProducts } from '../helpers/components/orderForm/insertOrderProducts'
+import { buyAllProductsBtnCallback } from '../callbacks/components/orderForm/buyAllProductsBtnCallback'
+import { orderBackBtnCallback } from '../callbacks/components/orderForm/orderBackBtnCallback'
 import { headerElems, products } from '../configs'
-import { currentProduct } from '../helpers/productPage/currentProduct'
+import { currentProduct } from '../helpers/pages/productPage/currentProduct'
 
 class OrderForm extends HTMLElement {
   constructor() {
@@ -30,9 +30,9 @@ class OrderForm extends HTMLElement {
     this.section = Object.assign(addElem('section', this.shadow), {
       id: 'order-section',
     })
-    // Object.assign(addElem('style', this.shadow), {
-    //   textContent: orderStyle,
-    // })
+    Object.assign(addElem('style', this.shadow), {
+      textContent: orderStyle,
+    })
     this.section.innerHTML = orderTemplate
     this.addElems = getElemsByIdFromShadow
   }

@@ -8,7 +8,6 @@ import { favoriteTemplate } from './favorite/favoriteTemplate'
 import { favoriteStyle } from './favorite/favoriteStyle'
 import { basketTemplate } from './basket/basketTemplate'
 import { basketStyle } from './basket/basketStyle'
-import { orderForm } from '../components'
 import { orderStyle } from './orderForm/orderStyle'
 import { productStyle } from './productCard/productStyle'
 import { productTemplate } from './productCard/productTemplate'
@@ -24,7 +23,6 @@ export {
   favoriteStyle,
   basketTemplate,
   basketStyle,
-  orderForm,
   orderStyle,
   productStyle,
   productTemplate,

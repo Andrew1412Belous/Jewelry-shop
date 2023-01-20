@@ -27,7 +27,7 @@ import {
   securitySettingsBtn,
 } from '../callbacks'
 
-import { profileOrderHistoryCallback } from '../callbacks/profile/profileOrderHistoryCallback'
+import { profileOrderHistoryCallback } from '../callbacks/components/profile/profileOrderHistoryCallback'
 
 class MyProfile extends HTMLElement {
   constructor() {

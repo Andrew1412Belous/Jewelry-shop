@@ -1,36 +1,33 @@
 import { host } from './hosts/host'
-import { headerElemsNames } from './elemNames/header/headerElemsNames'
-import { regElemNames } from './elemNames/registration/regElemNames'
+import { headerElemsNames } from './components/header/headerElemsNames'
+import { regElemNames } from './components/registration/regElemNames'
 import { passwordValidation } from './validation/passwordValidation'
-import { authElemNames } from './elemNames/authorization/authElemNames'
-import { myProfileElemNames } from './elemNames/profile/myProfileElemNames'
+import { authElemNames } from './components/authorization/authElemNames'
+import { myProfileElemNames } from './components/profile/myProfileElemNames'
 import { cyrillicValidation } from './validation/cyrillicValidation'
 import { emailRValidation } from './validation/emailRValidation'
-import { filterBtnsElemNames } from './elemNames/catalog/filterBtnsElemNames'
-import { filterBlocksNames } from './elemNames/catalog/filterBlocksNames'
-import { filterButtons } from './catalog/filterButtons'
-import { filterBlocks } from './catalog/filterBlocks'
-import { products } from './catalog/products'
-import { filtersShowButtonNames } from './elemNames/catalog/filtersShowButtonNames'
-import { filterShowBtns } from './catalog/filterShowBtns'
-import { filterElemNames } from './elemNames/catalog/filterElemNames'
-import { filterElems } from './catalog/filterElems'
-import { filterClearButtonNames } from './elemNames/catalog/filterClearButtonNames'
-import { mainPageElemNames } from './elemNames/mainPage/mainPageElemNames'
-import { mainPageElems } from './mainPage/mainPageElems'
+import { filterBtnsElemNames } from './pages/catalogPage/filterBtnsElemNames'
+import { filterBlocksNames } from './pages/catalogPage/filterBlocksNames'
+import { filterButtons } from './pages/catalogPage/filterButtons'
+import { filterBlocks } from './pages/catalogPage/filterBlocks'
+import { filtersShowButtonNames } from './pages/catalogPage/filtersShowButtonNames'
+import { filterShowBtns } from './pages/catalogPage/filterShowBtns'
+import { filterElemNames } from './pages/catalogPage/filterElemNames'
+import { filterElems } from './pages/catalogPage/filterElems'
+import { filterClearButtonNames } from './pages/catalogPage/filterClearButtonNames'
+import { mainPageElemNames } from './pages/mainPage/mainPageElemNames'
+import { mainPageElems } from './pages/mainPage/mainPageElems'
 import { allUsersEndpoint } from './hosts/allUsersEndpoint'
-import { filterListElemNames } from './elemNames/catalog/filterListElemNames'
-import { filterListElems } from './catalog/filterListElems'
-import { filteredProducts } from './catalog/filteredProducts'
+import { filterListElemNames } from './pages/catalogPage/filterListElemNames'
+import { filterListElems } from './pages/catalogPage/filterListElems'
+import { filteredProducts } from './pages/catalogPage/filteredProducts'
 import { numberValidation } from './validation/numberValidation'
-import { filterClearBtns } from './catalog/filterClearBtns'
-import { priceElemNames } from './elemNames/catalog/priceElemNames'
-import { priceElems } from './catalog/priceElems'
-import { tabElemNames } from './elemNames/mainPage/tabElemNames'
-import { tabElems } from './mainPage/tabElems'
-import { linksElemNames } from './elemNames/productPage/linksElemNames'
-import { linksElems } from './productPage/linksElems'
-import { favoriteElemNames } from './elemNames/favorite/favoriteElemNames'
+import { filterClearBtns } from './pages/catalogPage/filterClearBtns'
+import { priceElemNames } from './pages/catalogPage/priceElemNames'
+import { priceElems } from './pages/catalogPage/priceElems'
+import { tabElemNames } from './pages/mainPage/tabElemNames'
+import { tabElems } from './pages/mainPage/tabElems'
+import { favoriteElemNames } from './components/favorite/favoriteElemNames'
 import { loginValidation } from './validation/loginValidation'
 import { telValidation } from './validation/telValidation'
 import { cardNumberValidation } from './validation/cardNumberValidation'
@@ -49,7 +46,6 @@ export {
   filterBlocksNames,
   filterButtons,
   filterBlocks,
-  products,
   filtersShowButtonNames,
   filterShowBtns,
   filterElemNames,
@@ -67,11 +63,12 @@ export {
   priceElemNames,
   tabElems,
   tabElemNames,
-  linksElemNames,
-  linksElems,
   favoriteElemNames,
   loginValidation,
   telValidation,
   cardNumberValidation,
   spacesInStringValidation,
+}
+
+export class numberRegExp {
 }

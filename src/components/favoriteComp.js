@@ -13,9 +13,9 @@ import {
   favoriteDeleteProductCallback,
 } from '../callbacks'
 
-import { favoriteProducts } from '../helpers/favorite/favoriteProducts'
-import { checkFavoriteProducts } from '../helpers/favorite/checkFavoriteProducts'
-import { currentProduct } from '../helpers/productPage/currentProduct'
+import { favoriteProducts } from '../helpers/components/favorite/favoriteProducts'
+import { checkFavoriteProducts } from '../helpers/components/favorite/checkFavoriteProducts'
+import { currentProduct } from '../helpers/pages/productPage/currentProduct'
 import { hideComponentCallback } from '../callbacks/components/hideComponentCallback'
 import { hideFavoriteComp } from '../callbacks/components/hideFavoriteComp'
 

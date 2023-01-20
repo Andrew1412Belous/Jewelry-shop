@@ -1,11 +1,11 @@
 import { addElem, checkBasketProducts, getElemsByIdFromShadow, getProduct, toggleDisplayMain } from '../helpers'
 import { basketStyle, basketTemplate } from '../templates'
-import { basketElemNames } from '../configs/elemNames/basket/basketElemNames'
-import { insertBasketProducts } from '../helpers/basket/insertBasketProducts'
-import { basketDeleteProductCallback } from '../callbacks/basket/basketDeleteProductCallback'
+import { basketElemNames } from '../configs/components/basket/basketElemNames'
+import { insertBasketProducts } from '../helpers/components/basket/insertBasketProducts'
+import { basketDeleteProductCallback } from '../callbacks/components/basket/basketDeleteProductCallback'
 import { headerElems, products } from '../configs'
-import { currentProduct } from '../helpers/productPage/currentProduct'
-import { basketProducts } from '../helpers/basket/basketProducts'
+import { currentProduct } from '../helpers/pages/productPage/currentProduct'
+import { basketProducts } from '../helpers/components/basket/basketProducts'
 import {
   basketDecrBtnCallback,
   basketIncrBtnCallback,

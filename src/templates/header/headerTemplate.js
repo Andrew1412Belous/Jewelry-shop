@@ -1,8 +1,8 @@
-const logo = require('../../img/icons/logo.png')
-const profileIcon = require('../../img/icons/profile.svg')
-const favoriteIcon = require('../../img/icons/favorite.svg')
-const searchIcon = require('../../img/icons/search.svg')
-const basketIcon = require('../../img/icons/basket.svg')
+const logo = require('../../assets/img/icons/logo.png')
+const profileIcon = require('../../assets/img/icons/profile.svg')
+const favoriteIcon = require('../../assets/img/icons/favorite.svg')
+const searchIcon = require('../../assets/img/icons/search.svg')
+const basketIcon = require('../../assets/img/icons/basket.svg')
 
 export const headerTemplate = `
   <div class="header-employees-wrapper">

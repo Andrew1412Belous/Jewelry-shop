@@ -1,7 +1,7 @@
 import { addElem } from '../helpers'
 import { orderHistoryStyle } from '../templates/orderHistory/orderHistoryStyle'
 import { orderHistoryTemplate } from '../templates/orderHistory/orderHistoryTemplate'
-import { insertOrderHistoryProducts } from '../helpers/orderHistory/insertOrderHistoryProducts'
+import { insertOrderHistoryProducts } from '../helpers/components/orderHistory/insertOrderHistoryProducts'
 import { headerElems } from '../configs'
 import { myProfile } from './myProfile'
 
