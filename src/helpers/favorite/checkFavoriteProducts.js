@@ -1,20 +1,22 @@
 import { favoriteProducts } from './favoriteProducts'
 
-export function checkFavoriteProducts (btn, currentProduct, page) {
+export function checkFavoriteProducts (product) {
+  // if (!favoriteProducts.length) return ''
+
   const lodash = require('lodash')
 
-  const test = favoriteProducts
-    .some(product => lodash.isEqual(product, currentProduct))
+  const selectedProduct = {}
 
-  if (page === 'catalog-page') {
-    if (test) {
-      btn.style.display = 'none'
-    } else {
-      btn.style.display = 'block'
+  for (const key in product) {
+    if (key !== 'filters') {
+      Object.assign(selectedProduct, {
+        [key]: product[key],
+      })
     }
-  } else if (test) {
-    btn.textContent = 'Видалити з бажанного'
-  } else {
-    btn.textContent = 'Додати в бажане'
   }
+
+  return favoriteProducts
+    .some(item => lodash.isEqual(item, selectedProduct))
+    ? 'true'
+    : ''
 }

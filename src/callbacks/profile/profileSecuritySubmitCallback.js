@@ -45,7 +45,7 @@ export function profileSecuritySubmitCallback (event) {
         sessionStorage.setItem('currentUser', JSON.stringify(currentUser))
       })
 
-    setTimeout(() => this.elems['security-message'].innerText = '', 1000)
+    setTimeout(() => this.elems['security-message'].innerText = '', 500)
     this.elems['security-block'].style.display = 'none'
   }
 }

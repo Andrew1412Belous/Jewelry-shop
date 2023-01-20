@@ -1,7 +1,7 @@
-import { cardNumberRegExp } from '../../configs'
+import { cardNumberValidation } from '../../configs'
 
 export function cardNumberInputCallback (event) {
-  event.target.style.color = event.target.value.match(cardNumberRegExp)
+  event.target.style.color = event.target.value.match(cardNumberValidation)
     ? '#50a450'
     : '#ea3838'
 }

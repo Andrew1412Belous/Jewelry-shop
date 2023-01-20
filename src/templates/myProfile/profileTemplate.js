@@ -43,11 +43,21 @@ export const profileTemplate = `
                 <img src="" alt="" id="picture">
                 <input type="file" id="input-file">
             </div>
+            <div class="profile-title">Контактні дані</div>
+            <div class="change-phone-wrapper">
+                <input type="text" class="profile-input" id="input-phone" required disabled>
+                <button class="profile-btn" id="reset-phone-btn">Змінити номер</button>
+                <div class="change-phone" id="change-phone-form">
+                    <p id="message-phone"></p>
+                    <input type="text" class="profile-input" id="input-pin" required placeholder="Введіть PIN">
+                    <input type="text" class="profile-input" id="input-new-phone" required placeholder="Введіть новий номер">
+                    <button class="profile-btn" id="save-phone-btn">Зберегти номер</button>
+                </div>
+            </div>
             <button class="profile-btn" id="profile-submit-btn">Зберегти профіль</button> 
         </div>
         <div id="security-settings">
-            <div class="profile-title">Конфідеційні дані</div>
-            <div class="profile-subtitle">В якості логіна ви можете використовувати email. Пароль буде однаковим</div>
+            <div class="profile-title">Конфіденційні дані</div>
             <div id="buttons-wrapper-sec">
                 <button class="profile-btn" id="new-email-btn">Змінити/встановити email</button>
                 <button class="profile-btn" id="new-login-btn">Змінити логін</button>
@@ -56,9 +66,13 @@ export const profileTemplate = `
             </div>
             <p id="security-message"></p>
             <div class="inputs-wrapper-sec">
+              <div class="input-block" id="security-verify-block">
+                <input type="text" class="profile-input" id="input-verify" placeholder="PIN">
+                <button class="profile-btn" id="verify-submit-btn">Підтвердити</button>
+              </div>
               <div class="input-block" id="security-block">
                   <div class="input-text" id="security-text"></div>
-                  <input type="email" class="profile-input" id="input-security" required>
+                  <input type="text" class="profile-input" id="input-security" required>
                   <button class="profile-btn" id="profile-security-submit-btn" disabled>Підтвердити</button>
               </div>
             </div>

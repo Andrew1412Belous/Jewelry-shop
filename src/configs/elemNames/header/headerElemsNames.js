@@ -7,4 +7,7 @@ export const headerElemsNames = [
   'favorite-products',
   'basket-products',
   'header-logo',
+  'search-btn',
+  'header-profile-logo',
+  'header-span',
 ]

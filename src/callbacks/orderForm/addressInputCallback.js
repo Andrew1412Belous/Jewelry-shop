@@ -1,4 +1,4 @@
-import { deliveryAddressRegExp } from '../../configs/regExp/deliveryAddressRegExp'
+import { deliveryAddressRegExp } from '../../configs/validation/deliveryAddressValidation'
 
 export function addressInputCallback (event) {
   event.target.style.color = event.target.value.match(deliveryAddressRegExp)

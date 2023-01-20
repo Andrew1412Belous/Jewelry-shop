@@ -4,8 +4,8 @@ export const profileStyle = `
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    margin: 0 auto;
     width: 600px;
+    overflow: auto;
     border: solid #ddd 2px;
     border-radius: 16px;
     background: #333;
@@ -14,7 +14,7 @@ export const profileStyle = `
   }
   
   #login {
-    font-family: 'Noto Serif', serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     color: #fff;
     text-align: center;
@@ -65,8 +65,12 @@ export const profileStyle = `
     display: none
   }
   
+  #personal-data {
+    height: 520px;
+  }
+  
   h2 {
-    font-family: 'Noto Serif', serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 22px;
     color: #fff;
     text-align: left;
@@ -218,11 +222,11 @@ export const profileStyle = `
     align-items: center;
   }
   
-  #security-block {
+  #security-block, #security-verify-block {
     display: none;
   }
   
-  #profile-security-submit-btn {
+  #profile-security-submit-btn, #verify-submit-btn {
     display: block;
     margin: 15px auto 0 auto;
   }
@@ -233,5 +237,29 @@ export const profileStyle = `
   
   .hide {
     display: none;
+  }
+  
+  .change-phone-wrapper, #change-phone-form {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+   #change-phone-form {
+    display: none;
+   }
+  
+  #input-phone, #reset-phone-btn, #input-pin, #input-new-phone, #save-phone-btn {
+    display: block;
+    margin: 10px 0 5px 0;
+  }
+  
+  #message-phone {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin: 0 auto;
+    margin-top: 5px;
+    color: #fff;
   }
 `

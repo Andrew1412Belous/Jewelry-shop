@@ -1,6 +1,6 @@
 import {
   addElem,
-  getElemsByIdFromShadow, insertFavoriteProducts, toggleDisplayMain,
+  getElemsByIdFromShadow,
 } from '../helpers'
 
 import {
@@ -8,19 +8,22 @@ import {
   authorizationTemplate,
 } from '../templates'
 
-import { authElemNames, headerElems } from '../configs'
+import { authElemNames} from '../configs'
 
 import {
   authorizationPasswordCallback,
   authorizationSubmitCallback,
 } from '../callbacks'
 
+import { documentKeyPressCallback } from '../callbacks/components/documentKeyPressCallback'
+import { hideComponentCallback } from '../callbacks/components/hideComponentCallback'
+
 class AuthorizationForm extends HTMLElement {
   constructor() {
     super()
     this.shadow = this.attachShadow({ mode: 'closed' })
     this.section = Object.assign(addElem('section', this.shadow), {
-      id: 'authorization-form',
+      id: 'authorization-section',
     })
     Object.assign(addElem('style', this.shadow), {
       textContent: authorizationStyle,
@@ -30,17 +33,32 @@ class AuthorizationForm extends HTMLElement {
   }
 
   connectedCallback () {
-    this.elems = this.addElems(authElemNames)
-    this.elems.password.oninput = authorizationPasswordCallback.bind(this)
-    this.elems.submit.onclick = authorizationSubmitCallback.bind(this)
-    this.elems['close-btn'].onclick = function () {
-      toggleDisplayMain(false)
-      headerElems.main.innerHTML = ''
-    }
-  }
+    this.section.style.display = 'none'
 
-  disconnectedCallback () {
-    this.section.innerHTML = authorizationTemplate
+    this.addEventListener('open-auth-form', () => {
+      document.onkeydown = documentKeyPressCallback.bind(this, authorizationTemplate)
+
+      this.section.style.display = 'block'
+
+      this.elems = this.addElems(authElemNames)
+
+      this.elems.shadow.onclick = hideComponentCallback.bind(this, authorizationTemplate)
+      this.elems['close-btn'].onclick = hideComponentCallback.bind(this, authorizationTemplate)
+
+      this.elems.password.oninput = authorizationPasswordCallback.bind(this)
+      this.elems.submit.onclick = authorizationSubmitCallback.bind(this)
+
+      this.elems['auth-link'].onclick = function () {
+        Object.assign(this.section, {
+          style: `
+            display: none;
+          `,
+          innerHTML: authorizationTemplate,
+        })
+
+        window[Symbol.for('sign-up')].dispatchEvent(new Event('open-reg-form'))
+      }.bind(this)
+    })
   }
 }
 

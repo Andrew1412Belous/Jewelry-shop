@@ -1,8 +1,8 @@
-export function getProduct (product) {
+export function getProduct (container) {
   return {
-    type: product.getElementsByClassName('product-type')[0].textContent,
-    brand: product.getElementsByClassName('product-brand-name')[0].textContent,
-    picture: product.getElementsByClassName('product-icon')[0].src,
-    price: Number(product.dataset.price),
+    type: container.querySelector('.product-type').textContent,
+    brand: container.querySelector('.product-brand-name').textContent,
+    picture: container.querySelector('.product-icon').src,
+    price: Number(this.dataset.price),
   }
 }

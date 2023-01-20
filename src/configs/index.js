@@ -1,12 +1,11 @@
 import { host } from './hosts/host'
 import { headerElemsNames } from './elemNames/header/headerElemsNames'
 import { regElemNames } from './elemNames/registration/regElemNames'
-import { passwordRegExp } from './regExp/passwordRegExp'
+import { passwordValidation } from './validation/passwordValidation'
 import { authElemNames } from './elemNames/authorization/authElemNames'
 import { myProfileElemNames } from './elemNames/profile/myProfileElemNames'
-import { cyrillicRegExp } from './regExp/cyrillicRegExp'
-import { emailRRegExp } from './regExp/emailRRegExp'
-import { headerElems } from './header/headerElems'
+import { cyrillicValidation } from './validation/cyrillicValidation'
+import { emailRValidation } from './validation/emailRValidation'
 import { filterBtnsElemNames } from './elemNames/catalog/filterBtnsElemNames'
 import { filterBlocksNames } from './elemNames/catalog/filterBlocksNames'
 import { filterButtons } from './catalog/filterButtons'
@@ -23,7 +22,7 @@ import { allUsersEndpoint } from './hosts/allUsersEndpoint'
 import { filterListElemNames } from './elemNames/catalog/filterListElemNames'
 import { filterListElems } from './catalog/filterListElems'
 import { filteredProducts } from './catalog/filteredProducts'
-import { numberRegExp } from './regExp/numberRegExp'
+import { numberValidation } from './validation/numberValidation'
 import { filterClearBtns } from './catalog/filterClearBtns'
 import { priceElemNames } from './elemNames/catalog/priceElemNames'
 import { priceElems } from './catalog/priceElems'
@@ -32,21 +31,20 @@ import { tabElems } from './mainPage/tabElems'
 import { linksElemNames } from './elemNames/productPage/linksElemNames'
 import { linksElems } from './productPage/linksElems'
 import { favoriteElemNames } from './elemNames/favorite/favoriteElemNames'
-import { loginRegExp } from './regExp/loginRegExp'
-import { telRegExp } from './regExp/telRegExp'
-import { cardNumberRegExp } from './regExp/cardNumberRegExp'
-import { spacesInStringRegExp } from './regExp/spacesInStringRegExp'
+import { loginValidation } from './validation/loginValidation'
+import { telValidation } from './validation/telValidation'
+import { cardNumberValidation } from './validation/cardNumberValidation'
+import { spacesInStringValidation } from './validation/spacesInStringValidation'
 
 export {
   host,
   headerElemsNames,
   regElemNames,
-  passwordRegExp,
+  passwordValidation,
   authElemNames,
   myProfileElemNames,
-  cyrillicRegExp,
-  emailRRegExp,
-  headerElems,
+  cyrillicValidation,
+  emailRValidation,
   filterBtnsElemNames,
   filterBlocksNames,
   filterButtons,
@@ -63,7 +61,7 @@ export {
   filterListElemNames,
   filterListElems,
   filteredProducts,
-  numberRegExp,
+  numberValidation,
   filterClearBtns,
   priceElems,
   priceElemNames,
@@ -72,8 +70,8 @@ export {
   linksElemNames,
   linksElems,
   favoriteElemNames,
-  loginRegExp,
-  telRegExp,
-  cardNumberRegExp,
-  spacesInStringRegExp,
+  loginValidation,
+  telValidation,
+  cardNumberValidation,
+  spacesInStringValidation,
 }

@@ -21,23 +21,18 @@ import {
   signOutCallback,
   signUpCallback,
 } from '../../callbacks'
+import { searchCallback } from '../../callbacks/header/searchCallback'
 
 export function mainPageCallback () {
   hideTabContent()
   showTabContent()
 
-  headerElems.main.onclick = closeMainCallback
-  headerElems['sign-up'].onclick = signUpCallback
-  headerElems['sign-in'].onclick = signInCallback
-  headerElems['sign-out'].onclick = signOutCallback
-  headerElems['my-account'].onclick = profileCallback
-  headerElems['favorite-products'].onclick = favoriteCallback
-  headerElems['basket-products'].onclick = basketCallback
-  headerElems['header-logo'].onclick = headerLogoClickCallback
-
   mainPageElems['salons-btn'].onclick = salonsBtnCallback
   mainPageElems['catalog-tabs'].onclick = catalogTabsCallback
   mainPageElems['catalog-btn'].onclick = catalogBtnCallback
+  mainPageElems['blog-btn'].onclick = function () {
+    document.location = './blog-page.html'
+  }
 
   tabElemNames.forEach(link => {
     tabElems[link].onclick = catalogLinkClickCallback

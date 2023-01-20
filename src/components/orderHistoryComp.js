@@ -1,4 +1,4 @@
-import { addElem, getElemsByIdFromShadow, toggleDisplayMain, updateMainContent } from '../helpers'
+import { addElem } from '../helpers'
 import { orderHistoryStyle } from '../templates/orderHistory/orderHistoryStyle'
 import { orderHistoryTemplate } from '../templates/orderHistory/orderHistoryTemplate'
 import { insertOrderHistoryProducts } from '../helpers/orderHistory/insertOrderHistoryProducts'
@@ -20,6 +20,8 @@ class OrderHistoryComp extends HTMLElement {
   }
 
   connectedCallback () {
+    this.section.style.display = 'none'
+
     insertOrderHistoryProducts(this.section)
 
     this.section.querySelector('#back-btn').onclick = function () {

@@ -29,7 +29,7 @@
     color: #333333;
     &:after {
       content: '';
-      background: url("../icons/filter-icon.svg") center center/cover no-repeat;
+      background: url("../img/icons/filter-icon.svg") center center/cover no-repeat;
       width: 10px;
       height: 10px;
     }
@@ -186,5 +186,5 @@
 
 .checkbox:checked+label::before {
   background-color: #000;
-  background-image: url("../icons/checkbox.svg");
+  background-image: url("../img/icons/checkbox.svg");
 }

@@ -5,6 +5,7 @@ import { favProd } from './favoriteComp'
 import { basketProd } from './basketComp'
 import { orderForm } from './orderForm'
 import { orderHistory } from './orderHistoryComp'
+import { searchComp } from './searchComp'
 
 export {
   regForm,
@@ -14,4 +15,5 @@ export {
   basketProd,
   orderForm,
   orderHistory,
+  searchComp,
 }

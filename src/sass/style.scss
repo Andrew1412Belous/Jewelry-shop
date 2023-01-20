@@ -1,6 +1,12 @@
+//@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
 .container {
   max-width: 1110px;
   margin: 0 auto;
+}
+
+body {
+  position: relative;
 }
 
 @import "base/mixins";
@@ -19,7 +25,7 @@
 @import "blocks/footer";
 @import "blocks/products-benefits";
 @import "blocks/main";
-@import "blocks/preloader";
+//@import "blocks/preloader";
 @import "blocks/map";
 @import "blocks/contacts";
 

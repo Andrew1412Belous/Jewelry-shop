@@ -1,7 +1,7 @@
-import { cyrillicRegExp } from '../../configs'
+import { cyrillicValidation } from '../../configs'
 
 export function setCyrillicInputParamsCallback (event) {
-  event.target.style.color = event.target.value.match(cyrillicRegExp)
+  event.target.style.color = event.target.value.match(cyrillicValidation)
     ? '#50a450'
     : '#ea3838'
 }

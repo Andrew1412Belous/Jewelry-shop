@@ -1,16 +1,22 @@
-import { addToBasket, getProduct, updateMainContent } from '../../helpers'
-import { headerElems } from '../../configs'
-import { basketProd } from '../../components'
+import { addToBasket, getProduct } from '../../helpers'
+import { favoriteTemplate} from '../../templates'
 
-export function favoriteAddToBasketCallback (event) {
-  const selectedProduct = getProduct(event.target.parentNode.parentNode
-    .querySelector('.favorite-product-info'))
+export function favoriteAddToBasketCallback (index, event) {
+  const wrapper = this.section.querySelectorAll(
+    '.favorite-product-info')[index]
 
   if (event.target.textContent === 'Купити') {
-    addToBasket(selectedProduct)
+    addToBasket(getProduct.bind(wrapper, wrapper)())
 
     event.target.textContent = 'В кошику'
   } else {
-    updateMainContent(headerElems.main, basketProd)
+    Object.assign(this.section, {
+      style: `
+            display: none;
+          `,
+      innerHTML: favoriteTemplate,
+    })
+
+    window[Symbol.for('basket-comp')].dispatchEvent(new Event('open-basket'))
   }
 }

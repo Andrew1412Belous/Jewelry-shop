@@ -1,4 +1,4 @@
-import { setProductPageParam } from '../productPage/setProductPageParam'
+ import { setProductPageParam } from '../productPage/setProductPageParam'
 
 import {
   headerElems,
@@ -19,8 +19,6 @@ import {
 import { checkFavoriteProducts } from '../favorite/checkFavoriteProducts'
 import { currentProduct } from '../productPage/currentProduct'
 import { currentUser } from '../profile/currentUser'
-import { toggleDisplayMain } from '../mainElem/toggleDisplayMain'
-import { updateMainContent } from '../mainElem/updateMainContent'
 import { basketProd, regForm } from '../../components'
 import { checkBasketProducts } from '../basket/checkBasketProducts'
 import { addToBasket } from '../basket/addToBasket'
@@ -29,24 +27,34 @@ export function productPageCallback () {
   const favoriteBtn = document.getElementById('favorite-btn')
   const basketBtn = document.getElementById('basket-btn')
 
-  checkFavoriteProducts(favoriteBtn, currentProduct, 'product-page')
-  checkBasketProducts(basketBtn, currentProduct, 'product-page')
+  document.getElementsByClassName('catalog-title')[0]
+    .onclick = function (event) {
+      if (event.target.id === 'catalog-link') {
+        backLinkCallback()
+        console.log(10)
+      } else if (event.target.id === 'category-link') {
+        categoryLinkCallback()
+        console.log(20)
+      } else {
+        document.location = './index.html'
+
+        sessionStorage.removeItem('currentProduct')
+        sessionStorage.removeItem('filters')
+        sessionStorage.removeItem('price')
+      }
+    }
+
+  console.log(JSON.parse(sessionStorage.getItem('currentProduct')))
+
+  favoriteBtn.textContent = checkFavoriteProducts(currentProduct)
+    ? 'Видалити з бажанного'
+    : 'В бажане'
+
+  basketBtn.textContent = checkBasketProducts(currentProduct)
+    ? 'В кошику'
+    : 'Купити'
+
   setProductPageParam()
-
-  headerElems.main.onclick = closeMainCallback
-  headerElems['sign-up'].onclick = signUpCallback
-  headerElems['sign-in'].onclick = signInCallback
-  headerElems['sign-out'].onclick = signOutCallback
-  headerElems['my-account'].onclick = profileCallback
-  headerElems['favorite-products'].onclick = favoriteCallback
-  headerElems['basket-products'].onclick = basketCallback
-  headerElems['header-logo'].onclick = headerLogoClickCallback
-
-  linksElemNames.forEach(link => {
-    link === 'category-link'
-      ? linksElems[link].onclick = categoryLinkCallback
-      : linksElems[link].onclick = backLinkCallback
-  })
 
   favoriteBtn.onclick = favoriteBtnClickCallback
 

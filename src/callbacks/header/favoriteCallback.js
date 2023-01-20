@@ -1,22 +1,5 @@
-import {
-  currentUser,
-  toggleDisplayMain,
-  updateMainContent,
-} from '../../helpers'
-
-import { headerElems } from '../../configs'
-
-import {
-  favProd,
-  regForm,
-} from '../../components'
-
 export function favoriteCallback () {
-  if (!Object.keys(currentUser).length) {
-    toggleDisplayMain(true)
-    updateMainContent(headerElems.main, regForm)
-  } else {
-    toggleDisplayMain(true)
-    updateMainContent(headerElems.main, favProd)
-  }
+  sessionStorage.getItem('currentUser')
+    ? window[Symbol.for('favorite-comp')].dispatchEvent(new Event('open-favorite'))
+    : window[Symbol.for('sign-up')].dispatchEvent(new Event('open-reg-form'))
 }

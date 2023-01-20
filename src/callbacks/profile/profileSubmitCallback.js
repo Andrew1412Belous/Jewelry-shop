@@ -26,6 +26,7 @@ export function profileSubmitCallback () {
           name: this.elems['input-name'].value,
           surname: this.elems['input-surname'].value,
           patronymic: this.elems['input-patronymic'].value,
+          phone: this.elems['input-phone'].value,
         },
       })
         .then(response => {

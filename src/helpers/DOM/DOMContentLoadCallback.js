@@ -1,13 +1,9 @@
-import { changeProfileIcon } from '../header/changeProfileIcon'
-import { currentUser } from '../profile/currentUser'
-import { toggleDisplayHeaderLinks } from '../header/toggleDisplayHeaderLinks'
 import { setPageCallbacks } from './setPageCallbacks'
+import { header } from '../../components/header'
 
 export function DOMContentLoadCallback () {
-  if (sessionStorage.getItem('currentUser')) {
-    changeProfileIcon(currentUser.avatar)
-    toggleDisplayHeaderLinks(false)
-  }
+ document.getElementsByClassName('container')[0]
+    .insertBefore(header, document.getElementsByClassName('promo-wrapper')[0])
 
   setPageCallbacks(document.title)
 }

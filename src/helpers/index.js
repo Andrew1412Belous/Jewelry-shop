@@ -6,21 +6,17 @@ import { getUser } from './fetch/getUser'
 import { checkUserIsReal } from './authorizaion/checkUserIsReal'
 import { hideAuthElems } from './authorizaion/hideAuthElems'
 import { setVerifyPasswordParams } from './registration/setVerifyPasswordParams'
-import { setPictureParams } from './registration/setPictureParams'
+import { setPhoneParams } from './registration/setPhoneParams'
 import { setProfileInputParams } from './profile/setProfileInputParams'
 import { setProfileSecurityBlockParams } from './profile/setProfileSecurityInpusParams'
 import { checkProfilePatchElem } from './profile/checkProfilePatchElem'
 import { setInputMode } from './profile/setInputMode'
 import { addElem } from './DOM/addElem'
-import { getElemsByIdFromShadow } from './forComponents/getElemsByIdFromShadow'
+import { getElemsByIdFromShadow } from './components/getElemsByIdFromShadow'
 import { checkInputs } from './forInputs/checkInputs'
-import { setPasswordParams } from './forComponents/setPasswordParams'
-import { readImageFromComp } from './forComponents/readImageFromComp'
+import { setPasswordParams } from './validation/setPasswordParams'
+import { readImageFromComp } from './components/readImageFromComp'
 import { currentUser } from './profile/currentUser'
-import { toggleDisplayMain } from './mainElem/toggleDisplayMain'
-import { changeProfileIcon } from './header/changeProfileIcon'
-import { updateMainContent } from './mainElem/updateMainContent'
-import { toggleDisplayHeaderLinks } from './header/toggleDisplayHeaderLinks'
 import { toggleDisplayElems } from './DOM/toggleDisplayElems'
 import { checkCyrillicInputs } from './forInputs/checkCyrillicInputs'
 import { tabs } from './tabs/tabs'
@@ -28,7 +24,6 @@ import { tabsContent } from './tabs/tabsContent'
 import { hideTabContent } from './tabs/hideTabContent'
 import { showTabContent } from './tabs/showTabContent'
 import { mainPageCallback } from './pages/mainPageCallback'
-import { contactsPageCallback } from './pages/contactsPageCallback'
 import { getUserByEmail } from './fetch/getUserByEmail'
 import { catalogPageCallback } from './pages/catalogPageCallback'
 import { showProducts } from './catalog/showProducts'
@@ -45,7 +40,6 @@ import { sortByFilters } from './catalog/sortByFilters'
 import { sortByPrice } from './catalog/sortByPrice'
 import { sortByPriceAndFilters } from './catalog/sortByPriceAndFilters'
 import { setPageCallbacks } from './DOM/setPageCallbacks'
-import { documentKeyDownCallback } from './DOM/documentKeyDownCallback'
 import { DOMContentLoadCallback } from './DOM/DOMContentLoadCallback'
 import { windowLoadCallback } from './DOM/windowLoadCallback'
 import { getProduct } from './catalog/getProduct'
@@ -66,16 +60,12 @@ export {
   checkInputs,
   setPasswordParams,
   readImageFromComp,
-  setPictureParams,
+  setPhoneParams,
   createUser,
   currentUser,
-  toggleDisplayMain,
-  changeProfileIcon,
-  updateMainContent,
   getUser,
   checkUserIsReal,
   hideAuthElems,
-  toggleDisplayHeaderLinks,
   toggleDisplayElems,
   patchUser,
   checkCyrillicInputs,
@@ -89,7 +79,6 @@ export {
   hideTabContent,
   showTabContent,
   mainPageCallback,
-  contactsPageCallback,
   getUserByEmail,
   catalogPageCallback,
   showProducts,
@@ -106,7 +95,6 @@ export {
   sortByPrice,
   sortByPriceAndFilters,
   setPageCallbacks,
-  documentKeyDownCallback,
   DOMContentLoadCallback,
   windowLoadCallback,
   getProduct,

@@ -1,19 +1,30 @@
 export const registrationStyle = `
-      #registration-form {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        margin: 0 auto;
-        width: 360px;
-        border: solid #ddd 1px;
-        box-shadow: 4px 4px 8px #0005;
-        border-radius: 16px;
-        background: #333;
-        padding: 16px;
-      }
+    #shadow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,.6);
+    }
+
+    #registration-form {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0 auto;
+      width: 360px;
+      border: solid #ddd 1px;
+      box-shadow: 4px 4px 8px #0005;
+      border-radius: 16px;
+      background: #333;
+      padding: 16px;
+      z-index: 100;
+    }
       
-      input#login, input#password, input#verify-password {
+      input#login, input#password, input#verify-password, input#set-phone {
         font-family: 'Open Sans', sans-serif;
         padding: 8px 16px;
         font-size: 16px;
@@ -22,22 +33,27 @@ export const registrationStyle = `
         background: #333;
         color: #fff;
         display: block;
-        margin: 8px auto;
+        margin: 0 auto;
+        margin-top: 12px;
         outline-color: #aaa;
+      }
+      
+     input#set-phone {
+        display: none;
       }
 
       input[type="file"] {
         font-family: 'Open Sans', sans-serif;
         font-size: 11px;
         background: #333;
-        display: none;
+        display: block;
         margin: 8px auto 0 auto; 
         color: #fff;
       }
       
       #picture {
         width: 200px;
-        display: none;
+        display: block;
         margin: 8px auto 8px auto;
       }
 
@@ -62,7 +78,7 @@ export const registrationStyle = `
       }
 
       h5 {
-        font-family: 'Noto Serif', serif;
+        font-family: 'Open Sans', sans-serif;
         font-size: 16px;
         color: #fff;
         text-align: center;
@@ -97,4 +113,17 @@ export const registrationStyle = `
         background-color: transparent;
         cursor: pointer;
       }
+      
+   #reg-link, #avatar-text {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      display: block;
+      margin: 15px auto 0 auto;
+      color: #ddd;
+      text-align: center;
+    }
+    
+    #set-avatar {
+      display: none;
+    }
   `

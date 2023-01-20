@@ -1,0 +1,12 @@
+body {
+    background-color: #000;
+    font-family: monospace, Arial;
+    font-size: 16px;
+    color: #9ab;
+}
+
+div {
+    width: 200px;
+    height: 200px;
+    background-image: url('../img/bgc.jpg');
+}

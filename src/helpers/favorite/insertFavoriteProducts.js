@@ -18,7 +18,7 @@ export function insertFavoriteProducts (container) {
                 <div class="favorite-product-text-wrapper">
                     <div class="product-type">${product.type}</div>
                     <div class="product-brand-name">${product.brand}</div>
-                    <div class="favorite-product-price">${product.price.toLocaleString('ru-RU')} ₴</div>
+                    <div class="favorite-product-price product-price">${product.price.toLocaleString('ru-RU')} ₴</div>
                 </div>
             </div>
             <div class="favorite-product-btns-wrapper">

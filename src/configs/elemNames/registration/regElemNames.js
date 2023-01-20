@@ -9,4 +9,8 @@ export const regElemNames = [
   'verify-password',
   'password-message',
   'close-btn',
+  'reg-link',
+  'set-avatar',
+  'set-phone',
+  'shadow',
 ]

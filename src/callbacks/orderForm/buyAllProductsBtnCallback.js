@@ -2,7 +2,7 @@ import { currentUser, putUser } from '../../helpers'
 import { orderHistoryProducts } from '../../helpers/orderForm/orderHistoryProducts'
 import { basketProducts } from '../../helpers/basket/basketProducts'
 import { checkCorrectInput } from '../../helpers/orderForm/checkCorrectInput'
-import { stringWithoutSpacesRegExp } from '../../configs/regExp/stringWithoutSpacesRegExp'
+import { stringWithoutSpacesRegExp } from '../../configs/validation/stringWithoutSpacesValidation'
 
 export function buyAllProductsBtnCallback (event) {
   const test = checkCorrectInput(this.elems)

@@ -2,11 +2,10 @@ import {
   addElem, checkBasketProducts,
   getElemsByIdFromShadow, getProduct,
   insertFavoriteProducts,
-  toggleDisplayMain,
 } from '../helpers'
 
 import { favoriteStyle, favoriteTemplate } from '../templates'
-import { favoriteElemNames, headerElems, products } from '../configs'
+import { favoriteElemNames, products } from '../configs'
 
 import {
   favoriteAddToBasketCallback,
@@ -17,6 +16,8 @@ import {
 import { favoriteProducts } from '../helpers/favorite/favoriteProducts'
 import { checkFavoriteProducts } from '../helpers/favorite/checkFavoriteProducts'
 import { currentProduct } from '../helpers/productPage/currentProduct'
+import { hideComponentCallback } from '../callbacks/components/hideComponentCallback'
+import { hideFavoriteComp } from '../callbacks/components/hideFavoriteComp'
 
 class FavoriteComp extends HTMLElement {
   constructor() {
@@ -32,29 +33,37 @@ class FavoriteComp extends HTMLElement {
     this.addElems = getElemsByIdFromShadow
   }
 
+  static get observedAttributes() {
+    return ['type', 'img', 'price', 'brand']
+  }
+
   connectedCallback () {
-    insertFavoriteProducts(this.section)
+    this.section.style.display = 'none'
 
-    this.elems = this.addElems(favoriteElemNames)
+    this.addEventListener('open-favorite', () => {
+      this.section.style.display = 'block'
 
-    this.elems['close-btn'].onclick = function () {
-      toggleDisplayMain(false)
-      headerElems.main.innerHTML = ''
-    }
+      insertFavoriteProducts.bind(this, this.section)()
+      this.elems = this.addElems(favoriteElemNames)
 
-    this.elems['back-btn'].onclick = favoriteBackBtnCallback.bind(this)
+      this.elems['close-btn'].onclick = hideFavoriteComp.bind(this, favoriteTemplate)
 
-    this.elems['favorite-section'].querySelectorAll('#delete-favorite')
-      .forEach(btn => {
-        btn.onclick = favoriteDeleteProductCallback.bind(this)
-      })
+      this.elems['back-btn'].onclick = favoriteBackBtnCallback.bind(this)
 
-    this.elems['favorite-section'].querySelectorAll('#add-basket-btn')
-      .forEach((btn, index) => {
-        checkBasketProducts(btn, favoriteProducts[index], 'favorite')
+      this.elems['favorite-section'].querySelectorAll('#delete-favorite')
+        .forEach((btn, index) => {
+          btn.onclick = favoriteDeleteProductCallback.bind(this, index)
+        })
 
-        btn.onclick = favoriteAddToBasketCallback.bind(this)
-      })
+      this.elems['favorite-section'].querySelectorAll('#add-basket-btn')
+        .forEach((btn, index) => {
+          if (checkBasketProducts(favoriteProducts[index])) {
+            btn.textContent = 'В кошику'
+          }
+
+          btn.onclick = favoriteAddToBasketCallback.bind(this, index)
+        })
+    })
   }
 
   disconnectedCallback () {
@@ -80,3 +89,4 @@ class FavoriteComp extends HTMLElement {
 customElements.define('favorite-products', FavoriteComp)
 
 export const favProd = document.createElement('favorite-products')
+favProd.setAttribute('type', `${Number(110000).toLocaleString('ru-RU')} ₴`)

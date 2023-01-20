@@ -5,13 +5,45 @@ import {
 
 export function newEmailBtnCallback () {
   Object.assign( this.elems['security-message'], {
-    innerText: '',
+    innerText: 'Введіть PIN з СМС',
     style: `
       color: #fff;
     `,
   })
 
-  setProfileSecurityBlockParams.call(this, 'Новий email', 'Встановити email', currentUser.email ? currentUser.email : '')
+  this.elems['security-verify-block'].style.display = 'block'
+  this.elems['security-block'].style.display = 'none'
+  this.elems['input-verify'].value = ''
 
-  toggleDisplayElems([this.elems['security-block'], this.elems['input-security']], true)
+  const pin = Math.round(Math.random() * 100000)
+
+  // sendSMS(pin, currentUser.phone)
+
+  console.log(pin)
+
+  this.elems['verify-submit-btn'].onclick = function () {
+    if (Number(this.elems['input-verify'].value) === pin) {
+      Object.assign( this.elems['security-message'], {
+        innerText: '',
+        style: `
+      color: #fff;
+    `,
+      })
+
+      setProfileSecurityBlockParams.call(this, 'Новий email', 'Встановити email', currentUser.email ? currentUser.email : '')
+
+      this.elems['security-verify-block'].style.display = 'none'
+      toggleDisplayElems([this.elems['security-block']], true)
+    } else {
+      Object.assign(this.elems['security-message'], {
+        innerText: 'Невірний PIN',
+        style: `
+          color: #ea3838;
+        `,
+      })
+
+      setTimeout(() => this.elems['security-message'].innerText = '', 1000)
+      this.elems['security-verify-block'].style.display = 'none'
+    }
+  }.bind(this)
 }

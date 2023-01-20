@@ -1,12 +1,11 @@
 import sha256 from 'sha256'
 
 import {
-  changeProfileIcon,
   checkInputs,
   checkUserIsReal,
   currentUser,
   getUser, getUserByEmail,
-  hideAuthElems, toggleDisplayHeaderLinks,
+  hideAuthElems,
 } from '../../helpers'
 
 import { emailRRegExp } from '../../configs'
@@ -14,6 +13,7 @@ import { defaultPicture } from '../../assets'
 import {setFavoriteProducts} from '../../helpers/authorizaion/setFavoriteProducts'
 import { setBasketProducts } from '../../helpers/basket/setBasketProducts'
 import { setOrderHistoryProducts } from '../../helpers/orderForm/setOrderHistoryProducts'
+import { header } from '../../components/header'
 
 export function authorizationSubmitCallback () {
   const test = checkInputs([this.elems.login, this.elems.password])
@@ -38,11 +38,10 @@ export function authorizationSubmitCallback () {
           setBasketProducts(currentUser)
           setOrderHistoryProducts(currentUser)
 
-          changeProfileIcon(currentUser.avatar)
+          header.setAttribute('entered', 'true')
         })
 
       hideAuthElems.call(this)
-      toggleDisplayHeaderLinks(false)
     } else if (this.elems.login.value.match(emailRRegExp)) {
       getUserByEmail(this.elems.login.value)
         .then(response => {
@@ -61,10 +60,8 @@ export function authorizationSubmitCallback () {
             setBasketProducts(currentUser)
             setOrderHistoryProducts(currentUser)
 
-            changeProfileIcon(currentUser.avatar)
-
             hideAuthElems.call(this)
-            toggleDisplayHeaderLinks(false)
+            header.setAttribute('entered', 'true')
           } else {
             this.elems.message.innerText = 'Неправильний логін або пароль!'
           }

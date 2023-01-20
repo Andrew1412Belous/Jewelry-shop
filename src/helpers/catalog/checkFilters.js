@@ -1,6 +1,5 @@
 import {
   filterElems, priceElems,
-  products,
 } from '../../configs'
 
 import { setFiltersParam } from './setFiltersParam'
@@ -8,17 +7,13 @@ import { sortByFilters } from './sortByFilters'
 import { showProducts } from './showProducts'
 import { sortByPriceAndFilters } from './sortByPriceAndFilters'
 
-export function checkFilters () {
+export function checkFilters (products, btn) {
   if (sessionStorage.getItem('filters')) {
     const result = []
-
-    console.log(JSON.parse(sessionStorage.getItem('filters')))
 
     JSON.parse(sessionStorage.getItem('filters'))
       .forEach(category => category
         .forEach(filter => result.push(filter)))
-
-    console.log(filterElems)
 
     filterElems
       .forEach((category, index) => {
@@ -29,8 +24,6 @@ export function checkFilters () {
         })
       })
 
-    console.log(result)
-
     const filters = setFiltersParam()
 
     if (sessionStorage.getItem('price')) {
@@ -39,11 +32,11 @@ export function checkFilters () {
       priceElems['price-from'].value = prices[0]
       priceElems['price-to'].value = prices[1]
 
-      sortByPriceAndFilters(filters)
+      sortByPriceAndFilters(filters, products)
     } else {
-      sortByFilters(filters)
+      sortByFilters(filters, products, btn)
     }
   } else {
-    showProducts(products)
+    showProducts(products, btn)
   }
 }

@@ -1,6 +1,16 @@
 export const authorizationStyle = `
+  #shadow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,.6);
+    }
+
     #authorization-form {
-      position: absolute;
+      position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -11,6 +21,7 @@ export const authorizationStyle = `
       border-radius: 16px;
       background: #333;
       padding: 16px;
+      z-index: 100;
     }
     
     input#login, input#password {
@@ -53,7 +64,7 @@ export const authorizationStyle = `
       }
 
     h5 {
-      font-family: 'Noto Serif', serif;
+      font-family: 'Open Sans', sans-serif;
       font-size: 16px;
       color: #fff;
       text-align: center;
@@ -65,6 +76,7 @@ export const authorizationStyle = `
       font-family: 'Open Sans', sans-serif;
       margin: 16px 0 16px 0;
       color: #fff;
+      font-size: 16px;
     }
     
     #close-btn {
@@ -79,5 +91,14 @@ export const authorizationStyle = `
         border: none;
         background-color: transparent;
         cursor: pointer;
+    }
+    
+    #auth-link {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      display: block;
+      margin: 15px auto 0 auto;
+      color: #ddd;
+      text-align: center;
     }
 `

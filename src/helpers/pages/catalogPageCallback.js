@@ -1,51 +1,54 @@
 import {
-  headerElems,
   filterButtons,
   filterBtnsElemNames,
   filterShowBtns,
   filtersShowButtonNames,
   filterClearButtonNames,
-  products,
   filterClearBtns,
   priceElemNames,
-  priceElems, filteredProducts,
+  priceElems,
 } from '../../configs'
 
 import {
-  basketCallback,
-  closeMainCallback, favoriteCallback,
   filterButtonCallback,
   filterClearBtnCallback,
   filterPriceInputCallback,
-  filterShowBtnCallback, headerLogoClickCallback,
-  profileCallback,
+  filterShowBtnCallback,
   showMoreProductsBtnCallback,
-  signInCallback,
-  signOutCallback,
-  signUpCallback,
 } from '../../callbacks'
 
-import { getProduct } from '../catalog/getProduct'
-import { checkFilters } from '../catalog/checkFilters'
-import { currentUser } from '../profile/currentUser'
-import { toggleDisplayMain } from '../mainElem/toggleDisplayMain'
-import { updateMainContent } from '../mainElem/updateMainContent'
-import { regForm } from '../../components'
 import { checkFavoriteProducts } from '../favorite/checkFavoriteProducts'
-import { addToFavorite } from '../favorite/addToFavorite'
 import { checkBasketProducts } from '../basket/checkBasketProducts'
+import { getAllProducts } from '../fetch/getAllProducts'
+import { ProductCard } from '../../components/catalog/productCard'
+import { checkFilters } from '../catalog/checkFilters'
 
-export function catalogPageCallback () {
-  checkFilters()
+export async function catalogPageCallback () {
+  const showMoreBtn = document.getElementById('show-more-btn')
+  const wrapper = document.querySelector('.products-wrapper')
+  const products = []
 
-  headerElems.main.onclick = closeMainCallback
-  headerElems['sign-up'].onclick = signUpCallback
-  headerElems['sign-in'].onclick = signInCallback
-  headerElems['sign-out'].onclick = signOutCallback
-  headerElems['my-account'].onclick = profileCallback
-  headerElems['favorite-products'].onclick = favoriteCallback
-  headerElems['basket-products'].onclick = basketCallback
-  headerElems['header-logo'].onclick = headerLogoClickCallback
+  await getAllProducts()
+    .then(response => {
+      for (let i = 0; i < response.length; i++) {
+        const product = new ProductCard(response[i])
+
+        wrapper.appendChild(product)
+
+        product.setAttribute('favorite', checkFavoriteProducts(response[i]))
+        product.setAttribute('basket', checkBasketProducts(response[i]))
+        product.setAttribute('data-price', response[i].price)
+
+        products.push(product)
+      }
+
+      sessionStorage.setItem('products', JSON.stringify(products))
+    })
+
+  checkFilters(products, showMoreBtn)
+
+  window[Symbol.for('catalog-products')] = document
+    .querySelectorAll('product-card')
 
   priceElemNames.forEach(input => {
     priceElems[input].oninput = filterPriceInputCallback
@@ -57,7 +60,7 @@ export function catalogPageCallback () {
 
   filtersShowButtonNames
     .forEach(button => {
-      filterShowBtns[button].onclick = filterShowBtnCallback
+      filterShowBtns[button].onclick = filterShowBtnCallback.bind(this, products, showMoreBtn)
     })
 
   filterClearButtonNames
@@ -65,36 +68,5 @@ export function catalogPageCallback () {
       filterClearBtns[button].onclick = filterClearBtnCallback
     })
 
-  document.querySelectorAll('.product-favorite')
-    .forEach((btn, index) => {
-      checkFavoriteProducts(btn, getProduct(products[index]), 'catalog-page')
-
-      btn.onclick = function (event) {
-        event.preventDefault()
-
-        if (!Object.keys(currentUser).length) {
-          toggleDisplayMain(true)
-          updateMainContent(headerElems.main, regForm)
-        } else {
-          addToFavorite(getProduct(products[index]))
-
-          btn.style.display = 'none'
-        }
-      }
-    })
-
-  document.getElementById('show-more-btn').onclick = showMoreProductsBtnCallback
-
-  document.querySelectorAll('.product-btn')
-    .forEach((btn, index) => {
-      btn.textContent = `${getProduct(products[index]).price.toLocaleString('ru-RU')} ₴`
-
-      checkBasketProducts(btn, getProduct(products[index]), 'catalog-page')
-
-      btn.onclick = function () {
-        sessionStorage.setItem('currentProduct', JSON.stringify(getProduct(products[index])))
-
-        document.location.href = './product-page.html'
-      }
-    })
+  document.getElementById('show-more-btn').onclick = showMoreProductsBtnCallback.bind(this, products)
 }

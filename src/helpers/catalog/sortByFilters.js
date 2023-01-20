@@ -2,13 +2,12 @@ import { hideProducts } from './hideProducts'
 
 import {
   filteredProducts,
-  products,
 } from '../../configs'
 
 import { showProducts } from './showProducts'
 
-export function sortByFilters (filters) {
-  hideProducts()
+export function sortByFilters (filters, products, btn) {
+  hideProducts(products)
 
   for (let i = 0; i < products.length; i++) {
     const test = filters
@@ -16,10 +15,9 @@ export function sortByFilters (filters) {
         .some(filter => products[i].classList.contains(filter)))
 
     if (test) {
-      console.log(products[i])
       filteredProducts.push(products[i])
     }
   }
 
-  showProducts(filteredProducts)
+  showProducts(filteredProducts, btn)
 }

@@ -12,10 +12,9 @@ import {
   filterBlocks,
   filteredProducts,
   priceElems,
-  products,
 } from '../../configs'
 
-export function filterShowBtnCallback (event) {
+export function filterShowBtnCallback (products, btn, event) {
   filteredProducts.splice(0, filteredProducts.length)
 
   document.getElementById('product-message').innerText = ''
@@ -28,14 +27,17 @@ export function filterShowBtnCallback (event) {
   console.log(filters)
 
   if (test && !priceIndicated) {
-    sortByFilters(filters)
+    sortByFilters(filters, products, btn)
+    console.log(20)
   } else if (priceIndicated && !filters.length) {
-    sortByPrice()
+    console.log(20)
+    sortByPrice(products, btn)
   } else if (test && priceIndicated) {
-    sortByPriceAndFilters(filters)
+    console.log(30)
+    sortByPriceAndFilters(filters, products, btn)
   } else {
-    hideProducts()
-    showProducts(products)
+    hideProducts(products)
+    showProducts(products, btn)
   }
 
   filterBlocks[`${listName}-block`].classList.toggle('filter-list-hide')

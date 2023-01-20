@@ -15,6 +15,7 @@ import {
   setCyrillicInputParamsCallback,
   telInputCallback,
 } from '../callbacks'
+
 import { addressInputCallback } from '../callbacks/orderForm/addressInputCallback'
 import { insertOrderProducts } from '../helpers/orderForm/insertOrderProducts'
 import { buyAllProductsBtnCallback } from '../callbacks/orderForm/buyAllProductsBtnCallback'
@@ -29,14 +30,16 @@ class OrderForm extends HTMLElement {
     this.section = Object.assign(addElem('section', this.shadow), {
       id: 'order-section',
     })
-    Object.assign(addElem('style', this.shadow), {
-      textContent: orderStyle,
-    })
+    // Object.assign(addElem('style', this.shadow), {
+    //   textContent: orderStyle,
+    // })
     this.section.innerHTML = orderTemplate
     this.addElems = getElemsByIdFromShadow
   }
 
   connectedCallback () {
+    this.section.style.display = 'none'
+
     insertOrderProducts(this.section)
 
     this.elems = this.addElems(orderFormElemNames)

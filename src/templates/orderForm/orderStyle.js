@@ -30,7 +30,7 @@ export const orderStyle = `
   }
   
   .order-check {
-    font-family: 'Noto Serif', serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 20px;
     color: #fff;
     text-align: left;

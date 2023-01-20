@@ -2,14 +2,13 @@ import { hideProducts } from './hideProducts'
 
 import {
   filteredProducts,
-  products,
 } from '../../configs'
 
 import { showProducts } from './showProducts'
 import { setPriceFilter } from './setPriceFilter'
 
-export function sortByPrice () {
-  hideProducts()
+export function sortByPrice (products, btn) {
+  hideProducts(products)
 
   for (let i = 0; i < products.length; i++) {
     const test = setPriceFilter(products[i])
@@ -19,5 +18,5 @@ export function sortByPrice () {
     }
   }
 
-  showProducts(filteredProducts)
+  showProducts(filteredProducts, btn)
 }

@@ -7,6 +7,10 @@ export function setFormParams (elems) {
     elems['input-patronymic'].value = currentUser.personalInfo.patronymic
   }
 
+  if (currentUser.phone) {
+    elems['input-tel'].value = currentUser.phone
+  }
+
   elems['payment-form'].style.display = elems.live.checked
     ? 'none'
     : 'flex'

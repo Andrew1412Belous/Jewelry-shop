@@ -6,4 +6,6 @@ export const authElemNames = [
   'message',
   'picture',
   'close-btn',
+  'auth-link',
+  'shadow',
 ]

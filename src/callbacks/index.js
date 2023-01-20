@@ -50,6 +50,7 @@ import { cardNumberInputCallback } from './orderForm/cardNumberInputCallback'
 import { cardNameInputCallback } from './orderForm/cardNameInputCallback'
 import { cardDateInputCallback } from './orderForm/cardDateInputCallback'
 import { cardCvvInputCallback } from './orderForm/cardCvvInputCallback'
+import { resetPhoneBtnCallback } from './profile/resetPhoneBtnCallback'
 
 export {
   registrationPasswordCallback,
@@ -104,4 +105,5 @@ export {
   cardNameInputCallback,
   cardDateInputCallback,
   cardCvvInputCallback,
+  resetPhoneBtnCallback,
 }

@@ -4,6 +4,8 @@ import {
 } from '../../configs'
 
 export function filterButtonCallback (event) {
+  console.log(event.target)
+
   const blockName = event.target.id.split('-')[0]
 
   filterBlocksNames.forEach(filter => {

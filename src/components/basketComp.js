@@ -12,6 +12,7 @@ import {
   buyProductsCallback,
   showProductPageCallback
 } from '../callbacks'
+import { hideComponentCallback } from '../callbacks/components/hideComponentCallback'
 
 class BasketComp extends HTMLElement {
   constructor() {
@@ -28,36 +29,39 @@ class BasketComp extends HTMLElement {
   }
 
   connectedCallback () {
-    insertBasketProducts(this.section)
+    this.section.style.display = 'none'
 
-    this.elems = this.addElems(basketElemNames)
+    this.addEventListener('open-basket', () => {
+      this.section.style.display = 'block'
 
-    this.elems['close-btn'].onclick = function () {
-      toggleDisplayMain(false)
-      headerElems.main.innerHTML = ''
-    }
+      insertBasketProducts(this.section)
 
-    this.elems['basket-section'].querySelectorAll('#delete-basket-product-btn')
-      .forEach(btn => btn.onclick = basketDeleteProductCallback.bind(this))
+      this.elems = this.addElems(basketElemNames)
 
-    if (basketProducts.length) {
-      this.elems['buy-all-products-btn'].onclick = buyProductsCallback.bind(this)
-    }
+      this.elems['close-btn'].onclick = hideComponentCallback.bind(this, basketTemplate)
 
-    this.elems['basket-section'].querySelectorAll('#show-product-page-btn')
-      .forEach(btn => btn.onclick = showProductPageCallback.bind(this))
+      this.elems['basket-section'].querySelectorAll('#delete-basket-product-btn')
+        .forEach(btn => btn.onclick = basketDeleteProductCallback.bind(this))
 
-    this.elems['basket-section'].querySelectorAll('#basket-decr')
-      .forEach(btn => {
-        if (this.elems['basket-count'].textContent === '1') {
-          btn.disabled = true
-        }
+      if (basketProducts.length) {
+        this.elems['buy-all-products-btn'].onclick = buyProductsCallback.bind(this)
+      }
 
-        btn.onclick = basketDecrBtnCallback.bind(this)
-      })
+      this.elems['basket-section'].querySelectorAll('#show-product-page-btn')
+        .forEach(btn => btn.onclick = showProductPageCallback.bind(this))
 
-    this.elems['basket-section'].querySelectorAll('#basket-incr')
-      .forEach(btn => btn.onclick = basketIncrBtnCallback.bind(this))
+      this.elems['basket-section'].querySelectorAll('#basket-decr')
+        .forEach(btn => {
+          if (this.elems['basket-count'].textContent === '1') {
+            btn.disabled = true
+          }
+
+          btn.onclick = basketDecrBtnCallback.bind(this)
+        })
+
+      this.elems['basket-section'].querySelectorAll('#basket-incr')
+        .forEach(btn => btn.onclick = basketIncrBtnCallback.bind(this))
+    })
   }
 
   disconnectedCallback () {

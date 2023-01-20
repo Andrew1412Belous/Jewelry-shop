@@ -3,7 +3,6 @@ import {
   currentUser,
   getElemsByIdFromShadow,
   readImageFromComp,
-  toggleDisplayMain, updateMainContent,
 } from '../helpers'
 
 import {
@@ -24,17 +23,17 @@ import {
   profileSecuritySubmitCallback,
   profileSettingCallback,
   profileSignOutCallback,
-  profileSubmitCallback, securityInputCallback,
+  profileSubmitCallback, resetPhoneBtnCallback, securityInputCallback,
   securitySettingsBtn,
 } from '../callbacks'
-import { favProd } from './favoriteComp'
+
 import { profileOrderHistoryCallback } from '../callbacks/profile/profileOrderHistoryCallback'
 
 class MyProfile extends HTMLElement {
   constructor() {
     super()
     this.shadow = this.attachShadow({ mode: 'closed' })
-    this.section = Object.assign(addElem('header', this.shadow), {
+    this.section = Object.assign(addElem('section', this.shadow), {
       id: 'profile-form',
     })
     Object.assign(addElem('style', this.shadow), {
@@ -45,43 +44,47 @@ class MyProfile extends HTMLElement {
   }
 
   connectedCallback () {
-    this.elems = this.addElems(myProfileElemNames)
+    this.section.style.display = 'none'
 
-    // First page
-    this.elems.login.innerText = currentUser.login
-    this.elems.avatar.src = currentUser.avatar || defaultPicture
-    this.elems.picture.src = currentUser.avatar || defaultPicture
-    this.elems['back-btn'].onclick = backBtnCallback.bind(this)
-    this.elems['profile-favorite'].onclick = function () {
-      updateMainContent(headerElems.main, favProd)
-    }
+    this.addEventListener('open-profile', () => {
+      this.section.style.display = 'block'
 
-    this.elems['profile-purchase-history'].onclick = profileOrderHistoryCallback.bind(this)
-    this.elems['profile-settings'].onclick = profileSettingCallback.bind(this)
-    this.elems['profile-sign-out'].onclick = profileSignOutCallback.bind(this)
-    this.elems['close-btn'].onclick = function () {
-      toggleDisplayMain(false)
-      headerElems.main.innerHTML = ''
-    }
+      this.elems = this.addElems(myProfileElemNames)
 
-    this.elems['personal-data-btn'].onclick = personalDataBtn.bind(this)
-    this.elems['security-settings-btn'].onclick = securitySettingsBtn.bind(this)
+      // First page
+      this.elems.login.innerText = currentUser.login
+      this.elems.avatar.src = currentUser.avatar || defaultPicture
+      this.elems.picture.src = currentUser.avatar || defaultPicture
+      this.elems['back-btn'].onclick = backBtnCallback.bind(this)
+      this.elems['profile-favorite'].onclick = function () {}
 
-    if (currentUser.personalInfo) {
-      this.elems['input-name'].value = currentUser.personalInfo.name
-      this.elems['input-surname'].value = currentUser.personalInfo.surname
-      this.elems['input-patronymic'].value = currentUser.personalInfo.patronymic
-    }
+      this.elems['profile-purchase-history'].onclick = profileOrderHistoryCallback.bind(this)
+      this.elems['profile-settings'].onclick = profileSettingCallback.bind(this)
+      this.elems['profile-sign-out'].onclick = profileSignOutCallback.bind(this)
+      this.elems['close-btn'].onclick = function () {}
 
-    this.elems['input-file'].onchange = readImageFromComp.bind(this)
-    this.elems['profile-submit-btn'].onclick = profileSubmitCallback.bind(this)
+      this.elems['personal-data-btn'].onclick = personalDataBtn.bind(this)
+      this.elems['security-settings-btn'].onclick = securitySettingsBtn.bind(this)
 
-    this.elems['new-email-btn'].onclick = newEmailBtnCallback.bind(this)
-    this.elems['new-login-btn'].onclick = newLoginBtnCallback.bind(this)
-    this.elems['new-password-btn'].onclick = newPasswordBtnCallback.bind(this)
-    this.elems['delete-profile-btn'].onclick = deleteProfileBtnCallback.bind(this)
-    this.elems['input-security'].oninput = securityInputCallback.bind(this)
-    this.elems['profile-security-submit-btn'].onclick = profileSecuritySubmitCallback.bind(this)
+      if (currentUser.personalInfo) {
+        this.elems['input-name'].value = currentUser.personalInfo.name
+        this.elems['input-surname'].value = currentUser.personalInfo.surname
+        this.elems['input-patronymic'].value = currentUser.personalInfo.patronymic
+      }
+
+      this.elems['input-file'].onchange = readImageFromComp.bind(this)
+      this.elems['profile-submit-btn'].onclick = profileSubmitCallback.bind(this)
+
+      this.elems['input-phone'].value = currentUser.phone
+      this.elems['reset-phone-btn'].onclick = resetPhoneBtnCallback.bind(this)
+
+      this.elems['new-email-btn'].onclick = newEmailBtnCallback.bind(this)
+      this.elems['new-login-btn'].onclick = newLoginBtnCallback.bind(this)
+      this.elems['new-password-btn'].onclick = newPasswordBtnCallback.bind(this)
+      this.elems['delete-profile-btn'].onclick = deleteProfileBtnCallback.bind(this)
+      this.elems['input-security'].oninput = securityInputCallback.bind(this)
+      this.elems['profile-security-submit-btn'].onclick = profileSecuritySubmitCallback.bind(this)
+    })
   }
 
   disconnectedCallback () {

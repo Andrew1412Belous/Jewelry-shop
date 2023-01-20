@@ -9,13 +9,13 @@ export function favoriteBtnClickCallback (event) {
   if (!Object.keys(currentUser).length) {
     toggleDisplayMain(true)
     updateMainContent(headerElems.main, regForm)
-  } else if (event.target.textContent === 'Додати в бажане') {
+  } else if (event.target.textContent === 'В бажане') {
     addToFavorite(currentProduct)
 
     event.target.textContent = 'Видалити з бажаного'
   } else {
     deleteFromFavorite(currentProduct)
 
-    event.target.textContent = 'Додати в бажане'
+    event.target.textContent = 'В бажане'
   }
 }

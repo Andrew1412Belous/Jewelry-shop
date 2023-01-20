@@ -8,12 +8,14 @@ import {
   toggleDisplayMain,
 } from '../../helpers'
 
-import {
-  defaultPicture,
-} from '../../assets'
+import { header } from '../../components/header'
+import { hideComponentCallback } from '../components/hideComponentCallback'
+import { registrationTemplate } from '../../templates'
+
+const defaultPicture = require('../../assets/defaultPicture')
 
 export function registrationSubmitCallback () {
-  const test = checkInputs([this.elems.login, this.elems.password, this.elems['verify-password']])
+  const test = checkInputs([this.elems.login, this.elems.password, this.elems['verify-password'], this.elems['set-phone']])
     && this.elems.password.value === this.elems['verify-password'].value
 
   const password = sha256(this.elems['verify-password'].value)
@@ -31,6 +33,9 @@ export function registrationSubmitCallback () {
       login: this.elems.login.value,
       password,
       avatar: this.elems.picture.src || defaultPicture,
+      phone: this.elems['set-phone'].value.indexOf('+380')
+        ? `+38${this.elems['set-phone'].value}`
+        : this.elems['set-phone'].value,
     })
       .then(response => {
         Object.assign(currentUser, response)
@@ -38,9 +43,8 @@ export function registrationSubmitCallback () {
         sessionStorage.setItem('currentUser', JSON.stringify(currentUser))
         localStorage.setItem(response.login, password)
 
-        toggleDisplayMain(false)
-        toggleDisplayHeaderLinks(false)
-        changeProfileIcon(response.avatar)
+        header.setAttribute('entered', 'true')
+        hideComponentCallback.bind(this, registrationTemplate)()
       })
   } else {
     this.elems.message.innerText = 'Заповніть усі поля правильно!'
