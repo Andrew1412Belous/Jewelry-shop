@@ -1,18 +1,8 @@
-import {
-  isInputEmpty,
-  hideProducts,
-  setFiltersParam,
-  showProducts,
-  sortByFilters,
-  sortByPrice,
-  sortByPriceAndFilters, checkInputsEquality, setPriceInputsParams,
-} from '../../../helpers'
-
-import {
-  filterBlocks,
-  filteredProducts,
-  priceElems,
-} from '../../../configs'
+const filteredProducts = require('../../../configs/pages/catalogPage/filteredProducts').filteredProducts
+const filterBlocksElems = require('../../../configs/pages/catalogPage/filterBlocks').blocksElems
+const priceElems = require('../../../configs/pages/catalogPage/prices').priceElems
+const setPriceInputsParams = require('../../../helpers/pages/catalogPage/setPriceInputsParams')
+  .setPriceInputsParams
 
 export function filterShowBtnCallback (products, btn, event) {
   filteredProducts.splice(0, filteredProducts.length)
@@ -20,40 +10,48 @@ export function filterShowBtnCallback (products, btn, event) {
   document.getElementById('product-message').innerText = ''
 
   const listName = event.target.id.split('-')[0]
-  const priceIndicated = isInputEmpty([priceElems['price-to'], priceElems['price-from']])
-  const priceCorrect = checkInputsEquality(priceElems['price-from'], priceElems['price-to'])
-  const filters = setFiltersParam()
+
+  const priceIndicated = require('../../../helpers/validation/forInputs/isInputEmpty')
+    .isInputEmpty([priceElems['price-to'], priceElems['price-from']])
+
+  const priceCorrect = require('../../../helpers/validation/forInputs/checkInputsEquality')
+    .checkInputsEquality(priceElems['price-from'], priceElems['price-to'])
+
+  const filters = require('../../../helpers/pages/catalogPage/setFiltersParam').setFiltersParam()
 
   if (!priceCorrect) {
     setPriceInputsParams([priceElems['price-to'], priceElems['price-from']], '#ea3838')
 
     if (listName !== 'price') {
-      filterBlocks[`${listName}-block`].classList.add('filter-list-hide')
-      filterBlocks[`${listName}-block`].classList.remove('filter-list-show')
+      filterBlocksElems[`${listName}-block`].classList.add('filter-list-hide')
+      filterBlocksElems[`${listName}-block`].classList.remove('filter-list-show')
 
-      filterBlocks['price-block'].classList.toggle('filter-list-hide')
-      filterBlocks['price-block'].classList.toggle('filter-list-show')
+      filterBlocksElems['price-block'].classList.toggle('filter-list-hide')
+      filterBlocksElems['price-block'].classList.toggle('filter-list-show')
     }
   } else {
     const test = filters.some(category => category.length)
 
     if (test && !priceIndicated) {
-      sortByFilters(filters, products, btn)
+      require('../../../helpers/pages/catalogPage/sortByFilters')
+        .sortByFilters(filters, products, btn)
     } else if (priceIndicated && !filters.length) {
       setPriceInputsParams([priceElems['price-to'], priceElems['price-from']], '#50a450')
 
-      sortByPrice(products, btn)
+      require('../../../helpers/pages/catalogPage/sortByPrice')
+        .sortByPrice(products, btn)
     } else if (test && priceIndicated) {
       setPriceInputsParams([priceElems['price-to'], priceElems['price-from']], '#50a450')
 
-      sortByPriceAndFilters(filters, products, btn)
+      require('../../../helpers/pages/catalogPage/sortByPriceAndFilters')
+        .sortByPriceAndFilters(filters, products, btn)
     } else {
-      hideProducts(products)
-      showProducts(products, btn)
+      require('../../../helpers/pages/catalogPage/hideProducts').hideProducts(products)
+      require('../../../helpers/pages/catalogPage/showProducts').showProducts(products, btn)
     }
 
-    filterBlocks[`${listName}-block`].classList.toggle('filter-list-hide')
-    filterBlocks[`${listName}-block`].classList.toggle('filter-list-show')
+    filterBlocksElems[`${listName}-block`].classList.toggle('filter-list-hide')
+    filterBlocksElems[`${listName}-block`].classList.toggle('filter-list-show')
 
     test
       ? sessionStorage.setItem('filters', JSON.stringify(filters

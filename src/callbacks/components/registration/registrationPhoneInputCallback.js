@@ -1,7 +1,5 @@
-import { telRegExp } from '../../../configs'
-
 export function registrationPhoneInputCallback (event) {
-  const test = event.target.value.match(telRegExp)
+  const test = event.target.value.match(require('../../../configs/validation/telValidation').telValidation)
 
   if (test) {
     event.target.style.color = '#50a450'

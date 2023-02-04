@@ -1,21 +1,33 @@
-import { currentUser, toggleDisplayMain, updateMainContent } from '../../../helpers'
-import { headerElems } from '../../../configs'
-import { regForm } from '../../../components'
+import { currentUser } from '../../../helpers'
 import { addToFavorite } from '../../../helpers/components/favorite/addToFavorite'
 import { currentProduct } from '../../../helpers/pages/productPage/currentProduct'
 import { deleteFromFavorite } from '../../../helpers/components/favorite/deleteFromFavorite'
 
 export function favoriteBtnClickCallback (event) {
-  if (!Object.keys(currentUser).length) {
-    toggleDisplayMain(true)
-    updateMainContent(headerElems.main, regForm)
-  } else if (event.target.textContent === 'В бажане') {
-    addToFavorite(currentProduct)
+  console.log(event)
+  console.log(!!sessionStorage.getItem('currentUser'))
+  if (sessionStorage.getItem('currentUser')) {
+    if (event.target.textContent === 'В бажане') {
+      addToFavorite(currentProduct)
 
-    event.target.textContent = 'Видалити з бажаного'
+      event.target.textContent = 'Видалити з бажаного'
+    } else {
+      deleteFromFavorite(currentProduct)
+
+      event.target.textContent = 'В бажане'
+    }
   } else {
-    deleteFromFavorite(currentProduct)
-
-    event.target.textContent = 'В бажане'
+    require('../../components/header/signUpCallback').signUpCallback()
   }
+
+  // if (!Object.keys(currentUser).length) {
+  // } else if (event.target.textContent === 'В бажане') {
+  //   addToFavorite(currentProduct)
+  //
+  //   event.target.textContent = 'Видалити з бажаного'
+  // } else {
+  //   deleteFromFavorite(currentProduct)
+  //
+  //   event.target.textContent = 'В бажане'
+  // }
 }

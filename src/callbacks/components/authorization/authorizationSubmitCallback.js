@@ -1,22 +1,19 @@
 import sha256 from 'sha256'
 
-import {
-  isInputEmpty,
-  checkUserIsReal,
-  currentUser,
-  getUser, getUserByEmail,
-  hideAuthElems,
-} from '../../../helpers'
+const getUser = require('../../../helpers/fetch/getUser').getUser
+const checkUserIsReal = require('../../../helpers/components/authorizaion/checkUserIsReal').checkUserIsReal
+const getUserByEmail = require('../../../helpers/fetch/getUserByEmail').getUserByEmail
+const setUserParams = require('../../../helpers/components/authorizaion/setUserParams').setUserParams
+const emailRValidation = require('../../../configs/validation/emailRValidation').emailRValidation
+const hideAuthElems = require('../../../helpers/components/authorizaion/hideAuthElems').hideAuthElems
 
-import { emailRRegExp } from '../../../configs'
-import { defaultPicture } from '../../../assets'
-import {setFavoriteProducts} from '../../../helpers/components/authorizaion/setFavoriteProducts'
-import { setBasketProducts } from '../../../helpers/components/basket/setBasketProducts'
-import { setOrderHistoryProducts } from '../../../helpers/components/orderForm/setOrderHistoryProducts'
-import { header } from '../../../components/header'
+const currentUser = require('../../../helpers/components/profile/currentUser').currentUser
+const header = require('../../../components/pagesComponents/header').header
+const defaultPicture = require('../../../assets/defaultPicture')
 
 export function authorizationSubmitCallback () {
-  const test = isInputEmpty([this.elems.login, this.elems.password])
+  const test = require('../../../helpers/validation/forInputs/isInputEmpty')
+    .isInputEmpty([this.elems.login, this.elems.password])
 
   if (test) {
     const correctInfo = checkUserIsReal(this.elems.login.value, sha256(this.elems.password.value))
@@ -34,19 +31,18 @@ export function authorizationSubmitCallback () {
             src: currentUser.avatar || defaultPicture,
           })
 
-          setFavoriteProducts(currentUser)
-          setBasketProducts(currentUser)
-          setOrderHistoryProducts(currentUser)
+          setUserParams(currentUser)
 
           header.setAttribute('entered', 'true')
         })
 
       hideAuthElems.call(this)
-    } else if (this.elems.login.value.match(emailRRegExp)) {
+    } else if (this.elems.login.value.match(emailRValidation)) {
       getUserByEmail(this.elems.login.value)
         .then(response => {
           // eslint-disable-next-line max-len
-          if (Object.keys(response).length && response[Object.keys(response)[0]].password === sha256(this.elems.password.value)) {
+          if (Object.keys(response).length
+            && response[Object.keys(response)[0]].password === sha256(this.elems.password.value)) {
             Object.assign(currentUser, Object.values(response)[0])
 
             sessionStorage.setItem('currentUser', JSON.stringify(currentUser))
@@ -56,9 +52,7 @@ export function authorizationSubmitCallback () {
               src: currentUser.avatar || defaultPicture,
             })
 
-            setFavoriteProducts(currentUser)
-            setBasketProducts(currentUser)
-            setOrderHistoryProducts(currentUser)
+            setUserParams(currentUser)
 
             hideAuthElems.call(this)
             header.setAttribute('entered', 'true')

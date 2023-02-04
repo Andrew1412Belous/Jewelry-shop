@@ -10,4 +10,5 @@ export const headerElemsNames = [
   'search-btn',
   'header-profile-logo',
   'header-span',
+  'search-btn',
 ]

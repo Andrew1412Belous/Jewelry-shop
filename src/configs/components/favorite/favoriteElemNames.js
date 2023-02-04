@@ -4,4 +4,5 @@ export const favoriteElemNames = [
   'back-btn',
   'delete-favorite',
   'add-basket-btn',
+  'shadow',
 ]

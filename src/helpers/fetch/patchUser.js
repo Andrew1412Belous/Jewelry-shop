@@ -1,7 +1,5 @@
-import { host } from '../../configs'
-
 export async function patchUser (id, props) {
-  return await (await fetch(`${host}/users/${id}`, {
+  return await (await fetch(`${require('../../configs/hosts/host').host}/users/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',

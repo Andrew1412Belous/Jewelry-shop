@@ -1,9 +1,9 @@
-import { basketProducts } from './basketProducts'
+const basketProducts = require('./basketProducts').basketProducts
 
 export function checkBasketProducts (product) {
+  if (!basketProducts.length) return ''
+
   const lodash = require('lodash')
-
-
 
   const selectedProduct = {}
   const products = basketProducts.map(item => {

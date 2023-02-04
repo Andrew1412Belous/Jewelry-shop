@@ -6,8 +6,6 @@ export function catalogLinkClickCallback (event) {
       .map(filter => [`${filter}-checkbox`])
     : [event.target.id]
 
-  console.log(filters)
-
   sessionStorage.setItem('filters', JSON.stringify(filters))
 
   document.location = './catalog.html'

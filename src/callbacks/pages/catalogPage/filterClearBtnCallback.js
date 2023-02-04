@@ -1,7 +1,4 @@
-import {
-  setFilterClearParam,
-  setPriceClearParam,
-} from '../../../helpers'
+const { setFilterClearParam, setPriceClearParam } = require('../../../helpers/pages/catalogPage/setClearButtonParams')
 
 export function filterClearBtnCallback (event) {
   const listName = event.target.id.split('-')[0]

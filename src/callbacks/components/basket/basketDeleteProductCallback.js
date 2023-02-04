@@ -1,18 +1,19 @@
 import { getProduct } from '../../../helpers'
 import { deleteFromBasket } from './deleteFromBasket'
 import { basketProducts } from '../../../helpers/components/basket/basketProducts'
-import { insertBasketProducts } from '../../../helpers/components/basket/insertBasketProducts'
 
 export function basketDeleteProductCallback (event) {
-  const countProducts = Number(event.target.parentNode.querySelector('#basket-count').textContent )
+  const countProducts = Number(event.target.parentNode.querySelector('#basket-count').textContent)
+
+  const wrapper = event.target.parentNode.parentNode.querySelector('.basket-product-info')
 
   const selectedProduct = countProducts === 1
-    ? getProduct(event.target.parentNode.parentNode
-      .querySelector('.basket-product-info'))
-    : Object.assign(getProduct(event.target.parentNode.parentNode
-      .querySelector('.basket-product-info')), {
+    ? getProduct.bind(wrapper, wrapper)()
+    : Object.assign(getProduct.bind(wrapper, wrapper)(), {
       count: countProducts,
     })
+
+  console.log(selectedProduct)
 
   deleteFromBasket(selectedProduct)
 

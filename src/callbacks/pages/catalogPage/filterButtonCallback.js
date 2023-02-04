@@ -1,20 +1,15 @@
-import {
-  filterBlocks,
-  filterBlocksNames,
-} from '../../../configs'
+const filterBlocks = require('../../../configs/pages/catalogPage/filterBlocks')
 
 export function filterButtonCallback (event) {
-  console.log(event.target)
-
   const blockName = event.target.id.split('-')[0]
 
-  filterBlocksNames.forEach(filter => {
+  filterBlocks.blocksNames.forEach(filter => {
     if (!filter.indexOf(blockName)) {
-      filterBlocks[filter].classList.toggle('filter-list-hide')
-      filterBlocks[filter].classList.toggle('filter-list-show')
+      filterBlocks.blocksElems[filter].classList.toggle('filter-list-hide')
+      filterBlocks.blocksElems[filter].classList.toggle('filter-list-show')
     } else {
-      filterBlocks[filter].classList.add('filter-list-hide')
-      filterBlocks[filter].classList.remove('filter-list-show')
+      filterBlocks.blocksElems[filter].classList.add('filter-list-hide')
+      filterBlocks.blocksElems[filter].classList.remove('filter-list-show')
     }
   })
 }

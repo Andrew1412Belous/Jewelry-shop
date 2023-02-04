@@ -1,11 +1,14 @@
-import { addToBasket, currentUser, getProduct, patchUser } from '../../../helpers'
+import { currentUser, getProduct, patchUser } from '../../../helpers'
 import { basketProducts } from '../../../helpers/components/basket/basketProducts'
 
 export function basketIncrBtnCallback (event) {
   event.target.parentNode.querySelector('#basket-decr').disabled = false
 
-  const selectedProduct = getProduct(event.target.parentNode.parentNode.parentNode
-    .querySelector('.basket-product-info'))
+  const wrapper = event.target.parentNode.parentNode.parentNode.querySelector('.basket-product-info')
+
+  console.log(wrapper)
+
+  const selectedProduct = getProduct.bind(wrapper, wrapper)()
 
   const countElem = event.target.parentNode.querySelector('#basket-count')
   let countProducts = Number(countElem.textContent)

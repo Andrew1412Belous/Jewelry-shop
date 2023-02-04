@@ -1,4 +1,10 @@
-import { filterBlocksNames } from './filterBlocksNames'
-import { getElemsById } from '../../../helpers'
+export const blocksNames = [
+  'brand-block',
+  'price-block',
+  'collection-block',
+  'season-block',
+  'sex-block',
+  'event-block',
+]
 
-export const filterBlocks = getElemsById(filterBlocksNames)
+export const blocksElems = require('../../../helpers/DOM/getElemsById').getElemsById(blocksNames)

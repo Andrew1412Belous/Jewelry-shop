@@ -1,9 +1,12 @@
-import { addToBasket, getProduct } from '../../../helpers'
-import { favoriteTemplate} from '../../../templates'
+import {
+  addToBasket,
+  getProduct,
+} from '../../../helpers'
 
-export function favoriteAddToBasketCallback (index, event) {
-  const wrapper = this.section.querySelectorAll(
-    '.favorite-product-info')[index]
+import { favoriteTemplate } from '../../../templates'
+
+export function favoriteAddToBasketCallback (event) {
+  const wrapper = event.target.parentNode.parentNode.querySelector('.favorite-product-info')
 
   if (event.target.textContent === 'Купити') {
     addToBasket(getProduct.bind(wrapper, wrapper)())

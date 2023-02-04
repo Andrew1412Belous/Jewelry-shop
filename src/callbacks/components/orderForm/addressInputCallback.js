@@ -1,7 +1,7 @@
-import { deliveryAddressRegExp } from '../../../configs/validation/deliveryAddressValidation'
+import { deliveryAddressValidation } from '../../../configs/validation/deliveryAddressValidation'
 
 export function addressInputCallback (event) {
-  event.target.style.color = event.target.value.match(deliveryAddressRegExp)
+  event.target.style.color = event.target.value.match(deliveryAddressValidation)
     ? '#50a450'
     : '#ea3838'
 }

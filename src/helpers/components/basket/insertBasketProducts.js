@@ -3,7 +3,11 @@ import { addElem } from '../../DOM/addElem'
 import { checkSameProductInBasket } from './checkSameProductInBasket'
 
 export function insertBasketProducts (container) {
+  console.log(container)
+
   const wrapper = container.querySelector('.basket-products-wrapper')
+
+  console.log(wrapper)
 
   if (basketProducts.length) {
     basketProducts

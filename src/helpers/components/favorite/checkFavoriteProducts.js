@@ -1,7 +1,7 @@
-import { favoriteProducts } from './favoriteProducts'
+const favoriteProducts = require('./favoriteProducts').favoriteProducts
 
 export function checkFavoriteProducts (product) {
-  // if (!favoriteProducts.length) return ''
+  if (!favoriteProducts.length) return ''
 
   const lodash = require('lodash')
 

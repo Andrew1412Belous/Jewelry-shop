@@ -1,5 +1,5 @@
-import { hideComponentCallback } from './hideComponentCallback'
-
 export function documentKeyPressCallback (template, event) {
-  if (event.code === 'Escape') hideComponentCallback.bind(this, template)()
+  if (event.code === 'Escape') {
+    require('./hideComponentCallback').hideComponentCallback.bind(this, template)()
+  }
 }

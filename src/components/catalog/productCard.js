@@ -1,11 +1,13 @@
-import { addElem, checkBasketProducts, getElemsByIdFromShadow, getProduct } from '../../helpers'
-import { productStyle, productTemplate } from '../../templates'
-import { productCardElemNames } from '../../configs/pages/catalogPage/productCardElemNames'
-import { addToFavoriteCallback } from '../../callbacks/components/productCard/addToFavoriteCallback'
-import { currentProduct } from '../../helpers/pages/productPage/currentProduct'
-import { insertProductCardTemplate } from '../../helpers/pages/catalogPage/catalog/insertProductCardTemplate'
-import { setFilterClass } from '../../helpers/components/productCard/setFilterClass'
-import { setPriceType } from '../../helpers/components/setPriceType'
+const setPriceType = require('../../helpers/components/setPriceType').setPriceType
+const addElem = require('../../helpers/DOM/addElem').addElem
+const { productStyle } = require('../../templates/index')
+
+const {
+  productMouseEnterCallback,
+  productMouseLeaveCallback,
+  productPriceCallback,
+  addToFavoriteCallback,
+} = require('../../callbacks/index')
 
 export class ProductCard extends HTMLElement {
   constructor(product) {
@@ -16,10 +18,13 @@ export class ProductCard extends HTMLElement {
       id: 'product-section',
       className: 'product-card',
     })
+
     Object.assign(addElem('style', this.shadow), {
       textContent: productStyle,
     })
-    this.getElemsById = getElemsByIdFromShadow
+
+    this.getElemsById = require('../../helpers/components/getElemsByIdFromShadow')
+      .getElemsByIdFromShadow
   }
 
   static get observedAttributes () {
@@ -48,30 +53,16 @@ export class ProductCard extends HTMLElement {
   }
 
   connectedCallback () {
-    insertProductCardTemplate.bind(this)()
-    setFilterClass.bind(this)()
+    require('../../helpers/pages/catalogPage/insertProductCardTemplate').insertProductCardTemplate.bind(this)()
+    require('../../helpers/components/productCard/setFilterClass').setFilterClass.bind(this)()
 
-    this.elems = this.getElemsById(productCardElemNames)
+    this.elems = this.getElemsById(require('../../configs/components/productCard/productCardElemNames')
+      .productCardElemNames)
 
     this.elems['product-favorite'].onclick = addToFavoriteCallback.bind(this)
-
-    this.elems['product-price'].onclick = function () {
-      sessionStorage.setItem('currentProduct', JSON.stringify(getProduct.bind(this, this.section)()))
-
-      document.location.href = './product-page.html'
-    }.bind(this)
-
-    this.elems['product-price'].onmouseenter = function (event) {
-      if (event.target.textContent !== 'В кошику') {
-        event.target.textContent = 'Переглянути'
-      }
-    }
-
-    this.elems['product-price'].onmouseleave = function (event) {
-      if (event.target.textContent !== 'В кошику') {
-        event.target.textContent = setPriceType(this.product.price)
-      }
-    }.bind(this)
+    this.elems['product-price'].onclick = productPriceCallback.bind(this)
+    this.elems['product-price'].onmouseenter = productMouseEnterCallback
+    this.elems['product-price'].onmouseleave = productMouseLeaveCallback.bind(this)
   }
 }
 

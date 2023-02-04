@@ -17,4 +17,5 @@ export const orderFormElemNames = [
   'order-buy-btn',
   'close-btn',
   'back-btn',
+  'shadow',
 ]

@@ -33,5 +33,7 @@ module.exports = {
     'no-import-assign': 0,
     'no-console': 0,
     'global-require': 0,
+    'new-cap': 0,
+    'no-mixed-operators': 0,
   },
 };

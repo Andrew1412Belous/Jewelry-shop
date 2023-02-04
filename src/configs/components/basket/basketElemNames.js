@@ -7,4 +7,5 @@ export const basketElemNames = [
   'basket-decr',
   'basket-count',
   'basket-incr',
+  'shadow',
 ]

@@ -1,7 +1,5 @@
-import { updateMainContent } from '../../../helpers'
-import { headerElems } from '../../../configs'
-import { orderForm } from '../../../components'
-
 export function buyProductsCallback () {
-  updateMainContent(headerElems.main, orderForm)
+  window[Symbol.for('order-form-comp')].dispatchEvent(new Event('open-order-form'))
+
+  this.section.style.display = 'none'
 }

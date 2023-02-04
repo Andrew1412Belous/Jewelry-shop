@@ -1,76 +1,44 @@
-import {
-  filterButtons,
-  filterBtnsElemNames,
-  filterShowBtns,
-  filtersShowButtonNames,
-  filterClearButtonNames,
-  filterClearBtns,
-  priceElemNames,
-  priceElems,
-} from '../../../configs'
+const filterButtons = require('../../../configs/pages/catalogPage/filterButtons')
+const prices = require('../../../configs/pages/catalogPage/prices')
+const filterShowButtons = require('../../../configs/pages/catalogPage/filterShowBtns')
+const filterClearButtons = require('../../../configs/pages/catalogPage/filterClearBtns')
 
-import {
-  filterButtonCallback,
-  filterClearBtnCallback,
-  filterPriceInputCallback,
-  filterShowBtnCallback,
-  showMoreProductsBtnCallback,
-} from '../../index'
-
-import { checkFavoriteProducts } from '../../../helpers/components/favorite/checkFavoriteProducts'
-
-import {
-  checkBasketProducts,
-  checkFilters,
-} from '../../../helpers'
-
-import { getAllProducts } from '../../../helpers/fetch/getAllProducts'
-import { ProductCard } from '../../../components/catalog/productCard'
-
-export async function catalogPageCallback () {
+export function catalogPageCallback () {
   const showMoreBtn = document.getElementById('show-more-btn')
   const wrapper = document.querySelector('.products-wrapper')
-  const products = []
+  const productCards = []
 
-  await getAllProducts()
-    .then(response => {
-      for (let i = 0; i < response.length; i++) {
-        const product = new ProductCard(response[i])
+  require('../../../helpers/pages/catalogPage/checkProductsStorage')
+    .checkProductsStorage(wrapper, productCards)
+    .then(() => {
+      require('../../../helpers/pages/catalogPage/checkFilters').checkFilters(productCards, showMoreBtn)
 
-        wrapper.appendChild(product)
+      window[Symbol.for('catalog-products')] = document
+        .querySelectorAll('product-card')
 
-        product.setAttribute('favorite', checkFavoriteProducts(response[i]))
-        product.setAttribute('basket', checkBasketProducts(response[i]))
-        product.setAttribute('data-price', response[i].price)
+      prices.priceNames.forEach(input => {
+        prices.priceElems[input].oninput = require('./filterPriceInputCallback').filterPriceInputCallback
+      })
 
-        products.push(product)
-      }
+      filterButtons.buttonsNames.forEach(btn => {
+        filterButtons.buttonsElems[btn].onclick = require('./filterButtonCallback').filterButtonCallback
+      })
 
-      sessionStorage.setItem('products', JSON.stringify(products))
+      filterShowButtons.showButtonsNames
+        .forEach(button => {
+          filterShowButtons.showButtonsElems[button]
+            .onclick = require('./filterShowBtnCallback')
+              .filterShowBtnCallback.bind(this, productCards, showMoreBtn)
+        })
+
+      filterClearButtons.clearButtonsNames
+        .forEach(button => {
+          filterClearButtons.clearButtonsElems[button]
+            .onclick = require('./filterClearBtnCallback').filterClearBtnCallback
+        })
+
+      document.getElementById('show-more-btn')
+        .onclick = require('./showMoreProductsBtnCallback')
+          .showMoreProductsBtnCallback.bind(this, productCards)
     })
-
-  checkFilters(products, showMoreBtn)
-
-  window[Symbol.for('catalog-products')] = document
-    .querySelectorAll('product-card')
-
-  priceElemNames.forEach(input => {
-    priceElems[input].oninput = filterPriceInputCallback
-  })
-
-  filterBtnsElemNames.forEach(btn => {
-    filterButtons[btn].onclick = filterButtonCallback
-  })
-
-  filtersShowButtonNames
-    .forEach(button => {
-      filterShowBtns[button].onclick = filterShowBtnCallback.bind(this, products, showMoreBtn)
-    })
-
-  filterClearButtonNames
-    .forEach(button => {
-      filterClearBtns[button].onclick = filterClearBtnCallback
-    })
-
-  document.getElementById('show-more-btn').onclick = showMoreProductsBtnCallback.bind(this, products)
 }

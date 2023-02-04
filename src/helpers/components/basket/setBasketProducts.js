@@ -1,6 +1,6 @@
 import { basketProducts } from './basketProducts'
 import { checkBasketProducts } from './checkBasketProducts'
-import { getProduct } from '../../pages/catalogPage/catalog/getProduct'
+import { getProduct } from '../../pages/catalogPage/getProduct'
 import { products } from '../../../configs'
 import { currentProduct } from '../../pages/productPage/currentProduct'
 

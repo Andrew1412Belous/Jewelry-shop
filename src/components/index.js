@@ -1,19 +1,16 @@
-import { regForm } from './registrationForm'
-import { authForm } from './authorizationForm'
-import { myProfile } from './myProfile'
-import { favProd } from './favoriteComp'
-import { basketProd } from './basketComp'
-import { orderForm } from './orderForm'
-import { orderHistory } from './orderHistoryComp'
-import { searchComp } from './searchComp'
-
-export {
-  regForm,
-  authForm,
-  myProfile,
-  favProd,
-  basketProd,
-  orderForm,
-  orderHistory,
-  searchComp,
+module.exports = {
+  productCard: require('./catalog/productCard').ProductCard,
+  registrationFrom: require('./singInUp/registrationForm'),
+  authorizationForm: require('./singInUp/authorizationForm'),
+  myProfile: require('./profile/myProfile'),
+  favoriteComp: require('./profile/favoriteComp'),
+  basketComp: require('./profile/basketComp'),
+  orderHistoryComp: require('./profile/orderHistoryComp'),
+  orderForm: require('./profile/orderForm'),
+  personalSettings: require('./profile/personalSettings'),
+  securitySettings: require('./profile/securitySettings'),
+  error: require('./popup/error'),
+  search: require('./pagesComponents/searchComp'),
+  message: require('./popup/message'),
+  header: require('./pagesComponents/header').header,
 }

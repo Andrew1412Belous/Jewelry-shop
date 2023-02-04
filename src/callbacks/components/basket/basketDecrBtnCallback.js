@@ -2,11 +2,12 @@ import { currentUser, getProduct, patchUser } from '../../../helpers'
 import { basketProducts } from '../../../helpers/components/basket/basketProducts'
 
 export function basketDecrBtnCallback (event) {
+  const wrapper = event.target.parentNode.parentNode.parentNode.querySelector('.basket-product-info')
+
   const countElem = event.target.parentNode.querySelector('#basket-count')
   let countProducts = Number(countElem.textContent)
 
-  const selectedProduct = Object.assign(getProduct(event.target.parentNode.parentNode.parentNode
-    .querySelector('.basket-product-info')), {
+  const selectedProduct = Object.assign(getProduct.bind(wrapper, wrapper)(), {
     count: countProducts,
   })
 

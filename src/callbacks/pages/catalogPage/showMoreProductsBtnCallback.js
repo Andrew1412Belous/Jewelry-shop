@@ -1,5 +1,7 @@
-import { filteredProducts } from '../../../configs'
-import { setMoreProductsBtnMode } from '../../../helpers'
+const setMoreProductsBtnMode = require('../../../helpers/pages/catalogPage/setMoreProductsBtnMode')
+  .setMoreProductsBtnMode
+
+const filteredProducts = require('../../../configs/pages/catalogPage/filteredProducts').filteredProducts
 
 export function showMoreProductsBtnCallback (products, event) {
   filteredProducts.length

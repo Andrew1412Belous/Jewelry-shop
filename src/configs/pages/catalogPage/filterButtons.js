@@ -1,4 +1,10 @@
-import { filterBtnsElemNames } from './filterBtnsElemNames'
-import { getElemsById } from '../../../helpers'
+export const buttonsNames = [
+  'brand-btn',
+  'price-btn',
+  'sex-btn',
+  'collection-btn',
+  'season-btn',
+  'event-btn',
+]
 
-export const filterButtons = getElemsById(filterBtnsElemNames)
+export const buttonsElems = require('../../../helpers/DOM/getElemsById').getElemsById(buttonsNames)

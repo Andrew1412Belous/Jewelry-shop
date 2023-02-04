@@ -8,7 +8,9 @@ export function setFormParams (elems) {
   }
 
   if (currentUser.phone) {
-    elems['input-tel'].value = currentUser.phone
+    elems['input-tel'].value = currentUser.phone.indexOf('+380')
+      ? `+38${currentUser.phone}`
+      : currentUser.phone
   }
 
   elems['payment-form'].style.display = elems.live.checked

@@ -1,29 +1,29 @@
-import { registrationTemplate } from './registration/registrationTemplate'
-import { registrationStyle } from './registration/registrationStyle'
-import { authorizationStyle } from './authorization/authorizationStyle'
-import { authorizationTemplate } from './authorization/authorizationTemplate'
-import { profileStyle } from './myProfile/profileStyle'
-import { profileTemplate } from './myProfile/profileTemplate'
-import { favoriteTemplate } from './favorite/favoriteTemplate'
-import { favoriteStyle } from './favorite/favoriteStyle'
-import { basketTemplate } from './basket/basketTemplate'
-import { basketStyle } from './basket/basketStyle'
-import { orderStyle } from './orderForm/orderStyle'
-import { productStyle } from './productCard/productStyle'
-import { productTemplate } from './productCard/productTemplate'
-
-export {
-  registrationTemplate,
-  registrationStyle,
-  authorizationStyle,
-  authorizationTemplate,
-  profileStyle,
-  profileTemplate,
-  favoriteTemplate,
-  favoriteStyle,
-  basketTemplate,
-  basketStyle,
-  orderStyle,
-  productStyle,
-  productTemplate,
+module.exports = {
+  headerTemplate: require('./componentsTemplates/header/headerTemplate').headerTemplate,
+  headerStyle: require('./componentsTemplates/header/headerStyle').headerStyle,
+  registrationTemplate: require('./componentsTemplates/registration/registrationTemplate').registrationTemplate,
+  registrationStyle: require('./componentsTemplates/registration/registrationStyle').registrationStyle,
+  authorizationTemplate: require('./componentsTemplates/authorization/authorizationTemplate').authorizationTemplate,
+  authorizationStyle: require('./componentsTemplates/authorization/authorizationStyle').authorizationStyle,
+  productStyle: require('./componentsTemplates/productCard/productStyle').productStyle,
+  profileTemplate: require('./componentsTemplates/myProfile/profileTemplate').profileTemplate,
+  profileStyle: require('./componentsTemplates/myProfile/profileStyle').profileStyle,
+  favoriteTemplate: require('./componentsTemplates/favorite/favoriteTemplate').favoriteTemplate,
+  favoriteStyle: require('./componentsTemplates/favorite/favoriteStyle').favoriteStyle,
+  basketTemplate: require('./componentsTemplates/basket/basketTemplate').basketTemplate,
+  basketStyle: require('./componentsTemplates/basket/basketStyle').basketStyle,
+  orderTemplate: require('./componentsTemplates/orderForm/orderTemplate').orderTemplate,
+  orderStyle: require('./componentsTemplates/orderForm/orderStyle').orderStyle,
+  searchTemplate: require('./componentsTemplates/search/searchTemplate').searchTemplate,
+  searchStyle: require('./componentsTemplates/search/searchStyle').searchStyle,
+  errorTemplate: require('./componentsTemplates/popup/error/errorTemplate').errorTemplate,
+  errorStyle: require('./componentsTemplates/popup/error/errorStyle').errorStyle,
+  messageTemplate: require('./componentsTemplates/popup/message/messageTemplate').messageTemplate,
+  messageStyle: require('./componentsTemplates/popup/message/messageStyle').messageStyle,
+  orderHistoryTemplate: require('./componentsTemplates/orderHistory/orderHistoryTemplate').orderHistoryTemplate,
+  orderHistoryStyle: require('./componentsTemplates/orderHistory/orderHistoryStyle').orderHistoryStyle,
+  personalSettingsTemplate: require('./componentsTemplates/personalSettings/personalSettingTemplate').personalSettingTemplate,
+  personalSettingsStyle: require('./componentsTemplates/personalSettings/personalSettingsStyle').personalSettingsStyle,
+  securitySettingsTemplate: require('./componentsTemplates/securitySettings/securitySettingsTemplate').securitySettingsTemplate,
+  securitySettingsStyle: require('./componentsTemplates/securitySettings/securitySettingsStyle').securitySettingsStyle,
 }

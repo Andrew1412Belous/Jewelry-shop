@@ -8,6 +8,10 @@ module.exports = {
     filename: 'main.js',
     assetModuleFilename: 'assets/images/[name][ext]',
   },
+  cache: {
+    type: 'filesystem',
+    cacheDirectory: path.resolve(__dirname, '.temporary_cache'),
+  },
   module: {
     rules: [
       {
@@ -32,4 +36,3 @@ module.exports = {
     }),
   ],
 }
-

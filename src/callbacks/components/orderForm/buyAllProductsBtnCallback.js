@@ -2,14 +2,14 @@ import { currentUser, putUser } from '../../../helpers'
 import { orderHistoryProducts } from '../../../helpers/components/orderForm/orderHistoryProducts'
 import { basketProducts } from '../../../helpers/components/basket/basketProducts'
 import { checkCorrectInput } from '../../../helpers/components/orderForm/checkCorrectInput'
-import { stringWithoutSpacesRegExp } from '../../../configs/validation/stringWithoutSpacesValidation'
+import { stringWithoutSpacesValidation } from '../../../configs/validation/stringWithoutSpacesValidation'
 
 export function buyAllProductsBtnCallback (event) {
   const test = checkCorrectInput(this.elems)
   const products = []
   const totalPrice = parseFloat(this.section
     .querySelector('.order-total')
-    .textContent.slice(11).replace(stringWithoutSpacesRegExp, ''))
+    .textContent.slice(11).replace(stringWithoutSpacesValidation, ''))
 
   this.section.querySelectorAll('.order-product')
     .forEach(product => {
@@ -20,7 +20,7 @@ export function buyAllProductsBtnCallback (event) {
         type: product.querySelector('.product-type').textContent,
         price: parseFloat(product
           .querySelector('.product-price')
-          .textContent.replace(stringWithoutSpacesRegExp, '')),
+          .textContent.replace(stringWithoutSpacesValidation, '')),
       })
 
       products.push(res)

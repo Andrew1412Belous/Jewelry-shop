@@ -1,7 +1,12 @@
-import { updateMainContent } from '../../../helpers'
-import { headerElems } from '../../../configs'
-import { orderHistory } from '../../../components'
+import { profileTemplate } from '../../../templates'
 
 export function profileOrderHistoryCallback (event) {
-  updateMainContent(headerElems.main, orderHistory)
+  Object.assign(this.section, {
+    style: `
+            display: none;
+          `,
+    innerHTML: profileTemplate,
+  })
+
+  window[Symbol.for('order-history-comp')].dispatchEvent(new Event('open-order-history'))
 }

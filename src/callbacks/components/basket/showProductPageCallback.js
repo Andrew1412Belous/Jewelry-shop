@@ -1,4 +1,4 @@
-import { getProduct, toggleDisplayMain } from '../../../helpers'
+import { getProduct,  } from '../../../helpers'
 import { headerElems } from '../../../configs'
 
 export function showProductPageCallback (event) {
@@ -9,6 +9,6 @@ export function showProductPageCallback (event) {
 
   document.location = './product-page.html'
 
-  toggleDisplayMain(false)
+  (false)
   headerElems.main.innerHTML = ''
 }
