@@ -1,4 +1,4 @@
-import { deliveryAddressValidation } from '../../../configs/validation/deliveryAddressValidation'
+const { deliveryAddressValidation } = require('../../../configs/index')
 
 export function addressInputCallback (event) {
   event.target.style.color = event.target.value.match(deliveryAddressValidation)

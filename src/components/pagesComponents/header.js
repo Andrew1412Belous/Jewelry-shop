@@ -1,5 +1,7 @@
-const addElem = require('../../helpers/DOM/addElem').addElem
-const currentUser = require('../../helpers/components/profile/currentUser').currentUser
+const {
+  addElem,
+  currentUser,
+} = require('../../helpers/index')
 
 const {
   headerTemplate,
@@ -46,24 +48,22 @@ export class Header extends HTMLElement {
   }
 
   connectedCallback () {
-    this.elems = this.getElemsById(require('../../configs/components/header/headerElemsNames')
-      .headerElemsNames)
+    this.elems = this.getElemsById(require('../../configs/index').headerElemsNames)
 
     this.setProfileParams()
 
     this.elems['header-logo'].onclick = require('../../callbacks/index')
       .headerLogoClickCallback.bind(this)
 
-    this.elems['search-btn'].onclick = function () {
-      window[Symbol.for('search-component')].dispatchEvent(new Event('open-search'))
-
-      document.body.style.overflow = 'hidden'
-    }
+    this.elems['search-btn'].onclick = require('../../callbacks/index')
+      .searchCallback
 
     this.elems['sign-up'].onclick = require('../../callbacks/index')
       .signUpCallback
+
     this.elems['sign-in'].onclick = require('../../callbacks/index')
       .signInCallback
+
     this.elems['sign-out'].onclick = require('../../callbacks/index')
       .signOutCallback.bind(this)
 
@@ -72,6 +72,7 @@ export class Header extends HTMLElement {
 
     this.elems['favorite-products'].onclick = require('../../callbacks/index')
       .favoriteCallback
+
     this.elems['basket-products'].onclick = require('../../callbacks/index')
       .basketCallback
   }

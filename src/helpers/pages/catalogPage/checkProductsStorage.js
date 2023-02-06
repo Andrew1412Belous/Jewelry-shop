@@ -1,4 +1,4 @@
-const { createProductCards } = require('./createProductCards')
+const createProductCards = require('./createProductCards').createProductCards
 
 export async function checkProductsStorage (wrapper, productCards) {
   if (sessionStorage.getItem('products')) {

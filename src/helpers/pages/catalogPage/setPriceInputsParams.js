@@ -1,5 +1,3 @@
-import {filterShowBtns, filtersShowButtonNames} from '../../../configs'
-
 export function setPriceInputsParams (inputs, color) {
   inputs.forEach(input => {
     Object.assign(input, {

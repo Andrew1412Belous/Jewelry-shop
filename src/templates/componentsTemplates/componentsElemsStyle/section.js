@@ -3,10 +3,9 @@ export const section = `
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  overflow: auto;
   border: solid #ddd 2px;
-  border-radius: 16px;
+  border-radius: 10px;
   background: #333;
   padding: 16px;
-  z-index: 100;
+  z-index: 101;
 `

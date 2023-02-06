@@ -3,8 +3,6 @@ const {
   orderStyle,
 } = require('../../templates/index')
 
-const addElem = require('../../helpers/DOM/addElem').addElem
-
 const {
   hideUpdatingComp,
   orderBackBtnCallback,
@@ -19,6 +17,13 @@ const {
   buyAllProductsBtnCallback,
 } = require('../../callbacks/index')
 
+const {
+  addElem,
+  getElemsByIdFromShadow,
+  insertOrderProducts,
+  setFormParams,
+} = require('../../helpers/index')
+
 export class OrderForm extends HTMLElement {
   constructor() {
     super()
@@ -27,10 +32,12 @@ export class OrderForm extends HTMLElement {
       id: 'order-section-wrapper',
       innerHTML: orderTemplate,
     })
+
     Object.assign(addElem('style', this.shadow), {
       textContent: orderStyle,
     })
-    this.getElemById = require('../../helpers/components/getElemsByIdFromShadow').getElemsByIdFromShadow
+
+    this.getElemById = getElemsByIdFromShadow
   }
 
   connectedCallback () {
@@ -39,12 +46,11 @@ export class OrderForm extends HTMLElement {
     this.addEventListener('open-order-form', () => {
       this.section.style.display = 'block'
 
-      require('../../helpers/components/orderForm/insertOrderProducts').insertOrderProducts(this.section)
+      insertOrderProducts(this.section)
 
-      this.elems = this.getElemById(require('../../configs/components/orderForm/orderFormElemNames')
-        .orderFormElemNames)
+      this.elems = this.getElemById(require('../../configs/index').orderFormElemNames)
 
-      require('../../helpers/components/orderForm/setFormParams').setFormParams(this.elems)
+      setFormParams(this.elems)
 
       this.elems.shadow.onclick = hideUpdatingComp.bind(this, orderTemplate)
 

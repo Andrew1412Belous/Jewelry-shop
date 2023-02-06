@@ -1,11 +1,17 @@
-import { addElem } from '../../helpers'
-import { checkSearchFilter } from '../../helpers/components/search/checkSearchFilter'
-import { updateCatalogFilters } from '../../helpers/components/search/updateCatalogFilters'
+const {
+  addElem,
+  getElemsByIdFromShadow,
+} = require('../../helpers/index')
 
 const {
   searchTemplate,
   searchStyle,
 } = require('../../templates/index')
+
+const {
+  searchSubmitBtnCallback,
+  hideComponentCallback,
+} = require('../../callbacks/index')
 
 export class SearchComp extends HTMLElement {
   constructor() {
@@ -15,11 +21,12 @@ export class SearchComp extends HTMLElement {
       id: 'search-section',
       innerHTML: searchTemplate,
     })
-    Object.assign(addElem('style', this.shadow) , {
+
+    Object.assign(addElem('style', this.shadow), {
       textContent: searchStyle,
     })
 
-    this.getElemsById = require('../../helpers/components/getElemsByIdFromShadow').getElemsByIdFromShadow
+    this.getElemsById = getElemsByIdFromShadow
   }
 
   connectedCallback () {
@@ -28,27 +35,13 @@ export class SearchComp extends HTMLElement {
     this.addEventListener('open-search', () => {
       this.section.style.display = 'block'
 
-      this.elems = this.getElemsById(require('../../configs/components/search/searchElemNames').searchElemNames)
+      this.elems = this.getElemsById(require('../../configs/index').searchElemNames)
 
-      this.elems['search-submit-btn'].onclick = async function (event) {
-        if (event.target.textContent === 'До товарів')updateCatalogFilters()
-        else if (this.elems['search-input'].value) {
-          sessionStorage.getItem('products')
-            ? checkSearchFilter.bind(this)(JSON.parse(sessionStorage.getItem('products')))
-            : await require('../../helpers/fetch/getAllProducts').getAllProducts()
-              .then(response => {
-                checkSearchFilter.bind(this)(response)
+      this.elems['close-btn'].onclick = hideComponentCallback.bind(this, searchTemplate)
 
-                sessionStorage.setItem('products', JSON.stringify(response))
-              })
-        } else {
-          this.elems['search-message'].textContent = 'заповніть поле для пошуку'
-        }
-      }.bind(this)
+      this.elems['search-submit-btn'].onclick = searchSubmitBtnCallback.bind(this)
     })
   }
 }
 
 customElements.define('search-component', SearchComp)
-
-export const searchComp = document.createElement('search-component')

@@ -1,6 +1,6 @@
-import { favoriteProducts } from './favoriteProducts'
-import { patchUser } from '../../fetch/patchUser'
-import { currentUser } from '../profile/currentUser'
+const favoriteProducts = require('./favoriteProducts').favoriteProducts
+const currentUser = require('../profile/currentUser').currentUser
+const patchUser = require('../../fetch/patchUser').patchUser
 
 export function addToFavorite (product) {
   favoriteProducts.push(product)

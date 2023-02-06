@@ -1,5 +1,5 @@
-import { favoriteProducts } from './favoriteProducts'
-import { addElem } from '../../DOM/addElem'
+const favoriteProducts = require('./favoriteProducts').favoriteProducts
+const addElem = require('../../DOM/addElem').addElem
 
 export function insertFavoriteProducts (container) {
   const wrapper = container.querySelector('.favorite-products-wrapper')

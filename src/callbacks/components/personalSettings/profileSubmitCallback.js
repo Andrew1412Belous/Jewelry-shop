@@ -1,9 +1,9 @@
-import {
+const {
   checkCyrillicInputs,
   isInputEmpty,
   currentUser,
   patchUser,
-} from '../../../helpers'
+} = require('../../../helpers/index')
 
 const header = require('../../../components/pagesComponents/header').header
 

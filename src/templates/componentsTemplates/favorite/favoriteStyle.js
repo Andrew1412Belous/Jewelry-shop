@@ -1,4 +1,5 @@
 export const favoriteStyle = `
+  ${require('../componentsElemsStyle/scroll').scroll}
   ${require('../componentsElemsStyle/shadow').shadow}
 
   #favorite-section {

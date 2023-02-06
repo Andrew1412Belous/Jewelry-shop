@@ -1,7 +1,5 @@
-const setMoreProductsBtnMode = require('../../../helpers/pages/catalogPage/setMoreProductsBtnMode')
-  .setMoreProductsBtnMode
-
-const filteredProducts = require('../../../configs/pages/catalogPage/filteredProducts').filteredProducts
+const { setMoreProductsBtnMode } = require('../../../helpers/index')
+const { filteredProducts } = require('../../../configs/index')
 
 export function showMoreProductsBtnCallback (products, event) {
   filteredProducts.length

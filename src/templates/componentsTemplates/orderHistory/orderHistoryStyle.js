@@ -1,4 +1,6 @@
 export const orderHistoryStyle = `
+  ${require('../componentsElemsStyle/scroll').scroll}
+
   #order-history-section {
     height: 600px;
     width: 660px;
@@ -10,6 +12,8 @@ export const orderHistoryStyle = `
     top: -5px;
     right: 13px;
   }
+  
+  ${require('../componentsElemsStyle/shadow').shadow}
   
   #back-btn {
     position: absolute;

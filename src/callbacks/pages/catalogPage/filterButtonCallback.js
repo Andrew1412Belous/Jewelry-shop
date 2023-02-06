@@ -1,4 +1,4 @@
-const filterBlocks = require('../../../configs/pages/catalogPage/filterBlocks')
+const { filterBlocks } = require('../../../configs/index')
 
 export function filterButtonCallback (event) {
   const blockName = event.target.id.split('-')[0]

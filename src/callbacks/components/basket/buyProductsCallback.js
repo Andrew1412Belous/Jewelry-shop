@@ -1,5 +1,10 @@
-export function buyProductsCallback () {
-  window[Symbol.for('order-form-comp')].dispatchEvent(new Event('open-order-form'))
+export function buyProductsCallback (template) {
+  Object.assign(this.section, {
+    style: `
+      display: none;
+    `,
+    innerHTML: template,
+  })
 
-  this.section.style.display = 'none'
+  window[Symbol.for('order-form-comp')].dispatchEvent(new Event('open-order-form'))
 }

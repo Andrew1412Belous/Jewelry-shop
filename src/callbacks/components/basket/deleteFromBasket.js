@@ -1,5 +1,7 @@
-import { currentUser, patchUser, putUser } from '../../../helpers'
-import { basketProducts } from '../../../helpers/components/basket/basketProducts'
+const {
+  currentUser,
+  basketProducts,
+} = require('../../../helpers/index')
 
 export function deleteFromBasket (product) {
   for (let i = 0; i < basketProducts.length; i++) {
@@ -12,7 +14,7 @@ export function deleteFromBasket (product) {
   if (basketProducts.length) {
     sessionStorage.setItem('basket', JSON.stringify(basketProducts))
 
-    patchUser(currentUser.id, {
+    require('../../../helpers/index').patchUser(currentUser.id, {
       basketProducts,
     })
       .then(response => {
@@ -23,7 +25,7 @@ export function deleteFromBasket (product) {
   } else {
     delete currentUser.basketProducts
 
-    putUser(currentUser.id, currentUser)
+    require('../../../helpers/index').putUser(currentUser.id, currentUser)
       .then(response => {
         sessionStorage.setItem('currentUser', JSON.stringify(response))
         sessionStorage.removeItem('basket')

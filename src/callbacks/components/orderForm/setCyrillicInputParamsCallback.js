@@ -1,4 +1,4 @@
-import { cyrillicValidation } from '../../../configs'
+const { cyrillicValidation } = require('../../../configs/index')
 
 export function setCyrillicInputParamsCallback (event) {
   event.target.style.color = event.target.value.match(cyrillicValidation)

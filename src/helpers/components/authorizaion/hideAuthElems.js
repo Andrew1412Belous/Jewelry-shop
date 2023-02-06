@@ -4,4 +4,3 @@ export function hideAuthElems () {
   this.elems.submit.style.display = 'none'
   this.elems['auth-link'].style.display = 'none'
 }
-

@@ -1,7 +1,9 @@
-import { checkFavoriteProducts } from '../../components/favorite/checkFavoriteProducts'
-import { checkBasketProducts } from '../../components/basket/checkBasketProducts'
+const {
+  checkFavoriteProducts,
+  checkBasketProducts,
+} = require('../../index')
 
-const productCard = require('../../../components/index').productCard
+const { productCard } = require('../../../components/index')
 
 export function createProductCards (products, wrapper, productCards) {
   for (let i = 0; i < products.length; i++) {

@@ -3,4 +3,5 @@ export const searchElemNames = [
   'search-input',
   'search-message',
   'search-submit-btn',
+  'close-btn',
 ]

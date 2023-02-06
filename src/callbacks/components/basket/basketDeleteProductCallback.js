@@ -1,6 +1,9 @@
-import { getProduct } from '../../../helpers'
-import { deleteFromBasket } from './deleteFromBasket'
-import { basketProducts } from '../../../helpers/components/basket/basketProducts'
+const deleteFromBasket = require('./deleteFromBasket').deleteFromBasket
+
+const {
+  getProduct,
+  basketProducts,
+} = require('../../../helpers/index')
 
 export function basketDeleteProductCallback (event) {
   const countProducts = Number(event.target.parentNode.querySelector('#basket-count').textContent)
@@ -13,11 +16,9 @@ export function basketDeleteProductCallback (event) {
       count: countProducts,
     })
 
-  console.log(selectedProduct)
-
   deleteFromBasket(selectedProduct)
 
   event.target.parentNode.parentNode.remove()
 
-  if (!basketProducts.length) insertBasketProducts(this.section)
+  if (!basketProducts.length) require('../../../helpers/index').insertBasketProducts(this.section)
 }

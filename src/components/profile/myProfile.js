@@ -1,8 +1,4 @@
-import { myProfileElemNames } from '../../configs'
-import { defaultPicture } from '../../assets'
-
-const addElem = require('../../helpers/DOM/addElem').addElem
-const currentUser = require('../../helpers/components/profile/currentUser').currentUser
+const defaultPicture = require('../../assets/defaultPicture').defaultPicture
 
 const {
   hideUpdatingComp,
@@ -17,42 +13,48 @@ const {
   profileStyle,
 } = require('../../templates/index')
 
+const {
+  addElem,
+  currentUser,
+  getElemsByIdFromShadow,
+} = require('../../helpers/index')
+
 export class MyProfile extends HTMLElement {
   constructor() {
     super()
     this.shadow = this.attachShadow({ mode: 'closed' })
     this.section = Object.assign(addElem('section', this.shadow), {
-      id: 'profile-form',
+      id: 'profile-form-wrapper',
       innerHTML: profileTemplate,
     })
+
     Object.assign(addElem('style', this.shadow), {
       textContent: profileStyle,
     })
-    this.getElemsById = require('../../helpers/components/getElemsByIdFromShadow').getElemsByIdFromShadow
+
+    this.getElemsById = getElemsByIdFromShadow
   }
 
   connectedCallback () {
     this.section.style.display = 'none'
 
     this.addEventListener('open-profile', () => {
-      console.log(10)
-
       this.section.style.display = 'block'
 
-      this.elems = this.getElemsById(myProfileElemNames)
+      document.onkeydown = function (event) {
+        if (event.code === 'Escape') hideUpdatingComp.bind(this, profileTemplate)()
+      }.bind(this)
+
+      this.elems = this.getElemsById(require('../../configs/index').myProfileElemNames)
 
       this.elems.login.innerText = currentUser.login
       this.elems.avatar.src = currentUser.avatar || defaultPicture
-      // this.elems.picture.src = currentUser.avatar || defaultPicture
-      // this.elems['back-btn'].onclick = backBtnCallback.bind(this)
-      this.elems['profile-favorite'].onclick = profileFavoriteCallback.bind(this)
 
-      this.elems['profile-purchase-history'].onclick = profileOrderHistoryCallback.bind(this)
-
-      this.elems['profile-settings'].onclick = profileSettingsCallback.bind(this)
-
-      this.elems['profile-sign-out'].onclick = profileSignOutCallback.bind(this)
-
+      this.elems.shadow.onclick = hideUpdatingComp.bind(this, profileTemplate)
+      this.elems['profile-favorite'].onclick = profileFavoriteCallback.bind(this, profileTemplate)
+      this.elems['profile-purchase-history'].onclick = profileOrderHistoryCallback.bind(this, profileTemplate)
+      this.elems['profile-settings'].onclick = profileSettingsCallback.bind(this, profileTemplate)
+      this.elems['profile-sign-out'].onclick = profileSignOutCallback.bind(this, profileTemplate)
       this.elems['close-btn'].onclick = hideUpdatingComp.bind(this, profileTemplate)
     })
   }

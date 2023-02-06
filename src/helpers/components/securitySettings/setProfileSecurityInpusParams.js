@@ -6,7 +6,8 @@ export function setProfileSecurityBlockParams (message, buttonText, inputValue =
       color: #fff;
     `,
   })
-  Object.assign( this.elems['profile-security-submit-btn'], {
+
+  Object.assign(this.elems['profile-security-submit-btn'], {
     textContent: buttonText,
     disabled: true,
     style: `

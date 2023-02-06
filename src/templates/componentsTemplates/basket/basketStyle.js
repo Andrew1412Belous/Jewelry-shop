@@ -1,4 +1,6 @@
 export const basketStyle = `
+  ${require('../componentsElemsStyle/scroll').scroll}
+
   #basket-section {
     height: 600px;
     width: 950px;

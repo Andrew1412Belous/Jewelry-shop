@@ -1,11 +1,9 @@
-const { setFilterClearParam, setPriceClearParam } = require('../../../helpers/pages/catalogPage/setClearButtonParams')
-
 export function filterClearBtnCallback (event) {
   const listName = event.target.id.split('-')[0]
 
   if (listName === 'price') {
-    setPriceClearParam()
+    require('../../../helpers/pages/catalogPage/setClearButtonParams').setPriceClearParam()
   } else {
-    setFilterClearParam(listName)
+    require('../../../helpers/pages/catalogPage/setClearButtonParams').setFilterClearParam(listName)
   }
 }

@@ -1,7 +1,11 @@
-import { basketElemNames } from '../../configs/components/basket/basketElemNames'
-import { basketProducts } from '../../helpers/components/basket/basketProducts'
+import { basketElemNames } from '../../configs/index'
 
-const addElem = require('../../helpers/DOM/addElem').addElem
+const {
+  addElem,
+  insertBasketProducts,
+  basketProducts,
+  getElemsByIdFromShadow,
+} = require('../../helpers/index')
 
 const {
   basketTemplate,
@@ -24,11 +28,13 @@ export class BasketComp extends HTMLElement {
     this.section = Object.assign(addElem('section', this.shadow), {
       id: 'basket-section-wrapper',
     })
+
     Object.assign(addElem('style', this.shadow), {
       textContent: basketStyle,
     })
+
     this.section.innerHTML = basketTemplate
-    this.getElemsById = require('../../helpers/components/getElemsByIdFromShadow').getElemsByIdFromShadow
+    this.getElemsById = getElemsByIdFromShadow
   }
 
   connectedCallback () {
@@ -37,7 +43,7 @@ export class BasketComp extends HTMLElement {
     this.addEventListener('open-basket', () => {
       this.section.style.display = 'block'
 
-      require('../../helpers/components/basket/insertBasketProducts').insertBasketProducts(this.section)
+      insertBasketProducts(this.section)
 
       this.elems = this.getElemsById(basketElemNames)
 
@@ -48,7 +54,7 @@ export class BasketComp extends HTMLElement {
         .forEach(btn => btn.onclick = basketDeleteProductCallback.bind(this))
 
       if (basketProducts.length) {
-        this.elems['buy-all-products-btn'].onclick = buyProductsCallback.bind(this)
+        this.elems['buy-all-products-btn'].onclick = buyProductsCallback.bind(this, basketTemplate)
       }
 
       this.elems['basket-section'].querySelectorAll('#show-product-page-btn')
@@ -70,5 +76,3 @@ export class BasketComp extends HTMLElement {
 }
 
 customElements.define('basket-products', BasketComp)
-
-export const basketProd = document.createElement('basket-products')

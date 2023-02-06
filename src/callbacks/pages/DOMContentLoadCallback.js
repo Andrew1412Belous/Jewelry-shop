@@ -1,5 +1,7 @@
-const addElem = require('../../helpers/DOM/addElem').addElem
-const { setPageCallbacks } = require('./setPageCallbacks')
+const {
+  addElem,
+  setPageFunction,
+} = require('../../helpers/index')
 
 export function DOMContentLoadCallback () {
   document.getElementsByClassName('container')[0]
@@ -23,5 +25,5 @@ export function DOMContentLoadCallback () {
   window[Symbol.for('security-settings')] = addElem('security-settings', componentsWrapper)
   window[Symbol.for('search-component')] = addElem('search-component', componentsWrapper)
 
-  setPageCallbacks(document.title)
+  setPageFunction(document.title)
 }

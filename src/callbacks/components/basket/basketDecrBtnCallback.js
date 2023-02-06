@@ -1,5 +1,9 @@
-import { currentUser, getProduct, patchUser } from '../../../helpers'
-import { basketProducts } from '../../../helpers/components/basket/basketProducts'
+const {
+  currentUser,
+  getProduct,
+  basketProducts,
+  patchUser,
+} = require('../../../helpers/index')
 
 export function basketDecrBtnCallback (event) {
   const wrapper = event.target.parentNode.parentNode.parentNode.querySelector('.basket-product-info')

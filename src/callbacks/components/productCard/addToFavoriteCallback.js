@@ -1,5 +1,6 @@
-import { currentUser, getProduct } from '../../../helpers'
-import { addToFavorite } from '../../../helpers/components/favorite/addToFavorite'
+const {
+  currentUser,
+} = require('../../../helpers/index')
 
 export function addToFavoriteCallback (event) {
   event.preventDefault()
@@ -8,6 +9,11 @@ export function addToFavoriteCallback (event) {
     window[Symbol.for('sign-up')].dispatchEvent(new Event('open-reg-form'))
   } else {
     this.setAttribute('favorite', 'true')
+
+    const {
+      addToFavorite,
+      getProduct,
+    } = require('../../../helpers/index')
 
     addToFavorite(getProduct.bind(this, this.section)())
 

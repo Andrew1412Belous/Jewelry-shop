@@ -1,11 +1,9 @@
-import { profileTemplate } from '../../../templates'
-
-export function profileOrderHistoryCallback (event) {
+export function profileOrderHistoryCallback (template) {
   Object.assign(this.section, {
     style: `
             display: none;
           `,
-    innerHTML: profileTemplate,
+    innerHTML: template,
   })
 
   window[Symbol.for('order-history-comp')].dispatchEvent(new Event('open-order-history'))

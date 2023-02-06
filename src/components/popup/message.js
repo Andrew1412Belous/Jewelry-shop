@@ -1,5 +1,5 @@
-const addElem = require('../../helpers/DOM/addElem').addElem
-const hideComponentCallback = require('../../callbacks/components/hideComponentCallback').hideComponentCallback
+const { addElem } = require('../../helpers/index')
+const { hideComponentCallback } = require('../../callbacks/index')
 
 const {
   messageStyle,
@@ -14,6 +14,7 @@ export class MessagePopup extends HTMLElement {
       id: 'message-popup',
       innerHTML: messageTemplate,
     })
+
     Object.assign(addElem('style', this.shadow), {
       textContent: messageStyle,
     })

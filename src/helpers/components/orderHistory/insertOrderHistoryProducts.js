@@ -1,5 +1,5 @@
-import { orderHistoryProducts } from '../orderForm/orderHistoryProducts'
-import { addElem } from '../../DOM/addElem'
+const orderHistoryProducts = require('./orderHistoryProducts').orderHistoryProducts
+const addElem = require('../../DOM/addElem').addElem
 
 export function insertOrderHistoryProducts (container) {
   const productsWrapper = container.querySelector('.order-history-wrapper')

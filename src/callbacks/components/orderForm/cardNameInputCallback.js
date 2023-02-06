@@ -1,5 +1,5 @@
-import { cyrillicValidation } from '../../../configs'
-import { checkSpacesInString } from '../../../helpers'
+const { cyrillicValidation } = require('../../../configs/index')
+const { checkSpacesInString } = require('../../../helpers/index')
 
 export function cardNameInputCallback (event) {
   const string = event.target.value

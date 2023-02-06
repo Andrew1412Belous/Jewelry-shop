@@ -1,5 +1,5 @@
-import { basketProducts } from '../basket/basketProducts'
-import { addElem } from '../../DOM/addElem'
+const addElem = require('../../DOM/addElem').addElem
+const basketProducts = require('../basket/basketProducts').basketProducts
 
 export function insertOrderProducts (container) {
   const wrapper = container.querySelector('.order-products-basket')

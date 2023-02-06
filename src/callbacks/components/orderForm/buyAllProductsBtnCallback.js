@@ -1,15 +1,20 @@
-import { currentUser, putUser } from '../../../helpers'
-import { orderHistoryProducts } from '../../../helpers/components/orderForm/orderHistoryProducts'
-import { basketProducts } from '../../../helpers/components/basket/basketProducts'
-import { checkCorrectInput } from '../../../helpers/components/orderForm/checkCorrectInput'
-import { stringWithoutSpacesValidation } from '../../../configs/validation/stringWithoutSpacesValidation'
+const { stringWithoutSpacesValidation } = require('../../../configs/index')
+
+const {
+  currentUser,
+  putUser,
+  orderHistoryProducts,
+  basketProducts,
+  checkCorrectInput,
+} = require('../../../helpers/index')
 
 export function buyAllProductsBtnCallback (event) {
   const test = checkCorrectInput(this.elems)
-  const products = []
   const totalPrice = parseFloat(this.section
     .querySelector('.order-total')
     .textContent.slice(11).replace(stringWithoutSpacesValidation, ''))
+
+  const products = []
 
   this.section.querySelectorAll('.order-product')
     .forEach(product => {
@@ -33,8 +38,6 @@ export function buyAllProductsBtnCallback (event) {
     })
 
     if (currentUser.orderHistoryProducts) {
-      console.log(10)
-
       orderHistoryProducts.push({
         'order-number': orderHistoryProducts.length + 1,
         total: totalPrice,
@@ -46,8 +49,6 @@ export function buyAllProductsBtnCallback (event) {
         total: totalPrice,
         products,
       })
-
-      console.log(20)
     }
 
     sessionStorage.setItem('order-history', JSON.stringify(orderHistoryProducts))

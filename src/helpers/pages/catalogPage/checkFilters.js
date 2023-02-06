@@ -1,4 +1,4 @@
-const { filterElems } = require('../../../configs/pages/catalogPage/filterElems')
+const { filterElems } = require('../../../configs/index')
 const priceElems = require('../../../configs/pages/catalogPage/prices').priceElems
 
 export function checkFilters (products, btn) {
@@ -22,9 +22,7 @@ export function checkFilters (products, btn) {
     filterElems
       .forEach((category, index) => {
         result.forEach(filter => {
-          if (filterElems[index][filter]) {
-            filterElems[index][filter].checked = true
-          }
+          if (filterElems[index][filter]) filterElems[index][filter].checked = true
         })
       })
   }

@@ -1,8 +1,11 @@
 export const personalSettingsStyle = `
-  #security-settings-wrapper {
+  ${require('../componentsElemsStyle/scroll').scroll}
+  ${require('../componentsElemsStyle/shadow').shadow}
+
+  #personal-settings-wrapper {
     ${require('../componentsElemsStyle/section').section}
     width: 900px;
-    display: flex;
+    overflow: auto;
   }
   
   #personal-data {

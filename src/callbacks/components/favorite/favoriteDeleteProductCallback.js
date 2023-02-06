@@ -1,16 +1,15 @@
-import {
-  getProduct, insertFavoriteProducts,
-} from '../../../helpers'
-import { deleteFromFavorite } from '../../../helpers/components/favorite/deleteFromFavorite'
-import { favoriteProducts } from '../../../helpers/components/favorite/favoriteProducts'
+const {
+  getProduct,
+  deleteFromFavorite,
+  favoriteProducts,
+} = require('../../../helpers/index')
 
 export function favoriteDeleteProductCallback (event) {
   const wrapper = event.target.parentNode.parentNode.querySelector('.favorite-product-info')
 
-  console.log(getProduct.bind(wrapper, wrapper)())
   deleteFromFavorite(getProduct.bind(wrapper, wrapper)())
 
   event.target.parentNode.parentNode.remove()
 
-  if (!favoriteProducts.length) insertFavoriteProducts(this.section)
+  if (!favoriteProducts.length) require('../../../helpers/index').insertFavoriteProducts(this.section)
 }

@@ -1,11 +1,9 @@
-import {
-  currentUser, setProfileSecurityBlockParams,
-  toggleDisplayElems,
-} from '../../../helpers'
 import sha256 from 'sha256'
 
+const { currentUser } = require('../../../helpers/index')
+
 export function newEmailBtnCallback () {
-  Object.assign( this.elems['security-message'], {
+  Object.assign(this.elems['security-message'], {
     innerText: 'Введіть PIN з СМС',
     style: `
       color: #fff;
@@ -16,12 +14,6 @@ export function newEmailBtnCallback () {
   this.elems['security-block'].style.display = 'none'
   this.elems['input-verify'].value = ''
 
-  const pin = Math.round(Math.random() * 100000)
-
-  // sendSMS(pin, currentUser.phone)
-
-  console.log(pin)
-
   this.elems['verify-submit-btn'].onclick = function () {
     if (sha256(this.elems['input-verify'].value) === currentUser.password) {
       Object.assign(this.elems['security-message'], {
@@ -30,10 +22,11 @@ export function newEmailBtnCallback () {
           color: #fff;
         `,
       })
+
+      require('../../../helpers/index')
+        .setProfileSecurityBlockParams.call(this, 'Новий email', 'Встановити email', currentUser.email ? currentUser.email : '')
+
       this.elems['security-block'].style.display = 'block'
-
-      setProfileSecurityBlockParams.call(this, 'Новий email', 'Встановити email', currentUser.email ? currentUser.email : '')
-
       this.elems['security-verify-block'].style.display = 'none'
     } else {
       Object.assign(this.elems['security-message'], {

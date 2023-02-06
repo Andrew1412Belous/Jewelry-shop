@@ -1,6 +1,3 @@
-const favoriteProducts = require('../../helpers/components/favorite/favoriteProducts')
-const addElem = require('../../helpers/DOM/addElem').addElem
-
 const {
   favoriteAddToBasketCallback,
   favoriteBackBtnCallback,
@@ -13,6 +10,14 @@ const {
   favoriteTemplate,
 } = require('../../templates/index')
 
+const {
+  addElem,
+  getElemsByIdFromShadow,
+  favoriteProducts,
+  insertFavoriteProducts,
+  checkBasketProducts,
+} = require('../../helpers/index')
+
 export class FavoriteComp extends HTMLElement {
   constructor() {
     super()
@@ -20,27 +25,28 @@ export class FavoriteComp extends HTMLElement {
     this.section = Object.assign(addElem('section', this.shadow), {
       id: 'favorite-form',
     })
+
     Object.assign(addElem('style', this.shadow), {
       textContent: favoriteStyle,
     })
+
     this.section.innerHTML = favoriteTemplate
-    this.getElemsById = require('../../helpers/components/getElemsByIdFromShadow').getElemsByIdFromShadow
+    this.getElemsById = getElemsByIdFromShadow
   }
 
   connectedCallback () {
     this.section.style.display = 'none'
 
     this.addEventListener('open-favorite', () => {
+      this.section.style.display = 'block'
+
       document.onkeydown = function (event) {
         if (event.code === 'Escape') hideUpdatingComp.bind(this, favoriteTemplate)()
       }.bind(this)
 
-      this.section.style.display = 'block'
+      insertFavoriteProducts.bind(this, this.section)()
 
-      require('../../helpers/components/favorite/insertFavoriteProducts')
-        .insertFavoriteProducts.bind(this, this.section)()
-      this.elems = this.getElemsById(require('../../configs/components/favorite/favoriteElemNames')
-        .favoriteElemNames)
+      this.elems = this.getElemsById(require('../../configs/index').favoriteElemNames)
 
       this.elems['close-btn'].onclick = hideUpdatingComp.bind(this, favoriteTemplate)
       this.elems.shadow.onclick = hideUpdatingComp.bind(this, favoriteTemplate)
@@ -54,7 +60,7 @@ export class FavoriteComp extends HTMLElement {
 
       this.elems['favorite-section'].querySelectorAll('#add-basket-btn')
         .forEach((btn, index) => {
-          if (require('../../helpers/components/basket/checkBasketProducts').checkBasketProducts(favoriteProducts[index])) {
+          if (checkBasketProducts(favoriteProducts[index])) {
             btn.textContent = 'В кошику'
           }
 

@@ -13,8 +13,11 @@ const {
   registrationAuthLinkCallback,
 } = require('../../callbacks/index')
 
-const addElem = require('../../helpers/DOM/addElem').addElem
-const getElemsByIdFromShadow = require('../../helpers/components/getElemsByIdFromShadow').getElemsByIdFromShadow
+const {
+  addElem,
+  getElemsByIdFromShadow,
+  readImageFromComp,
+} = require('../../helpers/index')
 
 export class RegistrationForm extends HTMLElement {
   constructor() {
@@ -42,7 +45,7 @@ export class RegistrationForm extends HTMLElement {
         if (event.code === 'Escape') hideComponentCallback.bind(this, registrationTemplate)()
       }
 
-      this.elems = this.getElemsById(require('../../configs/components/registration/regElemNames').regElemNames)
+      this.elems = this.getElemsById(require('../../configs/index').regElemNames)
 
       this.elems.shadow.onclick = hideComponentCallback.bind(this, registrationTemplate)
       this.elems['close-btn'].onclick = hideComponentCallback.bind(this, registrationTemplate)
@@ -51,8 +54,7 @@ export class RegistrationForm extends HTMLElement {
       this.elems.password.oninput = registrationPasswordCallback.bind(this)
       this.elems['verify-password'].oninput = registrationVerifyPasswordCallback.bind(this)
 
-      this.elems.avatar.onchange = require('../../helpers/components/readImageFromComp')
-        .readImageFromComp.bind(this)
+      this.elems.avatar.onchange = readImageFromComp.bind(this)
 
       this.elems.submit.onclick = registrationSubmitCallback.bind(this, registrationTemplate)
 

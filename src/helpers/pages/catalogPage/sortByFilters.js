@@ -1,4 +1,4 @@
-const filteredProducts = require('../../../configs/pages/catalogPage/filteredProducts').filteredProducts
+const filteredProducts = require('./filteredProducts').filteredProducts
 
 export function sortByFilters (filters, products, btn) {
   require('./hideProducts').hideProducts(products)

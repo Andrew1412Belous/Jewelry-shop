@@ -1,12 +1,13 @@
-import { currentUser, getProduct, patchUser } from '../../../helpers'
-import { basketProducts } from '../../../helpers/components/basket/basketProducts'
+const {
+  basketProducts,
+  getProduct,
+  currentUser,
+} = require('../../../helpers/index')
 
 export function basketIncrBtnCallback (event) {
   event.target.parentNode.querySelector('#basket-decr').disabled = false
 
   const wrapper = event.target.parentNode.parentNode.parentNode.querySelector('.basket-product-info')
-
-  console.log(wrapper)
 
   const selectedProduct = getProduct.bind(wrapper, wrapper)()
 
@@ -30,7 +31,7 @@ export function basketIncrBtnCallback (event) {
 
     sessionStorage.setItem('basket', JSON.stringify(basketProducts))
 
-    patchUser(currentUser.id, {
+    require('../../../helpers/fetch/patchUser').patchUser(currentUser.id, {
       basketProducts,
     })
       .then(response => {

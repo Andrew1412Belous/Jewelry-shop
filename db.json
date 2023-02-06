@@ -44,38 +44,8 @@
         "name": "",
         "surname": "",
         "patronymic": "",
-        "phone": "+380984261903"
-      },
-      "basketProducts": [
-        {
-          "type": "Обручка",
-          "brand": "Versacci",
-          "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
-          "price": 10100
-        }
-      ],
-      "favoriteProducts": [
-        {
-          "type": "Обручка",
-          "brand": "Versacci",
-          "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
-          "price": 10100
-        }
-      ]
-    },
-    {
-      "login": "people",
-      "password": "134563d4e440f0e418b0f382f23a2cf301af6d7f648ccfae9895018345d779a3",
-      "avatar": "https://www.library.ucla.edu/sites/default/files/styles/staff_profile_photo/public/stafficon.png?itok=ek60ZBBk&c=bc17c1d6f6f0889994adf4bccd05e6c2",
-      "phone": "+380984261902",
-      "id": 2
-    },
-    {
-      "login": "user",
-      "password": "134563d4e440f0e418b0f382f23a2cf301af6d7f648ccfae9895018345d779a3",
-      "avatar": "https://www.library.ucla.edu/sites/default/files/styles/staff_profile_photo/public/stafficon.png?itok=ek60ZBBk&c=bc17c1d6f6f0889994adf4bccd05e6c2",
-      "phone": "+380999999999",
-      "id": 3
+        "phone": "+380984261902"
+      }
     }
   ],
   "products": [

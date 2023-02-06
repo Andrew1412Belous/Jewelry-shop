@@ -1,9 +1,11 @@
 export const orderStyle = `
+  ${require('../componentsElemsStyle/scroll').scroll}
   ${require('../componentsElemsStyle/shadow').shadow}
 
   #order-section {
     height: 660px;
     width: 1100px;
+    overflow: auto;
     ${require('../componentsElemsStyle/section').section}
   }
     

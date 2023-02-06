@@ -1,10 +1,6 @@
-import {
-  currentUser,
-  setProfileSecurityBlockParams,
-  toggleDisplayElems,
-} from '../../../helpers'
-import { sendSMS } from '../../../../TobeRemoved/sendSMS'
 import sha256 from 'sha256'
+
+const { currentUser } = require('../../../helpers/index')
 
 export function deleteProfileBtnCallback () {
   Object.assign(this.elems['security-message'], {
@@ -18,12 +14,6 @@ export function deleteProfileBtnCallback () {
   this.elems['security-block'].style.display = 'none'
   this.elems['input-verify'].value = ''
 
-  const pin = Math.round(Math.random() * 100000)
-
-  // sendSMS(pin, currentUser.phone)
-
-  console.log(pin)
-
   this.elems['verify-submit-btn'].onclick = function () {
     if (sha256(this.elems['input-verify'].value) === currentUser.password) {
       Object.assign(this.elems['security-message'], {
@@ -32,11 +22,11 @@ export function deleteProfileBtnCallback () {
           color: #fff;
         `,
       })
-      this.elems['security-block'].style.display = 'block'
 
-      setProfileSecurityBlockParams.call(this, 'Ви впевнені?', 'Видалити аккаунт', currentUser.email ? currentUser.email : '')
+      require('../../../helpers/index')
+        .setProfileSecurityBlockParams.call(this, 'Ви впевнені?', 'Видалити аккаунт', currentUser.email ? currentUser.email : '')
+
       this.elems['profile-security-submit-btn'].disabled = false
-
       this.elems['security-verify-block'].style.display = 'none'
       this.elems['security-block'].style.display = 'block'
       this.elems['input-security'].style.display = 'none'

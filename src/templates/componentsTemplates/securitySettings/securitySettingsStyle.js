@@ -1,8 +1,10 @@
 export const securitySettingsStyle = `
+  ${require('../componentsElemsStyle/shadow').shadow}
+
   #security-settings-wrapper {
     ${require('../componentsElemsStyle/section').section}
     width: 900px;
-    display: flex;
+    overflow: none;
   }
   
   h2 {

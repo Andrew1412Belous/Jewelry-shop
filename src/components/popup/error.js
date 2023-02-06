@@ -1,11 +1,10 @@
-import { addElem } from '../../helpers'
+const { addElem } = require('../../helpers/index')
+const { hideComponentCallback } = require('../../callbacks/index')
 
 const {
   errorTemplate,
   errorStyle,
 } = require('../../templates/index')
-
-const hideComponentCallback = require('../../callbacks/components/hideComponentCallback').hideComponentCallback
 
 export class ErrorPopup extends HTMLElement {
   constructor() {
@@ -15,6 +14,7 @@ export class ErrorPopup extends HTMLElement {
       id: 'error-wrapper',
       innerHTML: errorTemplate,
     })
+
     Object.assign(addElem('style', this.shadow), {
       textContent: errorStyle,
     })

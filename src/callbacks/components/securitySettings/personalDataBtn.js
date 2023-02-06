@@ -1,6 +1,10 @@
-import { toggleDisplayElems } from '../../../helpers'
+export function personalDataBtn (template) {
+  Object.assign(this.section, {
+    style: `
+      display: none;
+    `,
+    innerHTML: template,
+  })
 
-export function personalDataBtn () {
-  toggleDisplayElems([this.elems['personal-data']], true)
-  toggleDisplayElems([this.elems['security-settings']], false)
+  window[Symbol.for('personal-settings')].dispatchEvent(new Event('open-personal-settings'))
 }

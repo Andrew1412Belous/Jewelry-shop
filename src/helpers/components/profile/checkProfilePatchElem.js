@@ -1,4 +1,4 @@
-import { currentUser } from './currentUser'
+const currentUser = require('./currentUser').currentUser
 
 export function checkProfilePatchElem (elem, response) {
   if (elem.hasOwnProperty('login')) {

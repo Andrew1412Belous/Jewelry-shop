@@ -1,5 +1,10 @@
-export function profileSignOutCallback () {
-  require('../header/signOutCallback').signOutCallback()
+export function profileSignOutCallback (template) {
+  Object.assign(this.section, {
+    style: `
+            display: none;
+          `,
+    innerHTML: template,
+  })
 
-  this.section.style.display = 'none'
+  require('../header/signOutCallback').signOutCallback()
 }

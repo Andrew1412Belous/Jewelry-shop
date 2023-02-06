@@ -1,14 +1,16 @@
 import sha256 from 'sha256'
 
 const { hideComponentCallback } = require('../hideComponentCallback')
-
-const currentUser = require('../../../helpers/components/profile/currentUser').currentUser
 const header = require('../../../components/pagesComponents/header').header
 const defaultPicture = require('../../../assets/defaultPicture')
 
+const {
+  currentUser,
+  isInputEmpty,
+} = require('../../../helpers/index')
+
 export function registrationSubmitCallback (template) {
-  const test = require('../../../helpers/validation/forInputs/isInputEmpty')
-    .isInputEmpty([this.elems.login, this.elems.password, this.elems['verify-password'], this.elems['set-phone']])
+  const test = isInputEmpty([this.elems.login, this.elems.password, this.elems['verify-password'], this.elems['set-phone']])
     && this.elems.password.value === this.elems['verify-password'].value
 
   const password = sha256(this.elems['verify-password'].value)
@@ -21,7 +23,7 @@ export function registrationSubmitCallback (template) {
           : null
       })
 
-    require('../../../helpers/fetch/createUser').createUser({
+    require('../../../helpers/index').createUser({
       login: this.elems.login.value,
       password,
       avatar: this.elems.picture.src || defaultPicture,
@@ -30,7 +32,7 @@ export function registrationSubmitCallback (template) {
         : this.elems['set-phone'].value,
     })
       .then(response => {
-        Object.assign(require('../../../helpers/components/profile/currentUser').currentUser, response)
+        Object.assign(currentUser, response)
 
         sessionStorage.setItem('currentUser', JSON.stringify(currentUser))
         localStorage.setItem(response.login, password)

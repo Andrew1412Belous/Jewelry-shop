@@ -1,5 +1,5 @@
 const { listNames, listElems } = require('../../../configs/pages/catalogPage/filterListElems')
-const prices = require('../../../configs/pages/catalogPage/prices')
+const { prices } = require('../../../configs/index')
 
 export function setFilterClearParam (nameList) {
   for (const list of listNames) {

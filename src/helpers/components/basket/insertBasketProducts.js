@@ -1,13 +1,8 @@
-import { basketProducts } from './basketProducts'
-import { addElem } from '../../DOM/addElem'
-import { checkSameProductInBasket } from './checkSameProductInBasket'
+const basketProducts = require('./basketProducts').basketProducts
+const addElem = require('../../DOM/addElem').addElem
 
 export function insertBasketProducts (container) {
-  console.log(container)
-
   const wrapper = container.querySelector('.basket-products-wrapper')
-
-  console.log(wrapper)
 
   if (basketProducts.length) {
     basketProducts
@@ -23,7 +18,7 @@ export function insertBasketProducts (container) {
                 <div class="basket-product-text-wrapper">
                     <div class="product-type">${product.type}</div>
                     <div class="product-brand-name">${product.brand}</div>
-                    <div class="basket-product-price">${product.price.toLocaleString('ru-RU')} ₴</div>
+                    <div class="basket-product-price">${require('../setPriceType').setPriceType(product.price)}</div>
                 </div>
             </div>
             <div class="basket-product-btns-wrapper">
@@ -31,7 +26,7 @@ export function insertBasketProducts (container) {
                 <button class="basket-product-btn" id="show-product-page-btn">Переглянути товар</button>
                 <div class="basket-count-wrapper">
                     <button class="basket-decr" id="basket-decr">-</button>
-                    <div class="basket-count" id="basket-count">${checkSameProductInBasket(product)}</div>
+                    <div class="basket-count" id="basket-count">${require('./checkSameProductInBasket').checkSameProductInBasket(product)}</div>
                     <button class="basket-incr" id="basket-incr">+</button>
                 </div>
             </div>

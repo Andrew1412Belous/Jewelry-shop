@@ -1,25 +1,33 @@
-import { passwordValidation } from './validation/passwordValidation'
-import { myProfileElemNames } from './components/profile/myProfileElemNames'
-import { cyrillicValidation } from './validation/cyrillicValidation'
-import { emailRValidation } from './validation/emailRValidation'
-import { allUsersEndpoint } from './hosts/allUsersEndpoint'
-import { filteredProducts } from './pages/catalogPage/filteredProducts'
-import { numberValidation } from './validation/numberValidation'
-import { favoriteElemNames } from './components/favorite/favoriteElemNames'
-import { telValidation } from './validation/telValidation'
-import { cardNumberValidation } from './validation/cardNumberValidation'
-import { spacesInStringValidation } from './validation/spacesInStringValidation'
+module.exports = {
+  filterButtons: require('./pages/catalogPage/filterButtons'),
+  prices: require('./pages/catalogPage/prices'),
+  filterShowButtons: require('./pages/catalogPage/filterShowBtns'),
+  filterClearButtons: require('./pages/catalogPage/filterClearBtns'),
+  filterBlocks: require('./pages/catalogPage/filterBlocks'),
+  filteredProducts: require('../helpers/pages/catalogPage/filteredProducts').filteredProducts,
+  filterElems: require('./pages/catalogPage/filterElems').filterElems,
 
-export {
-  passwordValidation,
-  myProfileElemNames,
-  cyrillicValidation,
-  emailRValidation,
-  allUsersEndpoint,
-  filteredProducts,
-  numberValidation,
-  favoriteElemNames,
-  telValidation,
-  cardNumberValidation,
-  spacesInStringValidation,
+  emailRValidation: require('./validation/emailRValidation').emailRValidation,
+  passwordValidation: require('./validation/passwordValidation').passwordValidation,
+  deliveryAddressValidation: require('./validation/deliveryAddressValidation').deliveryAddressValidation,
+  stringWithoutSpacesValidation: require('./validation/stringWithoutSpacesValidation').stringWithoutSpacesValidation,
+  onlyNumbersValidation: require('./validation/onlyNumbersValidation').onlyNumbersValidation,
+  cyrillicValidation: require('./validation/cyrillicValidation').cyrillicValidation,
+  cardNumberValidation: require('./validation/cardNumberValidation').cardNumberValidation,
+  telValidation: require('./validation/telValidation').telValidation,
+  loginValidation: require('./validation/loginValidation').loginValidation,
+  numberValidation: require('./validation/numberValidation').numberValidation,
+
+  myProfileElemNames: require('./components/profile/myProfileElemNames').myProfileElemNames,
+  authElemNames: require('./components/authorization/authElemNames').authElemNames,
+  regElemNames: require('./components/registration/regElemNames').regElemNames,
+  headerElemsNames: require('./components/header/headerElemsNames').headerElemsNames,
+  personalSettingsElemNames: require('./components/personalSettings/personalSettingsElemNames').personalSettingsElemNames,
+  favoriteElemNames: require('./components/favorite/favoriteElemNames').favoriteElemNames,
+  searchElemNames: require('./components/search/searchElemNames').searchElemNames,
+  basketElemNames: require('./components/basket/basketElemNames').basketElemNames,
+  searchFilters: require('./components/search/searchFilters').searchFilters,
+  securitySettingsElemNames: require('./components/securitySettings/securitySettingsElemNames').securitySettingsElemNames,
+  orderFormElemNames: require('./components/orderForm/orderFormElemNames').orderFormElemNames,
+  productCardElemNames: require('./components/productCard/productCardElemNames').productCardElemNames,
 }

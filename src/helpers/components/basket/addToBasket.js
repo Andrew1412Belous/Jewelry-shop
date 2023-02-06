@@ -1,10 +1,10 @@
-import { basketProducts } from './basketProducts'
-import { patchUser } from '../../fetch/patchUser'
-import { currentUser } from '../profile/currentUser'
+const basketProducts = require('./basketProducts').basketProducts
+const patchUser = require('../../fetch/patchUser').patchUser
+const currentUser = require('../profile/currentUser').currentUser
 
 export function addToBasket (product) {
   basketProducts.push(product)
-  console.log(basketProducts)
+
   sessionStorage.setItem('basket', JSON.stringify(basketProducts))
 
   patchUser(currentUser.id, {

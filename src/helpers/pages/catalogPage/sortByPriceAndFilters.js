@@ -1,4 +1,4 @@
-const filteredProducts = require('../../../configs/pages/catalogPage/filteredProducts').filteredProducts
+const filteredProducts = require('./filteredProducts').filteredProducts
 const setPriceFilter = require('./setPriceFilter').setPriceFilter
 
 export function sortByPriceAndFilters (filters, products, btn) {

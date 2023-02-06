@@ -10,7 +10,10 @@ const {
   authorizationRegLinkCallback,
 } = require('../../callbacks/index')
 
-const addElem = require('../../helpers/DOM/addElem').addElem
+const {
+  addElem,
+  getElemsByIdFromShadow,
+} = require('../../helpers/index')
 
 export class AuthorizationForm extends HTMLElement {
   constructor() {
@@ -25,7 +28,7 @@ export class AuthorizationForm extends HTMLElement {
       textContent: authorizationStyle,
     })
 
-    this.getElemsById = require('../../helpers/components/getElemsByIdFromShadow').getElemsByIdFromShadow
+    this.getElemsById = getElemsByIdFromShadow
   }
 
   connectedCallback () {
@@ -36,10 +39,9 @@ export class AuthorizationForm extends HTMLElement {
 
       document.onkeydown = function (event) {
         if (event.code === 'Escape') hideComponentCallback.bind(this, authorizationTemplate)()
-      }
+      }.bind(this)
 
-      this.elems = this.getElemsById(require('../../configs/components/authorization/authElemNames')
-        .authElemNames)
+      this.elems = this.getElemsById(require('../../configs/index').authElemNames)
 
       this.elems.shadow.onclick = hideComponentCallback.bind(this, authorizationTemplate)
       this.elems['close-btn'].onclick = hideComponentCallback.bind(this, authorizationTemplate)

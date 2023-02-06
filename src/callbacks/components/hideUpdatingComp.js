@@ -1,6 +1,5 @@
-import { hideComponentCallback } from './hideComponentCallback'
-
-const setProductsParams = require('../../helpers/components/setProductsParams').setProductsParams
+const { hideComponentCallback } = require('./hideComponentCallback')
+const { setProductsParams } = require('../../helpers/index')
 
 export function hideUpdatingComp (template) {
   if (document.title === 'Catalog') {

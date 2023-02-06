@@ -1,11 +1,9 @@
-const { profileTemplate } = require('../../../templates/index')
-
-export function profileFavoriteCallback () {
+export function profileFavoriteCallback (template) {
   Object.assign(this.section, {
     style: `
             display: none;
           `,
-    innerHTML: profileTemplate,
+    innerHTML: template,
   })
 
   window[Symbol.for('favorite-comp')].dispatchEvent(new Event('open-favorite'))

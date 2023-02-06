@@ -6,4 +6,5 @@ export const myProfileElemNames = [
   'profile-settings',
   'profile-sign-out',
   'close-btn',
+  'shadow',
 ]

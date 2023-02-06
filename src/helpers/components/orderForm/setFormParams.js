@@ -1,4 +1,4 @@
-import { currentUser } from '../profile/currentUser'
+const currentUser = require('../profile/currentUser').currentUser
 
 export function setFormParams (elems) {
   if (currentUser.personalInfo) {

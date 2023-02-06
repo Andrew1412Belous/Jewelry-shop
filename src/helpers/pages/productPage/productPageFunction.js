@@ -1,35 +1,40 @@
-const currentProduct = require('../../../helpers/pages/productPage/currentProduct').currentProduct
+const currentProduct = require('./currentProduct').currentProduct
 
-export function productPageCallback () {
-  require('../../../helpers/pages/productPage/setProductPageParam').setProductPageParam()
+const {
+  favoriteBtnClickCallback,
+  basketBtnClickCallback,
+} = require('../../../callbacks/index')
+
+export function productPageFunction () {
+  require('./setProductPageParam').setProductPageParam()
 
   const currentFilters = JSON.parse(sessionStorage.getItem('currentFilters'))
   const productsWrapper = document.getElementById('products-wrapper')
 
   Object.assign(document.getElementById('favorite-btn'), {
-    textContent: require('../../../helpers/components/favorite/checkFavoriteProducts')
+    textContent: require('../../components/favorite/checkFavoriteProducts')
       .checkFavoriteProducts(currentProduct)
       ? 'Видалити з бажанного'
       : 'В бажане',
-    onclick: require('./favoriteBtnClickCallback').favoriteBtnClickCallback,
+    onclick: favoriteBtnClickCallback,
   })
 
   Object.assign(document.getElementById('basket-btn'), {
-    textContent: require('../../../helpers/components/basket/checkBasketProducts')
+    textContent: require('../../components/basket/checkBasketProducts')
       .checkBasketProducts(currentProduct)
       ? 'В кошику'
       : 'Купити',
-    onclick: require('./basketBtnClickCallback').basketBtnClickCallback,
+    onclick: basketBtnClickCallback,
   })
 
   document.querySelector('.catalog-title')
     .onclick = function (event) {
       if (event.target.id === 'catalog-link') {
-        require('./backLinkCallback').backLinkCallback()
+        require('../../../callbacks/pages/productPage/backLinkCallback').backLinkCallback()
       } else if (event.target.id === 'category-link') {
-        require('./categoryLinkCallback').categoryLinkCallback()
+        require('../../../callbacks/pages/productPage/categoryLinkCallback').categoryLinkCallback()
       } else {
-        require('./homeLinkCallback').homeLinkCallback()
+        require('../../../callbacks/pages/productPage/homeLinkCallback').homeLinkCallback()
       }
     }
 
@@ -38,6 +43,6 @@ export function productPageCallback () {
       && JSON.stringify(currentFilters) !== JSON.stringify(product.filters))
     .sort(() => Math.round(Math.random() * 100) - 50)
 
-  require('../../../helpers/pages/productPage/showOtherProducts')
+  require('./showOtherProducts')
     .showOtherProducts(otherProducts, productsWrapper)
 }

@@ -1,4 +1,4 @@
-import { setPriceType } from '../../../helpers/components/setPriceType'
+const { setPriceType } = require('../../../helpers/index')
 
 export function productMouseLeaveCallback (event) {
   if (event.target.textContent !== 'В кошику') {

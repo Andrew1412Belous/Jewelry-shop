@@ -1,6 +1,4 @@
 export function showProducts (products, btn) {
-  console.log(products)
-
   if (!products.length) {
     document.getElementById('product-message').innerText = 'Товарів за данними фільтрами нема'
 

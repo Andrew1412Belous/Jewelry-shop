@@ -1,6 +1,11 @@
-const setPriceType = require('../../helpers/components/setPriceType').setPriceType
-const addElem = require('../../helpers/DOM/addElem').addElem
 const { productStyle } = require('../../templates/index')
+
+const {
+  addElem,
+  setPriceType,
+  getElemsByIdFromShadow,
+  setFilterClass,
+} = require('../../helpers/index')
 
 const {
   productMouseEnterCallback,
@@ -23,8 +28,7 @@ export class ProductCard extends HTMLElement {
       textContent: productStyle,
     })
 
-    this.getElemsById = require('../../helpers/components/getElemsByIdFromShadow')
-      .getElemsByIdFromShadow
+    this.getElemsById = getElemsByIdFromShadow
   }
 
   static get observedAttributes () {
@@ -53,10 +57,10 @@ export class ProductCard extends HTMLElement {
   }
 
   connectedCallback () {
-    require('../../helpers/pages/catalogPage/insertProductCardTemplate').insertProductCardTemplate.bind(this)()
-    require('../../helpers/components/productCard/setFilterClass').setFilterClass.bind(this)()
+    require('../../helpers/components/productCard/insertProductCardTemplate').insertProductCardTemplate.bind(this)()
+    setFilterClass.bind(this)()
 
-    this.elems = this.getElemsById(require('../../configs/components/productCard/productCardElemNames')
+    this.elems = this.getElemsById(require('../../configs/index')
       .productCardElemNames)
 
     this.elems['product-favorite'].onclick = addToFavoriteCallback.bind(this)
