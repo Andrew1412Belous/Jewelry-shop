@@ -5,6 +5,7 @@ export const favoriteStyle = `
   #favorite-section {
     height: 600px;
     width: 950px;
+    overflow: auto;
     ${require('../componentsElemsStyle/section').section}
   }
   

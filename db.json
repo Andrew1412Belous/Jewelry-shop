@@ -38,14 +38,51 @@
               "price": 50500
             }
           ]
+        },
+        {
+          "order-number": 3,
+          "total": 90700,
+          "products": [
+            {
+              "brand": "Trebbo *3",
+              "type": "Браслет унісекс",
+              "price": 46500
+            },
+            {
+              "brand": "Versacci *2",
+              "type": "Обручка",
+              "price": 20200
+            },
+            {
+              "brand": "Jewelry *2",
+              "type": "Запонки унісекс",
+              "price": 24000
+            }
+          ]
         }
       ],
       "personalInfo": {
-        "name": "",
-        "surname": "",
-        "patronymic": "",
+        "name": "Андрій",
+        "surname": "Білоус",
+        "patronymic": "Миколайович",
         "phone": "+380984261902"
-      }
+      },
+      "favoriteProducts": [
+        {
+          "type": "Обручка",
+          "brand": "Versacci",
+          "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
+          "price": 10100
+        }
+      ],
+      "basketProducts": [
+        {
+          "type": "Запонки унісекс",
+          "brand": "Jewelry",
+          "picture": "file:///C:/Work/projects/jewelry-shop/src/assets/img/product-icon.jpg",
+          "price": 12000
+        }
+      ]
     }
   ],
   "products": [

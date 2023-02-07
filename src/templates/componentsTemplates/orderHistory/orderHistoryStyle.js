@@ -4,6 +4,7 @@ export const orderHistoryStyle = `
   #order-history-section {
     height: 600px;
     width: 660px;
+    overflow: auto;
     ${require('../componentsElemsStyle/section').section}
   }
 

@@ -4,6 +4,7 @@ export const basketStyle = `
   #basket-section {
     height: 600px;
     width: 950px;
+    overflow: auto;
     ${require('../componentsElemsStyle/section').section}
   }
   
