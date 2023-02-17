@@ -15,7 +15,7 @@ Project created to simulate the client side in an online store
 ### Terminal
 Backend: ```json-server db.json --watch```
 
-Frontend: ```yarn dev/prod
+Frontend: ```yarn dev/prod```
 ___
 ## Project packages
 Use yarn or npm
