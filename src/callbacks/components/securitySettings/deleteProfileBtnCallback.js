@@ -4,7 +4,7 @@ const { currentUser } = require('../../../helpers/index')
 
 export function deleteProfileBtnCallback () {
   Object.assign(this.elems['security-message'], {
-    innerText: 'Введіть PIN з СМС',
+    innerText: 'Введіть ваш пароль',
     style: `
       color: #fff;
     `,
@@ -32,7 +32,7 @@ export function deleteProfileBtnCallback () {
       this.elems['input-security'].style.display = 'none'
     } else {
       Object.assign(this.elems['security-message'], {
-        innerText: 'Невірний PIN',
+        innerText: 'Неправильний пароль',
         style: `
           color: #ea3838;
         `,

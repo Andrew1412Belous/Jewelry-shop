@@ -4,7 +4,7 @@ const { currentUser } = require('../../../helpers/index')
 
 export function newLoginBtnCallback () {
   Object.assign(this.elems['security-message'], {
-    innerText: 'Введіть PIN з СМС',
+    innerText: 'Введіть ваш пароль',
     style: `
       color: #fff;
     `,
@@ -30,7 +30,7 @@ export function newLoginBtnCallback () {
       this.elems['security-verify-block'].style.display = 'none'
     } else {
       Object.assign(this.elems['security-message'], {
-        innerText: 'Невірний PIN',
+        innerText: 'Неправильний пароль',
         style: `
           color: #ea3838;
         `,

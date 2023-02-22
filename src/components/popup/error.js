@@ -30,7 +30,6 @@ export class ErrorPopup extends HTMLElement {
         if (ev.code === 'Escape') hideComponentCallback.bind(this, errorTemplate)()
       }.bind(this)
 
-      this.shadow.querySelector('#shadow').onclick = hideComponentCallback.bind(this, errorTemplate)
       this.shadow.querySelector('#close-btn').onclick = hideComponentCallback.bind(this, errorTemplate)
 
       const { title, text } = event.detail
