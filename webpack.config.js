@@ -23,14 +23,12 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           miniCss.loader,
-          // 'style-loader',
           'css-loader',
         ],
       },
     ],
   },
   plugins: [
-    // eslint-disable-next-line new-cap
     new miniCss({
       filename: '[name].css',
     }),

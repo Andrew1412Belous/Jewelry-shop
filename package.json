@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development --watch",
-    "prod": "webpack --mode production --watch"
+    "prod": "webpack --mode production --watch",
+    "build": "concurrently \"npm run prod\" \"json-server db.json --watch\""
   },
   "author": "Andriy",
   "license": "ISC",
@@ -22,6 +23,7 @@
   },
   "description": "",
   "dependencies": {
+    "concurrently": "^8.1.0",
     "lodash": "^4.17.21",
     "sha256": "^0.2.0"
   }
